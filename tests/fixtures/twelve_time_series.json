@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "symbol": "GSPC",
+    "interval": "1day",
+    "exchange": "INDEX",
+    "type": "Index"
+  },
+  "values": [
+    {
+      "datetime": "2026-04-20",
+      "close": "5246.11",
+      "previous_close": "5204.83"
+    }
+  ],
+  "status": "ok"
+}

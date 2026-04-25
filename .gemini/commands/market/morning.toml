@@ -1,0 +1,4 @@
+description = "Fetch the payload, archive it, render deterministic tables, generate Gemini summaries, and finalize the markdown locally."
+prompt = """
+!{python scripts/generate_morning_report.py --date {{args}}}
+"""

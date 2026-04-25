@@ -1,0 +1,9 @@
+[
+  {
+    "symbol": "^GSPC",
+    "name": "S&P 500",
+    "price": 5246.11,
+    "change": 41.28,
+    "changesPercentage": 0.79
+  }
+]

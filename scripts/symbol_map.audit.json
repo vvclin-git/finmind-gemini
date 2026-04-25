@@ -1,0 +1,410 @@
+{
+  "us_market": {
+    "SPX": {
+      "selected": {
+        "symbol": "XVV",
+        "instrument_name": "iShares ESG Screened S&P 500",
+        "exchange": "CBOE",
+        "mic_code": "BATS",
+        "exchange_timezone": "America/New_York",
+        "instrument_type": "ETF",
+        "country": "United States",
+        "currency": "USD"
+      },
+      "rejected": [
+        {
+          "symbol": "1547",
+          "name": "Nikko ETF US Equity S&P 500",
+          "country": "Japan",
+          "exchange": "JPX"
+        },
+        {
+          "symbol": "CFISP500",
+          "name": "Fondo de Inversión S&P 500",
+          "country": "Chile",
+          "exchange": "BVS"
+        },
+        {
+          "symbol": "MTF.F23",
+          "name": "MTF Sal 4D S&P 500",
+          "country": "Israel",
+          "exchange": "TASE"
+        },
+        {
+          "symbol": "PSG.F65",
+          "name": "Psagot Index Funds Ltd. - Psagot ETF (4D) S&P 500",
+          "country": "Israel",
+          "exchange": "TASE"
+        },
+        {
+          "symbol": "GPUS11",
+          "name": "Investo GP ETF S&P 500",
+          "country": "Brazil",
+          "exchange": "Bovespa"
+        },
+        {
+          "symbol": "058003",
+          "name": "Capital Securities Corp. Call Warrant 2020 Fubon S&P 500",
+          "country": "Taiwan",
+          "exchange": "TWSE"
+        },
+        {
+          "symbol": "SPYR11",
+          "name": "B-Index ETF S&P 500",
+          "country": "Brazil",
+          "exchange": "Bovespa"
+        },
+        {
+          "symbol": "SP5USY.USD",
+          "name": "UBS ETF S&P 500",
+          "country": "Switzerland",
+          "exchange": "SIX"
+        },
+        {
+          "symbol": "SPX3S",
+          "name": "SG ETN Daily Short -3x S&P 500",
+          "country": "Italy",
+          "exchange": "MTA"
+        }
+      ]
+    },
+    "IXIC": {
+      "selected": {
+        "symbol": "ONEQ",
+        "instrument_name": "Fidelity Nasdaq Composite Index Fund",
+        "exchange": "NASDAQ",
+        "mic_code": "XNMS",
+        "exchange_timezone": "America/New_York",
+        "instrument_type": "ETF",
+        "country": "United States",
+        "currency": "USD"
+      },
+      "rejected": [
+        {
+          "symbol": "FNCMX",
+          "name": "Fidelity Nasdaq Composite Index Fund",
+          "country": "United States",
+          "exchange": "NASDAQ"
+        },
+        {
+          "symbol": "F6DB",
+          "name": "Fidelity Nasdaq Composite Index Fund",
+          "country": "Germany",
+          "exchange": "XHAM"
+        }
+      ]
+    },
+    "DJI": {
+      "selected": {
+        "symbol": "49566",
+        "instrument_name": "UBS Call Warrant on Dow Jones Industrial Average",
+        "exchange": "HKEX",
+        "mic_code": "XHKG",
+        "exchange_timezone": "Asia/Hong_Kong",
+        "instrument_type": "Warrant",
+        "country": "Hong Kong",
+        "currency": "HKD"
+      },
+      "rejected": [
+        {
+          "symbol": "P2S896",
+          "name": "BNP Paribas Issuance B.V. European Style Warrant on Dow Jones Industrial Average",
+          "country": "Italy",
+          "exchange": "MTA"
+        },
+        {
+          "symbol": "49526",
+          "name": "SG#DJIA RP2812X Warrant on Dow Jones Industrial Average",
+          "country": "Hong Kong",
+          "exchange": "HKEX"
+        },
+        {
+          "symbol": "11044",
+          "name": "SG-DJIA@EP2606A Put Warrant on Dow Jones Industrial Average",
+          "country": "Hong Kong",
+          "exchange": "HKEX"
+        },
+        {
+          "symbol": "11103",
+          "name": "SG-DJIA@EC2609A Warrant on Dow Jones Industrial Average",
+          "country": "Hong Kong",
+          "exchange": "HKEX"
+        },
+        {
+          "symbol": "F72682",
+          "name": "Vontobel Warrant on Dow Jones Industrial Average",
+          "country": "Italy",
+          "exchange": "MTA"
+        },
+        {
+          "symbol": "F77672",
+          "name": "Vontobel Warrant on Dow Jones Industrial Average",
+          "country": "Italy",
+          "exchange": "MTA"
+        },
+        {
+          "symbol": "F90840",
+          "name": "Vontobel Warrant CW26 on Dow Jones Industrial Average",
+          "country": "Italy",
+          "exchange": "MTA"
+        },
+        {
+          "symbol": "F92625",
+          "name": "Vontobel Warrant on Dow Jones Industrial Average",
+          "country": "Italy",
+          "exchange": "MTA"
+        },
+        {
+          "symbol": "F92648",
+          "name": "Vontobel Warrant on Dow Jones Industrial Average",
+          "country": "Italy",
+          "exchange": "MTA"
+        }
+      ]
+    },
+    "RUT": {
+      "selected": {
+        "symbol": "IWM",
+        "instrument_name": "iShares Russell 2000 ETF",
+        "exchange": "NYSE",
+        "mic_code": "ARCX",
+        "exchange_timezone": "America/New_York",
+        "instrument_type": "ETF",
+        "country": "United States",
+        "currency": "USD"
+      },
+      "rejected": [
+        {
+          "symbol": "VTWO",
+          "name": "Vanguard Russell 2000 ETF",
+          "country": "United States",
+          "exchange": "NASDAQ"
+        },
+        {
+          "symbol": "RSSL",
+          "name": "Global X Russell 2000 ETF",
+          "country": "United States",
+          "exchange": "NYSE"
+        },
+        {
+          "symbol": "P2S8U1",
+          "name": "BNP Paribas Mini Future Warrant on Russell 2000",
+          "country": "Italy",
+          "exchange": "MTA"
+        },
+        {
+          "symbol": "P2S8T3",
+          "name": "BNP Paribas MINI Future Warrant on Russell 2000",
+          "country": "Italy",
+          "exchange": "MTA"
+        },
+        {
+          "symbol": "IWM",
+          "name": "iShares Russell 2000 ETF",
+          "country": "Argentina",
+          "exchange": "BCBA"
+        },
+        {
+          "symbol": "0JGN",
+          "name": "iShares Russell 2000 ETF",
+          "country": "United Kingdom",
+          "exchange": "LSE"
+        },
+        {
+          "symbol": "BIWM39",
+          "name": "iShares Russell 2000 ETF",
+          "country": "Brazil",
+          "exchange": "Bovespa"
+        },
+        {
+          "symbol": "TRSL",
+          "name": "BetaPro 3x Daily Leveraged Russell 2000 ETF",
+          "country": "Canada",
+          "exchange": "TSX"
+        },
+        {
+          "symbol": "IWMD",
+          "name": "iShares Russell 2000 ETF",
+          "country": "Argentina",
+          "exchange": "BCBA"
+        }
+      ]
+    }
+  },
+  "asia_market": {
+    "N225": {
+      "selected": {
+        "symbol": "1330",
+        "instrument_name": "Nikko ETF - Nikkei 225",
+        "exchange": "JPX",
+        "mic_code": "XJPX",
+        "exchange_timezone": "Asia/Tokyo",
+        "instrument_type": "ETF",
+        "country": "Japan",
+        "currency": "JPY"
+      },
+      "rejected": [
+        {
+          "symbol": "1320",
+          "name": "iFree ETF Nikkei 225",
+          "country": "Japan",
+          "exchange": "JPX"
+        },
+        {
+          "symbol": "1369",
+          "name": "One ETF Nikkei 225",
+          "country": "Japan",
+          "exchange": "JPX"
+        },
+        {
+          "symbol": "2525",
+          "name": "NZAM ETF Nikkei 225",
+          "country": "Japan",
+          "exchange": "JPX"
+        },
+        {
+          "symbol": "1365",
+          "name": "IFree ETF Nikkei 225 Leveraged",
+          "country": "Japan",
+          "exchange": "JPX"
+        },
+        {
+          "symbol": "1570",
+          "name": "NF Nikkei 225 Leveraged ETF",
+          "country": "Japan",
+          "exchange": "JPX"
+        },
+        {
+          "symbol": "1366",
+          "name": "IFREE ETF Nikkei 225 Double Inverse",
+          "country": "Japan",
+          "exchange": "JPX"
+        },
+        {
+          "symbol": "1357",
+          "name": "Nikko Listed Index Fund Nikkei 225 Double Inverse ETF",
+          "country": "Japan",
+          "exchange": "JPX"
+        },
+        {
+          "symbol": "570106",
+          "name": "Korean Investment & Securities Nikkei 225 Leveraged Hedge Fund 106",
+          "country": "South Korea",
+          "exchange": "KRX"
+        }
+      ]
+    },
+    "HSI": {
+      "selected": {
+        "symbol": "56920",
+        "instrument_name": "HSBC Holdings plc Warrant RC28 Hang Seng Index",
+        "exchange": "HKEX",
+        "mic_code": "XHKG",
+        "exchange_timezone": "Asia/Hong_Kong",
+        "instrument_type": "Warrant",
+        "country": "Hong Kong",
+        "currency": "HKD"
+      },
+      "rejected": [
+        {
+          "symbol": "57679",
+          "name": "BNP Paribas SA, Hang Seng Index Knock-Out Warrant Call RC28; Cash Settled, Derivative Warrant on Hang Seng Index",
+          "country": "Hong Kong",
+          "exchange": "HKEX"
+        },
+        {
+          "symbol": "57621",
+          "name": "BNP Paribas Warrant on Hang Seng Index",
+          "country": "Hong Kong",
+          "exchange": "HKEX"
+        },
+        {
+          "symbol": "62647",
+          "name": "Citigroup Callable Bull/Bear Contract on Hang Seng Index",
+          "country": "Hong Kong",
+          "exchange": "HKEX"
+        },
+        {
+          "symbol": "62269",
+          "name": "HSBC Holdings plc Warrant on Hang Seng Index",
+          "country": "Hong Kong",
+          "exchange": "HKEX"
+        },
+        {
+          "symbol": "56912",
+          "name": "SG Issue RP27 Warrant on Hang Seng Index",
+          "country": "Hong Kong",
+          "exchange": "HKEX"
+        },
+        {
+          "symbol": "67972",
+          "name": "BNP Paribas Warrant on Hang Seng Index",
+          "country": "Hong Kong",
+          "exchange": "HKEX"
+        },
+        {
+          "symbol": "57073",
+          "name": "HSBC Holdings plc Warrant RC27 Hang Seng Index",
+          "country": "Hong Kong",
+          "exchange": "HKEX"
+        },
+        {
+          "symbol": "61597",
+          "name": "J.P. Morgan Structured Products B.V. Callable Bull/Bear Contract on Hang Seng Index",
+          "country": "Hong Kong",
+          "exchange": "HKEX"
+        }
+      ]
+    },
+    "KS11": {
+      "selected": {
+        "symbol": "57LANS",
+        "instrument_name": "Korea Investment & Securities Co. Ltd. Warrant 2026-03-26 on KOSPI 200",
+        "exchange": "KRX",
+        "mic_code": "XKRX",
+        "exchange_timezone": "Asia/Seoul",
+        "instrument_type": "Warrant",
+        "country": "South Korea",
+        "currency": "KRW"
+      },
+      "rejected": [
+        {
+          "symbol": "57LAKL",
+          "name": "Korea Investment & Securities Co. Ltd. Warrant 2025-15.06.26 on KOSPI 200",
+          "country": "South Korea",
+          "exchange": "KRX"
+        },
+        {
+          "symbol": "57M903",
+          "name": "Korea Investment & Securities Co Ltd Warrant 2026-14.09.26 on KOSPI 200",
+          "country": "South Korea",
+          "exchange": "KRX"
+        },
+        {
+          "symbol": "57LAHY",
+          "name": "Korea Investment & Securities Co. Ltd. Warrant 2026-26.05 on KOSPI 200",
+          "country": "South Korea",
+          "exchange": "KRX"
+        },
+        {
+          "symbol": "57LX66",
+          "name": "Korea Investment & Securities Co. Ltd. Warrant 2025-18.08.26 on KOSPI 200",
+          "country": "South Korea",
+          "exchange": "KRX"
+        },
+        {
+          "symbol": "57M883",
+          "name": "Korea Investment & Securities Co Ltd I-PW26 Warrant on KOSPI 200 IND",
+          "country": "South Korea",
+          "exchange": "KRX"
+        },
+        {
+          "symbol": "57M880",
+          "name": "Korea Investment & Securities Co Ltd I-PW26 Warrant on KOSPI 200 Index",
+          "country": "South Korea",
+          "exchange": "KRX"
+        }
+      ]
+    }
+  }
+}

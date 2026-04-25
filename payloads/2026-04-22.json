@@ -1,0 +1,163 @@
+﻿{
+  "report_date": "2026-04-22",
+  "taiwan_market": {
+    "date": "2026-04-14",
+    "twse_index": {
+      "close": 20482.12,
+      "change": 168.47,
+      "change_percent": 0.83
+    },
+    "tpex_index": {
+      "close": 251.63,
+      "change": 1.42,
+      "change_percent": 0.57
+    },
+    "market_breadth": {
+      "advancers": 612,
+      "decliners": 347,
+      "unchanged": 101
+    }
+  },
+  "taiwan_institutional": {
+    "date": "2026-04-14",
+    "foreign_investors_net_buy_sell": 182.4,
+    "investment_trust_net_buy_sell": 21.7,
+    "dealer_net_buy_sell": -8.5,
+    "three_institutions_net_buy_sell": 195.6,
+    "unit": "新台幣億元"
+  },
+  "us_market": {
+    "date": "2026-04-13",
+    "indices": [
+      {
+        "symbol": "SPX",
+        "name": "S&P 500",
+        "close": 5246.11,
+        "change": 41.28,
+        "change_percent": 0.79
+      },
+      {
+        "symbol": "IXIC",
+        "name": "Nasdaq Composite",
+        "close": 16421.55,
+        "change": 166.32,
+        "change_percent": 1.02
+      },
+      {
+        "symbol": "DJI",
+        "name": "Dow Jones Industrial Average",
+        "close": 38995.24,
+        "change": 204.11,
+        "change_percent": 0.53
+      },
+      {
+        "symbol": "RUT",
+        "name": "Russell 2000",
+        "close": 2087.36,
+        "change": -6.41,
+        "change_percent": -0.31
+      }
+    ]
+  },
+  "fx": {
+    "date": "2026-04-14",
+    "usd_twd": {
+      "close": 32.41,
+      "change": -0.08,
+      "change_percent": -0.25
+    }
+  },
+  "asia_market": {
+    "date": "2026-04-14",
+    "indices": []
+  },
+  "commodities": {
+    "date": "2026-04-14",
+    "gold": {
+      "close": 2386.5,
+      "change": 14.8,
+      "change_percent": 0.62,
+      "unit": "USD/oz"
+    },
+    "crude_oil": {
+      "close": 81.27,
+      "change": -0.54,
+      "change_percent": -0.66,
+      "unit": "USD/bbl"
+    }
+  },
+  "bonds": {
+    "date": "2026-04-13",
+    "yield_2y": 4.71,
+    "yield_10y": 4.34,
+    "yield_30y": 4.49,
+    "slope_10y_2y": -0.37,
+    "unit": "percent"
+  },
+  "news": [
+    {
+      "date": "2026-04-14",
+      "source": "Marketaux",
+      "title": "Fed officials signal patience on rate cuts as inflation data stays uneven",
+      "summary": "市場解讀聯準會短期內維持審慎立場，帶動美元與債券殖利率維持高檔震盪。 ",
+      "summary_text": "市場解讀聯準會短期內維持審慎立場，帶動美元與債券殖利率維持高檔震盪。",
+      "brief": "聯準會短期維持審慎立場，美元與債券殖利率維持高檔震盪。",
+      "url": "https://example.com/news/fed-officials-signal-patience"
+    },
+    {
+      "date": "2026-04-14",
+      "source": "Marketaux",
+      "title": "Taiwan electronics exporters see steady AI server demand into second quarter",
+      "summary": "AI 伺服器需求延續，使台灣大型電子權值股基本面預期維持正向。 ",
+      "summary_text": "AI 伺服器需求延續，使台灣大型電子權值股基本面預期維持正向。",
+      "brief": "AI 伺服器需求延續，台灣大型電子權值股基本面預期維持正向。",
+      "url": "https://example.com/news/taiwan-ai-server-demand"
+    },
+    {
+      "date": "2026-04-14",
+      "source": "Marketaux",
+      "title": "Oil slips as traders weigh supply risks against slower global demand outlook",
+      "summary": "油價回落反映供給風險與需求降溫預期拉鋸，對能源股表現形成分化。 ",
+      "summary_text": "油價回落反映供給風險與需求降溫預期拉鋸，對能源股表現形成分化。",
+      "brief": "油價回落反映供給風險與需求降溫預期拉鋸，能源股表現分化。",
+      "url": "https://example.com/news/oil-slips-demand-outlook"
+    }
+  ],
+  "meta": {
+    "generated_at": "2026-04-22T12:54:47+08:00",
+    "mode": "mock",
+    "source_status": {
+      "finmind": {
+        "status": "ok",
+        "message": "Loaded from mock data"
+      },
+      "asia_indices": {
+        "status": "unavailable",
+        "message": "Loaded as unavailable in mock data"
+      },
+      "marketaux": {
+        "status": "ok",
+        "message": "Loaded from mock data"
+      },
+      "treasury": {
+        "status": "ok",
+        "message": "Loaded from mock data"
+      }
+    },
+    "sources_used": [
+      "finmind",
+      "tpex",
+      "fmp",
+      "marketaux",
+      "treasury"
+    ],
+    "partial_success": false,
+    "missing_sections": [],
+    "provider_by_field": {},
+    "index_status": {
+      "us_market": {},
+      "asia_market": {}
+    },
+    "request_debug": []
+  }
+}

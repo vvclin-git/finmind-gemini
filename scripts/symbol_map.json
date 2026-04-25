@@ -1,0 +1,90 @@
+{
+  "us_market": {
+    "SPX": {
+      "symbol": "^GSPC",
+      "name": "S&P 500",
+      "provider": "fmp",
+      "exchange": "INDEX",
+      "country": "United States",
+      "instrument_type": "Index",
+      "verified": true,
+      "provider_symbols": {
+        "fmp": "^GSPC"
+      }
+    },
+    "IXIC": {
+      "symbol": "^IXIC",
+      "name": "Nasdaq Composite",
+      "provider": "fmp",
+      "exchange": "INDEX",
+      "country": "United States",
+      "instrument_type": "Index",
+      "verified": true,
+      "provider_symbols": {
+        "fmp": "^IXIC"
+      }
+    },
+    "DJI": {
+      "symbol": "^DJI",
+      "name": "Dow Jones Industrial Average",
+      "provider": "fmp",
+      "exchange": "INDEX",
+      "country": "United States",
+      "instrument_type": "Index",
+      "verified": true,
+      "provider_symbols": {
+        "fmp": "^DJI"
+      }
+    },
+    "RUT": {
+      "symbol": "^RUT",
+      "name": "Russell 2000",
+      "provider": "fmp",
+      "exchange": "INDEX",
+      "country": "United States",
+      "instrument_type": "Index",
+      "verified": true,
+      "provider_symbols": {
+        "fmp": "^RUT"
+      }
+    }
+  },
+  "asia_market": {
+    "N225": {
+      "symbol": "N225",
+      "name": "Nikkei 225",
+      "provider": "eodhd",
+      "exchange": "INDEX",
+      "country": "Japan",
+      "instrument_type": "Index",
+      "verified": true,
+      "provider_symbols": {
+        "eodhd": "N225.INDX"
+      }
+    },
+    "HSI": {
+      "symbol": "HSI",
+      "name": "Hang Seng Index",
+      "provider": "eodhd",
+      "exchange": "INDEX",
+      "country": "Hong Kong",
+      "instrument_type": "Index",
+      "verified": true,
+      "provider_symbols": {
+        "eodhd": "HSI.INDX"
+      }
+    },
+    "KS11": {
+      "symbol": "KS11",
+      "name": "KOSPI",
+      "provider": "eodhd",
+      "exchange": "INDEX",
+      "country": "South Korea",
+      "instrument_type": "Index",
+      "verified": true,
+      "provider_symbols": {
+        "eodhd": "KS11.INDX"
+      }
+    }
+  }
+}
