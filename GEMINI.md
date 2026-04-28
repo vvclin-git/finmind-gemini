@@ -1,4 +1,4 @@
-﻿# FinMind x Gemini CLI Market Morning Report Rules
+﻿# FinMind Market Morning Report Rules
 
 ## Objective
 Generate a daily market morning report in Traditional Chinese from structured JSON data.

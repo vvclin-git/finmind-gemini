@@ -1,5 +1,25 @@
 # Changelog
 
+## 2026-04-28
+
+### Changed
+- Replaced the Gemini CLI summary step with a stdlib Gemini API request from `scripts/generate_morning_report.py`.
+- Made explicit `--input` payload paths fail fast when missing so news rows always come from the requested payload.
+- Changed `scripts/generate_morning_report.py` to print concise status to stderr by default instead of printing the full markdown.
+- Added retry handling for temporary Gemini API 429/503 failures and clean CLI failure status without Python tracebacks.
+- Made LLM summary generation provider-selectable with a table-only fallback when the selected provider key is missing or the provider API fails.
+- Changed the default summary provider to `openai` and the default OpenAI model to `gpt-5.4-nano`.
+- Added data dates to report table headings so each section exposes the timeliness of the fetched data.
+- Made the morning report date optional; the generator now defaults to yesterday in Taiwan time and also accepts a positional date.
+- Added explicit `--live` and `--mock` modes, made live the generator default, and deprecated `MORNING_REPORT_USE_LIVE=1`.
+
+### Added
+- Added tests for disabled-summary report generation and explicit-input news sourcing.
+- Added `--print-report` to print the final markdown to stdout when needed.
+- Added `--refresh` to force refetching the default dated payload before rendering.
+- Added `--summary-provider none|gemini|openai|grok` and `--summary-model` so summary text can use Gemini, OpenAI, or Grok when requested.
+- Added xAI/Grok summary support through `XAI_API_KEY`, `XAI_MODEL`, and the default `grok-4-1-fast` model.
+
 ## 2026-04-23
 
 ### Added

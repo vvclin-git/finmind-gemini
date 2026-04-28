@@ -72,6 +72,7 @@ def load_payload(report_date: str, input_path: str | None) -> dict:
         capture_output=True,
         text=True,
         encoding="utf-8",
+        errors="replace",
     )
     return json.loads(proc.stdout)
 
@@ -110,6 +111,34 @@ def markdown_table(headers: list[str], rows: list[list[str]]) -> str:
     return "\n".join(lines)
 
 
+def data_date_label(*dates) -> str:
+    normalized = []
+    for value in dates:
+        if isinstance(value, (list, tuple, set)):
+            normalized.extend(data_date for data_date in value if data_date not in (None, ""))
+        elif value not in (None, ""):
+            normalized.append(value)
+    unique_dates = sorted({stringify(value) for value in normalized if stringify(value) != MISSING})
+    if not unique_dates:
+        return MISSING
+    if len(unique_dates) == 1:
+        return unique_dates[0]
+    return "多日期：" + ", ".join(unique_dates)
+
+
+def heading_with_data_date(heading: str, *dates) -> str:
+    return f"{heading}（資料日：{data_date_label(*dates)}）"
+
+
+def item_dates(items: list[dict], fallback_date=None) -> list:
+    dates = [item.get("date") for item in items if isinstance(item, dict) and item.get("date") not in (None, "")]
+    if dates:
+        return dates
+    if fallback_date not in (None, ""):
+        return [fallback_date]
+    return []
+
+
 def index_map(indices: list[dict]) -> dict[str, dict]:
     return {item.get("symbol"): item for item in indices if item.get("symbol")}
 
@@ -119,15 +148,17 @@ def summary_placeholder(section_number: int) -> str:
 
 
 def render_section_1(payload: dict) -> str:
-    us_indices = payload.get("us_market", {}).get("indices", [])
+    us_market = payload.get("us_market", {})
+    taiwan_market = payload.get("taiwan_market", {})
+    us_indices = us_market.get("indices", [])
     us_by_symbol = index_map(us_indices)
     us_rows = []
     for symbol, label in US_INDEX_ORDER:
         item = us_by_symbol.get(symbol)
         us_rows.append([label, maybe_value(item, "close"), maybe_value(item, "change"), maybe_value(item, "change_percent")])
 
-    twse = payload.get("taiwan_market", {}).get("twse_index")
-    tpex = payload.get("taiwan_market", {}).get("tpex_index")
+    twse = taiwan_market.get("twse_index")
+    tpex = taiwan_market.get("tpex_index")
     tw_rows = [
         ["上市指數", maybe_value(twse, "close"), maybe_value(twse, "change"), maybe_value(twse, "change_percent")],
         ["上櫃指數", maybe_value(tpex, "close"), maybe_value(tpex, "change"), maybe_value(tpex, "change_percent")],
@@ -137,11 +168,11 @@ def render_section_1(payload: dict) -> str:
         [
             "## 1. 美股與台股盤勢",
             "",
-            "### 美股四大指數",
+            heading_with_data_date("### 美股四大指數", item_dates(us_indices, us_market.get("date"))),
             "",
             markdown_table(["指數", "收盤", "漲跌", "漲跌幅"], us_rows),
             "",
-            "### 台股主要指數",
+            heading_with_data_date("### 台股主要指數", item_dates([twse, tpex], taiwan_market.get("date"))),
             "",
             markdown_table(["市場", "收盤", "漲跌", "漲跌幅"], tw_rows),
             "",
@@ -151,8 +182,9 @@ def render_section_1(payload: dict) -> str:
 
 
 def render_section_2(payload: dict) -> str:
-    twse = payload.get("taiwan_market", {}).get("twse_index")
-    tpex = payload.get("taiwan_market", {}).get("tpex_index")
+    taiwan_market = payload.get("taiwan_market", {})
+    twse = taiwan_market.get("twse_index")
+    tpex = taiwan_market.get("tpex_index")
     inst = payload.get("taiwan_institutional", {})
 
     rows = [
@@ -166,7 +198,7 @@ def render_section_2(payload: dict) -> str:
 
     return "\n".join(
         [
-            "## 2. 台股三大法人 / 上市 / 上櫃",
+            heading_with_data_date("## 2. 台股三大法人 / 上市 / 上櫃", taiwan_market.get("date"), inst.get("date")),
             "",
             markdown_table(["項目", "數值", "單位"], rows),
             "",
@@ -176,7 +208,8 @@ def render_section_2(payload: dict) -> str:
 
 
 def render_section_3(payload: dict) -> str:
-    us_indices = payload.get("us_market", {}).get("indices", [])
+    us_market = payload.get("us_market", {})
+    us_indices = us_market.get("indices", [])
     us_by_symbol = index_map(us_indices)
     rows = []
     for symbol, label in US_INDEX_ORDER:
@@ -185,7 +218,7 @@ def render_section_3(payload: dict) -> str:
 
     return "\n".join(
         [
-            "## 3. 美股四大指數",
+            heading_with_data_date("## 3. 美股四大指數", item_dates(us_indices, us_market.get("date"))),
             "",
             markdown_table(["指數", "收盤", "漲跌", "漲跌幅"], rows),
             "",
@@ -195,17 +228,21 @@ def render_section_3(payload: dict) -> str:
 
 
 def render_section_4(payload: dict) -> str:
-    fx_item = payload.get("fx", {}).get("usd_twd")
+    fx = payload.get("fx", {})
+    asia_market = payload.get("asia_market", {})
+    commodities = payload.get("commodities", {})
+    fx_item = fx.get("usd_twd")
     fx_rows = [["USD/TWD", maybe_value(fx_item, "close"), maybe_value(fx_item, "change"), maybe_value(fx_item, "change_percent")]]
 
-    asia_by_symbol = index_map(payload.get("asia_market", {}).get("indices", []))
+    asia_indices = asia_market.get("indices", [])
+    asia_by_symbol = index_map(asia_indices)
     asia_rows = []
     for symbol, label in ASIA_INDEX_ORDER:
         item = asia_by_symbol.get(symbol)
         asia_rows.append([label, maybe_value(item, "close"), maybe_value(item, "change"), maybe_value(item, "change_percent")])
 
-    gold = payload.get("commodities", {}).get("gold")
-    crude = payload.get("commodities", {}).get("crude_oil")
+    gold = commodities.get("gold")
+    crude = commodities.get("crude_oil")
     commodity_rows = [
         ["黃金", maybe_value(gold, "close"), maybe_value(gold, "change"), maybe_value(gold, "change_percent"), maybe_value(gold, "unit")],
         ["原油", maybe_value(crude, "close"), maybe_value(crude, "change"), maybe_value(crude, "change_percent"), maybe_value(crude, "unit")],
@@ -215,15 +252,15 @@ def render_section_4(payload: dict) -> str:
         [
             "## 4. 匯率、亞股、原油、黃金",
             "",
-            "### 匯率",
+            heading_with_data_date("### 匯率", item_dates([fx_item], fx.get("date"))),
             "",
             markdown_table(["項目", "收盤", "漲跌", "漲跌幅"], fx_rows),
             "",
-            "### 亞股指數",
+            heading_with_data_date("### 亞股指數", item_dates(asia_indices, asia_market.get("date"))),
             "",
             markdown_table(["指數", "收盤", "漲跌", "漲跌幅"], asia_rows),
             "",
-            "### 大宗商品",
+            heading_with_data_date("### 大宗商品", item_dates([gold, crude], commodities.get("date"))),
             "",
             markdown_table(["商品", "收盤", "漲跌", "漲跌幅", "單位"], commodity_rows),
             "",
@@ -245,7 +282,7 @@ def render_section_5(payload: dict) -> str:
 
     return "\n".join(
         [
-            "## 5. 美國債市與關鍵觀察",
+            heading_with_data_date("## 5. 美國債市與關鍵觀察", bonds.get("date")),
             "",
             markdown_table(["日期", "2Y", "10Y", "30Y", "10Y-2Y", "單位"], rows),
             "",
@@ -285,7 +322,7 @@ def render_section_6(payload: dict) -> str:
 
     return "\n".join(
         [
-            "## 6. 三則重要財經新聞",
+            heading_with_data_date("## 6. 三則重要財經新聞", item_dates(news_items, payload.get("report_date"))),
             "",
             markdown_table(["日期", "來源", "標題", "摘要"], rows),
             "",

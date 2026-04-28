@@ -1,6 +1,6 @@
 import json
 import unittest
-from io import StringIO
+from io import BytesIO, StringIO
 from pathlib import Path
 from unittest import mock
 
@@ -18,6 +18,32 @@ def load_json_fixture(name: str) -> dict:
 
 def load_text_fixture(name: str) -> str:
     return (FIXTURES / name).read_text(encoding="utf-8")
+
+
+def sample_summaries() -> dict:
+    return {
+        "section_1": "Section one summary.",
+        "section_2": "Section two summary.",
+        "section_3": "Section three summary.",
+        "section_4": "Section four summary.",
+        "section_5": "Section five summary.",
+        "section_6": "Section six summary.",
+        "final_summary": ["Point one", "Point two", "Point three"],
+    }
+
+
+class FakeGeminiResponse:
+    def __init__(self, payload: dict) -> None:
+        self.payload = payload
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc, tb) -> None:
+        return None
+
+    def read(self) -> bytes:
+        return json.dumps(self.payload, ensure_ascii=False).encode("utf-8")
 
 
 class MorningDataTests(unittest.TestCase):
@@ -186,6 +212,25 @@ class MorningDataTests(unittest.TestCase):
         self.assertEqual(payload["meta"]["source_status"]["asia_indices"]["status"], "partial")
         self.assertEqual(payload["meta"]["source_status"]["asia_indices"]["message"], "Resolved 2/3 Asia indices through EODHD")
 
+    def test_fetcher_resolve_fetch_mode_prefers_cli_flags(self) -> None:
+        with mock.patch.dict("os.environ", {"MORNING_REPORT_USE_LIVE": "1"}, clear=True), \
+             mock.patch("sys.stderr", new=StringIO()) as stderr:
+            self.assertEqual(fmd.resolve_fetch_mode(mock.Mock(live=False, mock=True)), "mock")
+
+        self.assertEqual(stderr.getvalue(), "")
+        self.assertEqual(fmd.resolve_fetch_mode(mock.Mock(live=True, mock=False)), "live")
+
+    def test_fetcher_resolve_fetch_mode_keeps_deprecated_env_fallback(self) -> None:
+        with mock.patch.dict("os.environ", {"MORNING_REPORT_USE_LIVE": "1"}, clear=True), \
+             mock.patch("sys.stderr", new=StringIO()) as stderr:
+            self.assertEqual(fmd.resolve_fetch_mode(mock.Mock(live=False, mock=False)), "live")
+
+        self.assertIn("MORNING_REPORT_USE_LIVE is deprecated", stderr.getvalue())
+
+    def test_fetcher_resolve_fetch_mode_defaults_to_mock_when_called_directly(self) -> None:
+        with mock.patch.dict("os.environ", {}, clear=True):
+            self.assertEqual(fmd.resolve_fetch_mode(mock.Mock(live=False, mock=False)), "mock")
+
     def test_finalize_payload_meta_preserves_top_level_shape(self) -> None:
         payload = fmd.build_base_payload("2026-04-20")
         payload["us_market"]["indices"].append(
@@ -251,6 +296,21 @@ class MorningDataTests(unittest.TestCase):
         markdown = rmr.render_report(payload)
         self.assertIn("| 2026-04-20 | 3.72 | 4.26 | 4.88 | 0.54 | percent |", markdown)
         self.assertNotIn("| 2026-04-21 | 3.72 | 4.26 | 4.88 | 0.54 | percent |", markdown)
+
+    def test_render_report_adds_data_dates_to_table_headings(self) -> None:
+        payload = json.loads((Path(__file__).parent.parent / "data" / "raw" / "mock_morning.json").read_text(encoding="utf-8-sig"))
+        payload["news"][1]["date"] = "2026-04-13"
+        markdown = rmr.render_report(payload)
+
+        self.assertIn("### 美股四大指數（資料日：2026-04-13）", markdown)
+        self.assertIn("### 台股主要指數（資料日：2026-04-14）", markdown)
+        self.assertIn("## 2. 台股三大法人 / 上市 / 上櫃（資料日：2026-04-14）", markdown)
+        self.assertIn("## 3. 美股四大指數（資料日：2026-04-13）", markdown)
+        self.assertIn("### 匯率（資料日：2026-04-14）", markdown)
+        self.assertIn("### 亞股指數（資料日：2026-04-14）", markdown)
+        self.assertIn("### 大宗商品（資料日：2026-04-14）", markdown)
+        self.assertIn("## 5. 美國債市與關鍵觀察（資料日：2026-04-13）", markdown)
+        self.assertIn("## 6. 三則重要財經新聞（資料日：多日期：2026-04-13, 2026-04-14）", markdown)
 
     def test_render_script_writes_utf8_sig_markdown(self) -> None:
         payload = json.loads((Path(__file__).parent.parent / "data" / "raw" / "mock_morning.json").read_text(encoding="utf-8-sig"))
@@ -335,7 +395,374 @@ class MorningDataTests(unittest.TestCase):
         self.assertEqual(gmr.extract_json_object(plain)["section_1"], "a")
         self.assertEqual(gmr.extract_json_object(fenced)["final_summary"], ["x", "y", "z"])
 
-    def test_generate_report_merges_gemini_summaries_locally(self) -> None:
+    def test_parse_args_defaults_to_openai_summary_provider(self) -> None:
+        with mock.patch.dict("os.environ", {}, clear=True), \
+             mock.patch("sys.argv", ["generate_morning_report.py", "--date", "2026-04-21"]):
+            args = gmr.parse_args()
+
+        self.assertEqual(args.summary_provider, "openai")
+
+    def test_parse_args_accepts_missing_date(self) -> None:
+        with mock.patch.dict("os.environ", {}, clear=True), \
+             mock.patch("sys.argv", ["generate_morning_report.py"]):
+            args = gmr.parse_args()
+
+        self.assertIsNone(args.date)
+        self.assertIsNone(args.positional_date)
+        self.assertFalse(args.live)
+        self.assertFalse(args.mock)
+        self.assertEqual(gmr.resolve_fetch_mode(args), "live")
+
+    def test_parse_args_accepts_positional_date(self) -> None:
+        with mock.patch.dict("os.environ", {}, clear=True), \
+             mock.patch("sys.argv", ["generate_morning_report.py", "2026-04-21"]):
+            args = gmr.parse_args()
+
+        self.assertEqual(gmr.resolve_report_date(args), "2026-04-21")
+
+    def test_resolve_report_date_rejects_positional_and_option_date(self) -> None:
+        args = mock.Mock(date="2026-04-21", positional_date="2026-04-20")
+        with self.assertRaisesRegex(RuntimeError, "Use either positional date or --date"):
+            gmr.resolve_report_date(args)
+
+    def test_default_report_date_uses_taiwan_yesterday(self) -> None:
+        real_datetime = gmr.datetime
+        fake_now = real_datetime(2026, 4, 29, 0, 30, tzinfo=gmr.TAIWAN_TIMEZONE)
+        fake_datetime = mock.Mock(now=mock.Mock(return_value=fake_now))
+        with mock.patch.object(gmr, "datetime", fake_datetime):
+            self.assertEqual(gmr.default_report_date(), "2026-04-28")
+
+        fake_datetime.now.assert_called_once_with(gmr.TAIWAN_TIMEZONE)
+
+    def test_call_gemini_for_summaries_reads_rest_response(self) -> None:
+        summaries = sample_summaries()
+        response_payload = {
+            "candidates": [
+                {
+                    "content": {
+                        "parts": [
+                            {"text": json.dumps(summaries, ensure_ascii=False)}
+                        ]
+                    }
+                }
+            ]
+        }
+        with mock.patch.dict("os.environ", {"GEMINI_API_KEY": "test-key"}, clear=True), \
+             mock.patch.object(gmr.urllib.request, "urlopen", return_value=FakeGeminiResponse(response_payload)) as urlopen:
+            result, raw_output = gmr.call_gemini_for_summaries("template markdown")
+
+        self.assertEqual(result, summaries)
+        self.assertIn("section_6", raw_output)
+        request = urlopen.call_args.args[0]
+        self.assertEqual(request.headers["X-goog-api-key"], "test-key")
+        self.assertIn(gmr.DEFAULT_GEMINI_MODEL, request.full_url)
+
+    def test_call_gemini_for_summaries_requires_api_key(self) -> None:
+        with mock.patch.dict("os.environ", {}, clear=True):
+            with self.assertRaisesRegex(RuntimeError, "GEMINI_API_KEY is not set"):
+                gmr.call_gemini_for_summaries("template markdown")
+
+    def test_call_gemini_for_summaries_reports_http_error(self) -> None:
+        error = gmr.urllib.error.HTTPError(
+            url="https://example.com",
+            code=400,
+            msg="Bad Request",
+            hdrs=None,
+            fp=BytesIO(b'{"error":"bad request"}'),
+        )
+        with mock.patch.dict("os.environ", {"GEMINI_API_KEY": "test-key"}, clear=True), \
+             mock.patch.object(gmr.urllib.request, "urlopen", side_effect=error):
+            with self.assertRaisesRegex(RuntimeError, "Gemini API summary generation failed"):
+                gmr.call_gemini_for_summaries("template markdown")
+
+    def test_call_gemini_for_summaries_retries_retryable_http_error(self) -> None:
+        summaries = sample_summaries()
+        error = gmr.urllib.error.HTTPError(
+            url="https://example.com",
+            code=503,
+            msg="Service Unavailable",
+            hdrs=None,
+            fp=BytesIO(b'{"error":{"status":"UNAVAILABLE"}}'),
+        )
+        response_payload = {
+            "candidates": [
+                {
+                    "content": {
+                        "parts": [
+                            {"text": json.dumps(summaries, ensure_ascii=False)}
+                        ]
+                    }
+                }
+            ]
+        }
+        with mock.patch.dict("os.environ", {"GEMINI_API_KEY": "test-key"}, clear=True), \
+             mock.patch.object(gmr.urllib.request, "urlopen", side_effect=[error, FakeGeminiResponse(response_payload)]) as urlopen, \
+             mock.patch.object(gmr.time, "sleep") as sleep, \
+             mock.patch("sys.stderr", new=StringIO()) as stderr:
+            result, _ = gmr.call_gemini_for_summaries("template markdown")
+
+        self.assertEqual(result, summaries)
+        self.assertEqual(urlopen.call_count, 2)
+        sleep.assert_called_once_with(gmr.GEMINI_RETRY_DELAYS_SECONDS[0])
+        self.assertIn("gemini retry 2/4", stderr.getvalue())
+
+    def test_call_openai_for_summaries_reads_responses_api_output(self) -> None:
+        summaries = sample_summaries()
+        response_payload = {"output_text": json.dumps(summaries, ensure_ascii=False)}
+        with mock.patch.dict("os.environ", {"OPENAI_API_KEY": "test-openai-key"}, clear=True), \
+             mock.patch.object(gmr.urllib.request, "urlopen", return_value=FakeGeminiResponse(response_payload)) as urlopen:
+            result, raw_output = gmr.call_openai_for_summaries("template markdown")
+
+        self.assertEqual(result, summaries)
+        self.assertIn("section_6", raw_output)
+        request = urlopen.call_args.args[0]
+        self.assertEqual(request.headers["Authorization"], "Bearer test-openai-key")
+        self.assertEqual(request.full_url, gmr.OPENAI_API_URL)
+        request_body = json.loads(request.data.decode("utf-8"))
+        self.assertEqual(request_body["model"], gmr.DEFAULT_OPENAI_MODEL)
+
+    def test_call_xai_for_summaries_reads_responses_api_output(self) -> None:
+        summaries = sample_summaries()
+        response_payload = {
+            "output": [
+                {
+                    "content": [
+                        {"type": "output_text", "text": json.dumps(summaries, ensure_ascii=False)}
+                    ]
+                }
+            ]
+        }
+        with mock.patch.dict("os.environ", {"XAI_API_KEY": "test-xai-key"}, clear=True), \
+             mock.patch.object(gmr.urllib.request, "urlopen", return_value=FakeGeminiResponse(response_payload)) as urlopen:
+            result, raw_output = gmr.call_xai_for_summaries("template markdown")
+
+        self.assertEqual(result, summaries)
+        self.assertIn("section_6", raw_output)
+        request = urlopen.call_args.args[0]
+        self.assertEqual(request.headers["Authorization"], "Bearer test-xai-key")
+        self.assertEqual(request.full_url, gmr.XAI_API_URL)
+        request_body = json.loads(request.data.decode("utf-8"))
+        self.assertEqual(request_body["model"], gmr.DEFAULT_XAI_MODEL)
+
+    def test_cli_wrapper_reports_morning_report_error_without_traceback(self) -> None:
+        with mock.patch.object(gmr, "main", side_effect=gmr.MorningReportError("boom")), \
+             mock.patch("sys.stderr", new=StringIO()) as stderr:
+            exit_code = gmr.cli_main()
+
+        self.assertEqual(exit_code, 1)
+        status = stderr.getvalue()
+        self.assertIn("[morning-report] error: boom", status)
+        self.assertIn("[morning-report] result: failed", status)
+
+    def test_generate_report_uses_news_from_explicit_input_without_fetching(self) -> None:
+        payload = fmd.build_base_payload("2026-04-21")
+        payload["news"] = [
+            {
+                "date": "2026-04-21",
+                "source": "Input Source",
+                "title": "Input News Title",
+                "summary": "Input news summary",
+                "url": "https://example.com/input-news",
+            }
+        ]
+        payload_path = Path(__file__).parent / "input_news_payload.json"
+        output_path = Path(__file__).parent / "input_news_report.md"
+        template_path = Path(__file__).parent / "input_news_report.template.md"
+        summaries_path = Path(__file__).parent / "input_news_report.summaries.json"
+        try:
+            payload_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8-sig")
+            with mock.patch.object(gmr, "parse_args", return_value=mock.Mock(
+                date="2026-04-21",
+                input_path=str(payload_path),
+                output_path=str(output_path),
+                template_output_path=str(template_path),
+                summaries_output_path=str(summaries_path),
+                print_report=False,
+                refresh=False,
+                live=False,
+                mock=False,
+                summary_provider="none",
+                summary_model=None,
+            )), mock.patch.object(gmr, "run_fetcher") as run_fetcher, \
+                mock.patch.object(gmr, "call_gemini_for_summaries") as call_gemini, \
+                mock.patch("sys.stdout", new=StringIO()) as stdout, \
+                mock.patch("sys.stderr", new=StringIO()) as stderr:
+                self.assertEqual(gmr.main(), 0)
+
+            run_fetcher.assert_not_called()
+            call_gemini.assert_not_called()
+            self.assertEqual(stdout.getvalue(), "")
+            self.assertIn("[morning-report] date: 2026-04-21", stderr.getvalue())
+            self.assertIn("[morning-report] result: ok", stderr.getvalue())
+            final_markdown = output_path.read_text(encoding="utf-8-sig")
+            self.assertIn("| 2026-04-21 | Input Source | [Input News Title](https://example.com/input-news) | Input news summary |", final_markdown)
+            self.assertNotIn("<!-- GEMINI_SECTION_6_SUMMARY -->", final_markdown)
+            self.assertNotIn("## 7.", final_markdown)
+        finally:
+            for path in (payload_path, output_path, template_path, summaries_path):
+                if path.exists():
+                    path.unlink()
+
+    def test_generate_report_without_date_uses_taiwan_yesterday_default_paths(self) -> None:
+        payload = fmd.build_base_payload("2099-01-02")
+        template_markdown = rmr.render_report(payload)
+        with mock.patch.object(gmr, "parse_args", return_value=mock.Mock(
+            date=None,
+            positional_date=None,
+            input_path=None,
+            output_path=None,
+            template_output_path=None,
+            summaries_output_path=None,
+            print_report=False,
+            refresh=False,
+            live=False,
+            mock=False,
+            summary_provider="none",
+            summary_model=None,
+        )), mock.patch.object(gmr, "default_report_date", return_value="2099-01-02"), \
+            mock.patch.object(gmr, "run_fetcher") as run_fetcher, \
+            mock.patch.object(gmr.rmr, "read_json_file", return_value=payload) as read_json_file, \
+            mock.patch.object(gmr.rmr, "render_report", return_value=template_markdown), \
+            mock.patch.object(gmr, "write_text") as write_text, \
+            mock.patch("sys.stdout", new=StringIO()) as stdout, \
+            mock.patch("sys.stderr", new=StringIO()) as stderr:
+            self.assertEqual(gmr.main(), 0)
+
+        run_fetcher.assert_called_once_with("2099-01-02", "live")
+        read_json_file.assert_called_once_with(Path("payloads") / "2099-01-02.json")
+        written_paths = [call.args[0] for call in write_text.call_args_list]
+        self.assertIn(Path("reports") / "morning-2099-01-02.template.md", written_paths)
+        self.assertIn(Path("reports") / "morning-2099-01-02.md", written_paths)
+        self.assertEqual(stdout.getvalue(), "")
+        self.assertIn("[morning-report] date: 2099-01-02", stderr.getvalue())
+
+    def test_generate_report_explicit_date_overrides_default_date(self) -> None:
+        payload = fmd.build_base_payload("2026-04-21")
+        template_markdown = rmr.render_report(payload)
+        with mock.patch.object(gmr, "parse_args", return_value=mock.Mock(
+            date="2026-04-21",
+            positional_date=None,
+            input_path=None,
+            output_path=None,
+            template_output_path=None,
+            summaries_output_path=None,
+            print_report=False,
+            refresh=True,
+            live=False,
+            mock=False,
+            summary_provider="none",
+            summary_model=None,
+        )), mock.patch.object(gmr, "default_report_date", return_value="2026-04-28") as default_report_date, \
+            mock.patch.object(gmr, "run_fetcher") as run_fetcher, \
+            mock.patch.object(gmr.rmr, "read_json_file", return_value=payload), \
+            mock.patch.object(gmr.rmr, "render_report", return_value=template_markdown), \
+            mock.patch.object(gmr, "write_text"), \
+            mock.patch("sys.stdout", new=StringIO()), \
+            mock.patch("sys.stderr", new=StringIO()):
+            self.assertEqual(gmr.main(), 0)
+
+        default_report_date.assert_not_called()
+        run_fetcher.assert_called_once_with("2026-04-21", "live")
+
+    def test_generate_report_mock_flag_passes_mock_to_fetcher(self) -> None:
+        payload = fmd.build_base_payload("2026-04-21")
+        template_markdown = rmr.render_report(payload)
+        with mock.patch.object(gmr, "parse_args", return_value=mock.Mock(
+            date="2026-04-21",
+            positional_date=None,
+            input_path=None,
+            output_path=None,
+            template_output_path=None,
+            summaries_output_path=None,
+            print_report=False,
+            refresh=True,
+            live=False,
+            mock=True,
+            summary_provider="none",
+            summary_model=None,
+        )), mock.patch.object(gmr, "run_fetcher") as run_fetcher, \
+            mock.patch.object(gmr.rmr, "read_json_file", return_value=payload), \
+            mock.patch.object(gmr.rmr, "render_report", return_value=template_markdown), \
+            mock.patch.object(gmr, "write_text"), \
+            mock.patch("sys.stdout", new=StringIO()), \
+            mock.patch("sys.stderr", new=StringIO()):
+            self.assertEqual(gmr.main(), 0)
+
+        run_fetcher.assert_called_once_with("2026-04-21", "mock")
+
+    def test_generate_report_fails_when_explicit_input_is_missing(self) -> None:
+        missing_path = Path(__file__).parent / "missing_payload.json"
+        with mock.patch.object(gmr, "parse_args", return_value=mock.Mock(
+            date="2026-04-21",
+            input_path=str(missing_path),
+            output_path=None,
+            template_output_path=None,
+            summaries_output_path=None,
+            print_report=False,
+            refresh=False,
+            live=False,
+            mock=False,
+            summary_provider="none",
+            summary_model=None,
+        )), mock.patch.object(gmr, "run_fetcher") as run_fetcher:
+            with self.assertRaisesRegex(RuntimeError, "Input payload does not exist"):
+                gmr.main()
+        run_fetcher.assert_not_called()
+
+    def test_generate_report_rejects_refresh_with_explicit_input(self) -> None:
+        payload_path = Path(__file__).parent / "existing_payload.json"
+        with mock.patch.object(gmr, "parse_args", return_value=mock.Mock(
+            date="2026-04-21",
+            input_path=str(payload_path),
+            output_path=None,
+            template_output_path=None,
+            summaries_output_path=None,
+            print_report=False,
+            refresh=True,
+            live=False,
+            mock=False,
+            summary_provider="none",
+            summary_model=None,
+        )), mock.patch.object(gmr, "run_fetcher") as run_fetcher:
+            with self.assertRaisesRegex(RuntimeError, "--refresh cannot be used with --input"):
+                gmr.main()
+        run_fetcher.assert_not_called()
+
+    def test_generate_report_refresh_refetches_existing_default_payload(self) -> None:
+        payload = fmd.build_base_payload("2026-04-21")
+        output_path = Path(__file__).parent / "refresh_report.md"
+        template_path = Path(__file__).parent / "refresh_report.template.md"
+        summaries_path = Path(__file__).parent / "refresh_report.summaries.json"
+        with mock.patch.object(gmr, "parse_args", return_value=mock.Mock(
+            date="2026-04-21",
+            input_path=None,
+            output_path=str(output_path),
+            template_output_path=str(template_path),
+            summaries_output_path=str(summaries_path),
+            print_report=False,
+            refresh=True,
+            live=False,
+            mock=False,
+            summary_provider="none",
+            summary_model=None,
+        )), mock.patch.object(gmr, "run_fetcher") as run_fetcher, \
+            mock.patch.object(gmr.rmr, "read_json_file", return_value=payload), \
+            mock.patch.object(gmr, "call_gemini_for_summaries") as call_gemini, \
+            mock.patch("sys.stdout", new=StringIO()) as stdout, \
+            mock.patch("sys.stderr", new=StringIO()) as stderr:
+            try:
+                self.assertEqual(gmr.main(), 0)
+            finally:
+                for path in (output_path, template_path, summaries_path):
+                    if path.exists():
+                        path.unlink()
+
+        run_fetcher.assert_called_once_with("2026-04-21", "live")
+        call_gemini.assert_not_called()
+        self.assertEqual(stdout.getvalue(), "")
+        self.assertIn("refresh: refetching payloads\\2026-04-21.json", stderr.getvalue())
+
+    def test_generate_report_writes_table_only_report_without_llm_summaries(self) -> None:
         payload = json.loads((Path(__file__).parent.parent / "data" / "raw" / "mock_morning.json").read_text(encoding="utf-8-sig"))
         payload_path = Path(__file__).parent / "mock_payload.json"
         output_path = Path(__file__).parent / "generated_report.md"
@@ -358,18 +785,213 @@ class MorningDataTests(unittest.TestCase):
                 output_path=str(output_path),
                 template_output_path=str(template_path),
                 summaries_output_path=str(summaries_path),
-            )), mock.patch.object(gmr, "call_gemini_for_summaries", return_value=(summaries, json.dumps(summaries, ensure_ascii=False))), \
-                mock.patch("sys.stdout", new=StringIO()):
+                print_report=False,
+                refresh=False,
+                live=False,
+                mock=False,
+                summary_provider="none",
+                summary_model=None,
+            )), mock.patch.object(gmr, "call_gemini_for_summaries") as call_gemini, \
+                mock.patch("sys.stdout", new=StringIO()) as stdout, \
+                mock.patch("sys.stderr", new=StringIO()) as stderr:
                 self.assertEqual(gmr.main(), 0)
 
+            call_gemini.assert_not_called()
+            self.assertEqual(stdout.getvalue(), "")
+            self.assertIn("[morning-report] summaries: disabled", stderr.getvalue())
             final_markdown = output_path.read_text(encoding="utf-8-sig")
-            self.assertIn("第一段摘要。", final_markdown)
-            self.assertIn("- 重點三", final_markdown)
+            self.assertNotIn("<!-- GEMINI_SECTION_1_SUMMARY -->", final_markdown)
+            self.assertNotIn("<!-- GEMINI_FINAL_SUMMARY -->", final_markdown)
+            self.assertNotIn("## 7.", final_markdown)
+            self.assertFalse(summaries_path.exists())
             self.assertTrue(template_path.exists())
-            self.assertEqual(
-                json.loads(summaries_path.read_text(encoding="utf-8-sig"))["section_6"],
-                "第六段摘要。",
-            )
+        finally:
+            for path in (payload_path, output_path, template_path, summaries_path):
+                if path.exists():
+                    path.unlink()
+
+    def test_generate_report_print_report_writes_markdown_to_stdout(self) -> None:
+        payload = json.loads((Path(__file__).parent.parent / "data" / "raw" / "mock_morning.json").read_text(encoding="utf-8-sig"))
+        payload_path = Path(__file__).parent / "print_report_payload.json"
+        output_path = Path(__file__).parent / "print_report.md"
+        template_path = Path(__file__).parent / "print_report.template.md"
+        summaries_path = Path(__file__).parent / "print_report.summaries.json"
+        try:
+            payload_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8-sig")
+            with mock.patch.object(gmr, "parse_args", return_value=mock.Mock(
+                date="2026-04-14",
+                input_path=str(payload_path),
+                output_path=str(output_path),
+                template_output_path=str(template_path),
+                summaries_output_path=str(summaries_path),
+                print_report=True,
+                refresh=False,
+                live=False,
+                mock=False,
+                summary_provider="none",
+                summary_model=None,
+            )), mock.patch.object(gmr, "call_gemini_for_summaries", return_value=(sample_summaries(), "{}")), \
+                mock.patch("sys.stdout", new=StringIO()) as stdout, \
+                mock.patch("sys.stderr", new=StringIO()) as stderr:
+                self.assertEqual(gmr.main(), 0)
+
+            self.assertIn("# 市場晨報", stdout.getvalue())
+            self.assertNotIn("Section one summary.", stdout.getvalue())
+            self.assertNotIn("<!-- GEMINI_SECTION_1_SUMMARY -->", stdout.getvalue())
+            self.assertNotIn("## 7.", stdout.getvalue())
+            self.assertIn("[morning-report] result:", stderr.getvalue())
+        finally:
+            for path in (payload_path, output_path, template_path, summaries_path):
+                if path.exists():
+                    path.unlink()
+
+    def test_generate_report_can_use_openai_summary_provider(self) -> None:
+        payload = json.loads((Path(__file__).parent.parent / "data" / "raw" / "mock_morning.json").read_text(encoding="utf-8-sig"))
+        payload_path = Path(__file__).parent / "openai_payload.json"
+        output_path = Path(__file__).parent / "openai_report.md"
+        template_path = Path(__file__).parent / "openai_report.template.md"
+        summaries_path = Path(__file__).parent / "openai_report.summaries.json"
+        try:
+            payload_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8-sig")
+            with mock.patch.object(gmr, "parse_args", return_value=mock.Mock(
+                date="2026-04-14",
+                input_path=str(payload_path),
+                output_path=str(output_path),
+                template_output_path=str(template_path),
+                summaries_output_path=str(summaries_path),
+                print_report=False,
+                refresh=False,
+                live=False,
+                mock=False,
+                summary_provider="openai",
+                summary_model="paid-model",
+            )), mock.patch.object(gmr, "call_openai_for_summaries", return_value=(sample_summaries(), "{}")) as call_openai, \
+                mock.patch("sys.stdout", new=StringIO()) as stdout, \
+                mock.patch("sys.stderr", new=StringIO()) as stderr:
+                self.assertEqual(gmr.main(), 0)
+
+            call_openai.assert_called_once()
+            self.assertEqual(call_openai.call_args.args[1], "paid-model")
+            self.assertEqual(stdout.getvalue(), "")
+            self.assertIn("[morning-report] summaries: ok (openai)", stderr.getvalue())
+            final_markdown = output_path.read_text(encoding="utf-8-sig")
+            self.assertIn("Section one summary.", final_markdown)
+            self.assertIn("- Point three", final_markdown)
+            self.assertTrue(summaries_path.exists())
+        finally:
+            for path in (payload_path, output_path, template_path, summaries_path):
+                if path.exists():
+                    path.unlink()
+
+    def test_generate_report_missing_provider_key_falls_back_to_table_only(self) -> None:
+        payload = json.loads((Path(__file__).parent.parent / "data" / "raw" / "mock_morning.json").read_text(encoding="utf-8-sig"))
+        providers = ("openai", "gemini", "grok")
+        for provider in providers:
+            with self.subTest(provider=provider):
+                payload_path = Path(__file__).parent / f"{provider}_missing_key_payload.json"
+                output_path = Path(__file__).parent / f"{provider}_missing_key_report.md"
+                template_path = Path(__file__).parent / f"{provider}_missing_key_report.template.md"
+                summaries_path = Path(__file__).parent / f"{provider}_missing_key_report.summaries.json"
+                try:
+                    payload_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8-sig")
+                    with mock.patch.dict("os.environ", {}, clear=True), \
+                         mock.patch.object(gmr, "parse_args", return_value=mock.Mock(
+                            date="2026-04-14",
+                            input_path=str(payload_path),
+                            output_path=str(output_path),
+                            template_output_path=str(template_path),
+                            summaries_output_path=str(summaries_path),
+                            print_report=False,
+                            refresh=False,
+                            live=False,
+                            mock=False,
+                            summary_provider=provider,
+                            summary_model=None,
+                         )), mock.patch("sys.stdout", new=StringIO()) as stdout, \
+                         mock.patch("sys.stderr", new=StringIO()) as stderr:
+                        self.assertEqual(gmr.main(), 0)
+
+                    self.assertEqual(stdout.getvalue(), "")
+                    self.assertIn(f"[morning-report] summaries: skipped ({provider}, missing key)", stderr.getvalue())
+                    final_markdown = output_path.read_text(encoding="utf-8-sig")
+                    self.assertNotIn("<!-- GEMINI_SECTION_1_SUMMARY -->", final_markdown)
+                    self.assertNotIn("## 7.", final_markdown)
+                    self.assertFalse(summaries_path.exists())
+                finally:
+                    for path in (payload_path, output_path, template_path, summaries_path):
+                        if path.exists():
+                            path.unlink()
+
+    def test_generate_report_provider_failure_falls_back_to_table_only(self) -> None:
+        payload = json.loads((Path(__file__).parent.parent / "data" / "raw" / "mock_morning.json").read_text(encoding="utf-8-sig"))
+        payload_path = Path(__file__).parent / "openai_failure_payload.json"
+        output_path = Path(__file__).parent / "openai_failure_report.md"
+        template_path = Path(__file__).parent / "openai_failure_report.template.md"
+        summaries_path = Path(__file__).parent / "openai_failure_report.summaries.json"
+        try:
+            payload_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8-sig")
+            with mock.patch.object(gmr, "parse_args", return_value=mock.Mock(
+                date="2026-04-14",
+                input_path=str(payload_path),
+                output_path=str(output_path),
+                template_output_path=str(template_path),
+                summaries_output_path=str(summaries_path),
+                print_report=False,
+                refresh=False,
+                live=False,
+                mock=False,
+                summary_provider="openai",
+                summary_model=None,
+            )), mock.patch.object(gmr, "call_openai_for_summaries", side_effect=gmr.SummaryUnavailable("OpenAI summary generation failed: overload")), \
+                mock.patch("sys.stdout", new=StringIO()) as stdout, \
+                mock.patch("sys.stderr", new=StringIO()) as stderr:
+                self.assertEqual(gmr.main(), 0)
+
+            self.assertEqual(stdout.getvalue(), "")
+            self.assertIn("[morning-report] summaries: failed (openai) - OpenAI summary generation failed: overload", stderr.getvalue())
+            final_markdown = output_path.read_text(encoding="utf-8-sig")
+            self.assertNotIn("Section one summary.", final_markdown)
+            self.assertNotIn("<!-- GEMINI_SECTION_1_SUMMARY -->", final_markdown)
+            self.assertNotIn("## 7.", final_markdown)
+            self.assertFalse(summaries_path.exists())
+        finally:
+            for path in (payload_path, output_path, template_path, summaries_path):
+                if path.exists():
+                    path.unlink()
+
+    def test_generate_report_status_uses_payload_source_status(self) -> None:
+        payload = fmd.build_base_payload("2026-04-21")
+        payload["meta"]["source_status"] = {
+            "finmind": {"status": "ok", "message": "Fetched successfully"},
+            "marketaux": {"status": "error", "message": "quota exceeded"},
+        }
+        payload_path = Path(__file__).parent / "status_payload.json"
+        output_path = Path(__file__).parent / "status_report.md"
+        template_path = Path(__file__).parent / "status_report.template.md"
+        summaries_path = Path(__file__).parent / "status_report.summaries.json"
+        try:
+            payload_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8-sig")
+            with mock.patch.object(gmr, "parse_args", return_value=mock.Mock(
+                date="2026-04-21",
+                input_path=str(payload_path),
+                output_path=str(output_path),
+                template_output_path=str(template_path),
+                summaries_output_path=str(summaries_path),
+                print_report=False,
+                refresh=False,
+                live=False,
+                mock=False,
+                summary_provider="none",
+                summary_model=None,
+            )), mock.patch.object(gmr, "call_gemini_for_summaries", return_value=(sample_summaries(), "{}")), \
+                mock.patch("sys.stdout", new=StringIO()) as stdout, \
+                mock.patch("sys.stderr", new=StringIO()) as stderr:
+                self.assertEqual(gmr.main(), 0)
+
+            self.assertEqual(stdout.getvalue(), "")
+            status = stderr.getvalue()
+            self.assertIn("finmind: ok - Fetched successfully", status)
+            self.assertIn("marketaux: error - quota exceeded", status)
         finally:
             for path in (payload_path, output_path, template_path, summaries_path):
                 if path.exists():

@@ -1,6 +1,6 @@
 # FinMind Gemini Market Morning Report
 
-This repo builds the structured JSON payload used by the Gemini CLI morning market report flow. The report-facing structure stays stable while provider-specific fallback and diagnostics live under `meta`.
+This repo builds the structured JSON payload and deterministic markdown used by the morning market report flow. The report-facing structure stays stable while provider-specific fallback and diagnostics live under `meta`.
 
 ## Maintenance rules
 
@@ -24,11 +24,14 @@ When changing project behavior, keep the repo docs and sample artifacts in sync:
 
 ## Environment variables
 
-- `MORNING_REPORT_USE_LIVE=1` to enable live mode
 - `FINMIND_API_TOKEN`
 - `FMP_API_KEY` for U.S. indices
 - `EODHD_API_KEY` for Asia indices
 - `MARKETAUX_API_KEY`
+- `SUMMARY_PROVIDER` optional summary provider default: `openai`; allowed values are `openai`, `gemini`, `grok`, or `none`
+- `OPENAI_API_KEY` and optional `OPENAI_MODEL` for OpenAI summaries. Default model: `gpt-5.4-nano`
+- `GEMINI_API_KEY` and optional `GEMINI_MODEL` for Gemini summaries. Default model: `gemini-2.5-flash`
+- `XAI_API_KEY` and optional `XAI_MODEL` for Grok summaries. Default model: `grok-4-1-fast`
 
 ## Symbol mapping
 
@@ -73,19 +76,84 @@ Payload archive:
 - The fetcher writes the working payload to `out.json`
 - It also archives a dated copy to `payloads/<date>.json`
 
-## Gemini command
+## Morning report generation
 
-Run the Gemini command with a date:
+Run the Python report generator with a date:
 
-```text
-/market:morning 2026-04-22
+```cmd
+python scripts\generate_morning_report.py --date 2026-04-22
 ```
 
-The command will:
+If `--date` is omitted, the generator uses yesterday in Taiwan time:
 
-- run `python scripts\generate_morning_report.py --date <date>`
+```cmd
+python scripts\generate_morning_report.py
+```
+
+The generator fetches live data by default. To make the mode explicit:
+
+```cmd
+python scripts\generate_morning_report.py --live
+```
+
+For deterministic local output from the checked-in mock payload:
+
+```cmd
+python scripts\generate_morning_report.py --mock
+```
+
+For command shortcuts and quick backfills, the date can also be passed positionally:
+
+```cmd
+python scripts\generate_morning_report.py 2026-04-22
+```
+
+Or render from an existing payload without refetching:
+
+```cmd
+python scripts\generate_morning_report.py --date 2026-04-22 --input payloads\2026-04-22.json
+```
+
+To refetch the default dated payload even if `payloads\<date>.json` already exists:
+
+```cmd
+python scripts\generate_morning_report.py --date 2026-04-22 --refresh
+```
+
+By default, the generator prints concise status lines to stderr and writes the report to disk. To also print the final markdown to stdout:
+
+```cmd
+python scripts\generate_morning_report.py --date 2026-04-22 --print-report
+```
+
+LLM summaries are optional. The default provider is `openai`. If the selected provider key is missing or the selected API fails, the generator still writes the deterministic table/news report, strips summary placeholders, omits the final summary section, and prints a warning status line. To disable summaries explicitly:
+
+```cmd
+python scripts\generate_morning_report.py --date 2026-04-22 --summary-provider none
+```
+
+To choose a summary provider for one run:
+
+```cmd
+python scripts\generate_morning_report.py --date 2026-04-22 --summary-provider openai
+```
+
+```cmd
+python scripts\generate_morning_report.py --date 2026-04-22 --summary-provider gemini --summary-model gemini-2.0-flash
+```
+
+```cmd
+python scripts\generate_morning_report.py --date 2026-04-22 --summary-provider grok --summary-model grok-4-1-fast
+```
+
+The generator will:
+
+- run `python scripts\generate_morning_report.py` with Taiwan-yesterday as the default date and live data as the default mode, or use `--mock` for deterministic fixture data
 - fetch and archive the payload to `payloads/<date>.json`
+- refetch an existing dated payload when `--refresh` is passed
 - render the deterministic template to `reports/morning-<date>.template.md`
-- ask headless Gemini to return summary text only
-- save the structured Gemini summary payload to `reports/morning-<date>.summaries.json`
-- merge those summaries into the template locally in Python and write the final markdown to `reports/morning-<date>.md`
+- show each table heading's underlying data date, so stale or mixed-date inputs are visible in the report
+- call the selected LLM and merge `reports/morning-<date>.summaries.json`, or strip summary placeholders when `--summary-provider none` is used or summaries are unavailable
+- print provider status, missing-section status, summary status, output paths, and final result to stderr
+
+`MORNING_REPORT_USE_LIVE=1` is deprecated. Direct calls to `scripts\fetch_morning_data.py` still accept it as a temporary fallback, but new commands should use `--live` or `--mock`.

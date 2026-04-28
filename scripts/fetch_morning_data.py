@@ -53,7 +53,24 @@ def default_headers(accept: str) -> dict:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Fetch morning market data as JSON.")
     parser.add_argument("--date", required=True, help="Report date in YYYY-MM-DD format.")
+    mode_group = parser.add_mutually_exclusive_group()
+    mode_group.add_argument("--live", action="store_true", help="Fetch live provider data.")
+    mode_group.add_argument("--mock", action="store_true", help="Use the checked-in mock payload.")
     return parser.parse_args()
+
+
+def resolve_fetch_mode(args: argparse.Namespace) -> str:
+    if getattr(args, "live", False):
+        return "live"
+    if getattr(args, "mock", False):
+        return "mock"
+    if os.getenv("MORNING_REPORT_USE_LIVE") == "1":
+        print(
+            "[morning-report] MORNING_REPORT_USE_LIVE is deprecated; use --live instead",
+            file=sys.stderr,
+        )
+        return "live"
+    return "mock"
 
 
 def validate_date(date_text: str) -> str:
@@ -1174,9 +1191,10 @@ def finalize_source_status(payload: dict) -> None:
 def main() -> int:
     args = parse_args()
     report_date = validate_date(args.date)
+    fetch_mode = resolve_fetch_mode(args)
     payload = build_base_payload(report_date)
 
-    if os.getenv("MORNING_REPORT_USE_LIVE") != "1":
+    if fetch_mode == "mock":
         mock_payload = load_mock_payload()
         mock_payload["report_date"] = report_date
         mock_payload.setdefault("meta", {})
