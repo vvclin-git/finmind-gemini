@@ -1140,6 +1140,14 @@ def save_payload_artifacts(report_date: str, payload: dict) -> None:
     (PAYLOADS_DIR / f"{report_date}.json").write_text(serialized, encoding="utf-8-sig")
 
 
+def print_payload(payload: dict) -> None:
+    serialized = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+    if hasattr(sys.stdout, "buffer"):
+        sys.stdout.buffer.write(serialized.encode("utf-8"))
+    else:
+        sys.stdout.write(serialized)
+
+
 def finalize_payload_meta(payload: dict) -> None:
     missing = list(payload["meta"]["missing_sections"])
     if payload["taiwan_market"].get("tpex_index") is None and "taiwan_market.tpex_index" not in missing:
@@ -1208,7 +1216,7 @@ def main() -> int:
         mock_payload["meta"].setdefault("index_status", {"us_market": {}, "asia_market": {}})
         mock_payload["meta"].setdefault("request_debug", [])
         save_payload_artifacts(report_date, mock_payload)
-        print(json.dumps(mock_payload, ensure_ascii=False, indent=2))
+        print_payload(mock_payload)
         return 0
 
     payload["meta"]["mode"] = "live"
@@ -1263,7 +1271,7 @@ def main() -> int:
     finalize_payload_meta(payload)
     finalize_source_status(payload)
     save_payload_artifacts(report_date, payload)
-    print(json.dumps(payload, ensure_ascii=False, indent=2))
+    print_payload(payload)
     return 0
 
 

@@ -22,13 +22,22 @@ def load_text_fixture(name: str) -> str:
 
 def sample_summaries() -> dict:
     return {
-        "section_1": "Section one summary.",
-        "section_2": "Section two summary.",
-        "section_3": "Section three summary.",
-        "section_4": "Section four summary.",
-        "section_5": "Section five summary.",
-        "section_6": "Section six summary.",
-        "final_summary": ["Point one", "Point two", "Point three"],
+        "market_summary": [
+            {
+                "heading": "美股方面",
+                "bullets": [
+                    "S&P 500 收在 5246.11，上漲 0.79%。",
+                    "Dow Jones 上漲 0.53%，收在 38995.24。",
+                ],
+            },
+            {
+                "heading": "台股方面",
+                "bullets": [
+                    "上市指數收在 20482.12。",
+                    "三大法人合計買超 195.6 億元。",
+                ],
+            },
+        ],
     }
 
 
@@ -47,6 +56,16 @@ class FakeGeminiResponse:
 
 
 class MorningDataTests(unittest.TestCase):
+    def test_print_payload_writes_utf8_bytes(self) -> None:
+        fake_stdout = mock.Mock()
+        fake_stdout.buffer = BytesIO()
+        payload = {"news": [{"summary": "contains\u00a0nbsp"}]}
+
+        with mock.patch.object(fmd.sys, "stdout", fake_stdout):
+            fmd.print_payload(payload)
+
+        self.assertIn("contains\u00a0nbsp".encode("utf-8"), fake_stdout.buffer.getvalue())
+
     def test_normalize_tpex_index_computes_change_percent(self) -> None:
         current = {"收市": "383.50", "漲跌": "11.16"}
         previous = {"收市": "372.34"}
@@ -257,31 +276,35 @@ class MorningDataTests(unittest.TestCase):
 
     def test_render_report_from_mock_payload_uses_expected_values(self) -> None:
         payload = json.loads((Path(__file__).parent.parent / "data" / "raw" / "mock_morning.json").read_text(encoding="utf-8-sig"))
-        markdown = rmr.render_report(payload)
-        self.assertIn("# 市場晨報（2026-04-14）", markdown)
-        self.assertIn("| S&P 500 | 5246.11 | 41.28 | 0.79 |", markdown)
-        self.assertIn("| 上市指數 | 20482.12 | 點 |", markdown)
-        self.assertIn("新台幣億元", markdown)
-        self.assertIn("### 美股四大指數", markdown)
-        self.assertIn("### 台股主要指數", markdown)
-        self.assertIn("### 匯率", markdown)
-        self.assertIn("### 亞股指數", markdown)
-        self.assertIn("### 大宗商品", markdown)
-        self.assertNotIn("| market_breadth |", markdown)
-        self.assertIn("| 2026-04-13 | 4.71 | 4.34 | 4.49 | -0.37 | percent |", markdown)
-        self.assertIn("| 2026-04-14 | Marketaux | [Fed officials signal patience on rate cuts as inflation data stays uneven](https://example.com/news/fed-officials-signal-patience) | 聯準會短期維持審慎立場，美元與債券殖利率維持高檔震盪。 |", markdown)
-        self.assertIn("<!-- GEMINI_SECTION_1_SUMMARY -->", markdown)
-        self.assertIn("<!-- GEMINI_FINAL_SUMMARY -->", markdown)
+        report_html = rmr.render_report(payload)
+        self.assertIn("<!doctype html>", report_html)
+        self.assertIn("<h1>市場晨報（2026-04-14）</h1>", report_html)
+        self.assertIn("<td>S&amp;P 500</td>", report_html)
+        self.assertIn("<td>5246.11</td>", report_html)
+        self.assertIn('<td class="num up"><span class="move-icon" aria-hidden="true">▲</span><span>41.28</span></td>', report_html)
+        self.assertIn("<td>上市指數</td>", report_html)
+        self.assertIn("新台幣億元", report_html)
+        self.assertIn("<h3>美股四大指數", report_html)
+        self.assertIn("<h3>台股主要指數", report_html)
+        self.assertIn("<h3>匯率", report_html)
+        self.assertIn("<h3>亞股指數", report_html)
+        self.assertIn("<h3>大宗商品", report_html)
+        self.assertNotIn("market_breadth", report_html)
+        self.assertIn("<td>2026-04-13</td>", report_html)
+        self.assertIn("Fed officials signal patience", report_html)
+        self.assertIn(rmr.MARKET_SUMMARY_PLACEHOLDER, report_html)
+        self.assertNotIn("GEMINI_SECTION", report_html)
 
     def test_render_report_shows_missing_asia_rows(self) -> None:
         payload = fmd.build_base_payload("2026-04-21")
         payload["us_market"]["indices"] = [
             {"symbol": "SPX", "name": "S&P 500", "close": 7109.13, "change": -16.92, "change_percent": -0.2374},
         ]
-        markdown = rmr.render_report(payload)
-        self.assertIn("| N225 | 資料暫缺 | 資料暫缺 | 資料暫缺 |", markdown)
-        self.assertIn("| HSI | 資料暫缺 | 資料暫缺 | 資料暫缺 |", markdown)
-        self.assertIn("| KS11 | 資料暫缺 | 資料暫缺 | 資料暫缺 |", markdown)
+        report_html = rmr.render_report(payload)
+        self.assertIn("<td>N225</td>", report_html)
+        self.assertIn("<td>HSI</td>", report_html)
+        self.assertIn("<td>KS11</td>", report_html)
+        self.assertIn('<td class="num missing"><span>資料暫缺</span></td>', report_html)
 
     def test_render_report_uses_bond_date_not_report_date(self) -> None:
         payload = fmd.build_base_payload("2026-04-21")
@@ -293,32 +316,27 @@ class MorningDataTests(unittest.TestCase):
             "slope_10y_2y": 0.54,
             "unit": "percent",
         }
-        markdown = rmr.render_report(payload)
-        self.assertIn("| 2026-04-20 | 3.72 | 4.26 | 4.88 | 0.54 | percent |", markdown)
-        self.assertNotIn("| 2026-04-21 | 3.72 | 4.26 | 4.88 | 0.54 | percent |", markdown)
+        report_html = rmr.render_report(payload)
+        self.assertIn("<td>2026-04-20</td>", report_html)
+        self.assertIn("<span>3.72</span>", report_html)
+        self.assertNotIn("<td>2026-04-21</td>", report_html)
 
     def test_render_report_adds_data_dates_to_table_headings(self) -> None:
         payload = json.loads((Path(__file__).parent.parent / "data" / "raw" / "mock_morning.json").read_text(encoding="utf-8-sig"))
         payload["news"][1]["date"] = "2026-04-13"
-        markdown = rmr.render_report(payload)
+        report_html = rmr.render_report(payload)
 
-        self.assertIn("### 美股四大指數（資料日：2026-04-13）", markdown)
-        self.assertIn("### 台股主要指數（資料日：2026-04-14）", markdown)
-        self.assertIn("## 2. 台股三大法人 / 上市 / 上櫃（資料日：2026-04-14）", markdown)
-        self.assertIn("## 3. 美股四大指數（資料日：2026-04-13）", markdown)
-        self.assertIn("### 匯率（資料日：2026-04-14）", markdown)
-        self.assertIn("### 亞股指數（資料日：2026-04-14）", markdown)
-        self.assertIn("### 大宗商品（資料日：2026-04-14）", markdown)
-        self.assertIn("## 5. 美國債市與關鍵觀察（資料日：2026-04-13）", markdown)
-        self.assertIn("## 6. 三則重要財經新聞（資料日：多日期：2026-04-13, 2026-04-14）", markdown)
+        self.assertIn('<span class="data-date">資料日：2026-04-13</span>', report_html)
+        self.assertIn('<span class="data-date">資料日：2026-04-14</span>', report_html)
+        self.assertIn('<span class="data-date">資料日：多日期：2026-04-13, 2026-04-14</span>', report_html)
 
-    def test_render_script_writes_utf8_sig_markdown(self) -> None:
+    def test_render_script_writes_utf8_sig_html(self) -> None:
         payload = json.loads((Path(__file__).parent.parent / "data" / "raw" / "mock_morning.json").read_text(encoding="utf-8-sig"))
-        markdown = rmr.render_report(payload)
-        output_path = Path(__file__).parent / "render_test_output.md"
+        report_html = rmr.render_report(payload)
+        output_path = Path(__file__).parent / "render_test_output.html"
         try:
-            output_path.write_text(markdown, encoding="utf-8-sig")
-            self.assertEqual(markdown, output_path.read_text(encoding="utf-8-sig"))
+            output_path.write_text(report_html, encoding="utf-8-sig")
+            self.assertEqual(report_html, output_path.read_text(encoding="utf-8-sig"))
         finally:
             if output_path.exists():
                 output_path.unlink()
@@ -367,33 +385,52 @@ class MorningDataTests(unittest.TestCase):
         payload["news"] = [
             {"date": "2026-04-21", "source": "Example", "title": "No Link Title", "summary": "Summary", "url": None}
         ]
-        markdown = rmr.render_report(payload)
-        self.assertIn("| 2026-04-21 | Example | No Link Title | Summary |", markdown)
-        self.assertNotIn("[No Link Title](", markdown)
+        report_html = rmr.render_report(payload)
+        self.assertIn("<td>2026-04-21</td>", report_html)
+        self.assertIn("<td>Example</td>", report_html)
+        self.assertIn("<td>No Link Title</td>", report_html)
+        self.assertNotIn("<a href", report_html)
 
-    def test_apply_summaries_replaces_all_placeholders(self) -> None:
+    def test_apply_summaries_replaces_top_summary_placeholder_and_escapes_text(self) -> None:
         payload = json.loads((Path(__file__).parent.parent / "data" / "raw" / "mock_morning.json").read_text(encoding="utf-8-sig"))
-        markdown = rmr.render_report(payload)
+        report_html = rmr.render_report(payload)
         summaries = {
-            "section_1": "第一段摘要。",
-            "section_2": "第二段摘要。",
-            "section_3": "第三段摘要。",
-            "section_4": "第四段摘要。",
-            "section_5": "第五段摘要。",
-            "section_6": "第六段摘要。",
-            "final_summary": ["重點一", "重點二", "重點三"],
+            "market_summary": [
+                {
+                    "heading": "美股 <script>",
+                    "bullets": ["S&P 500 上漲 0.79% <b>"],
+                }
+            ],
         }
-        final_markdown = rmr.apply_summaries(markdown, summaries)
-        self.assertIn("第一段摘要。", final_markdown)
-        self.assertIn("- 重點一", final_markdown)
-        self.assertNotIn("<!-- GEMINI_SECTION_1_SUMMARY -->", final_markdown)
-        self.assertNotIn("<!-- GEMINI_FINAL_SUMMARY -->", final_markdown)
+        final_html = rmr.apply_summaries(report_html, summaries)
+        self.assertIn("美股 &lt;script&gt;", final_html)
+        self.assertIn('S&amp;P 500 <span class="summary-move up"><span class="move-icon" aria-hidden="true">▲</span>上漲 0.79%</span> &lt;b&gt;', final_html)
+        self.assertNotIn(rmr.MARKET_SUMMARY_PLACEHOLDER, final_html)
+        self.assertLess(final_html.index("S&amp;P 500 "), final_html.index("1. 美股與台股盤勢"))
+
+    def test_market_summary_styles_movement_phrases(self) -> None:
+        html = rmr.render_market_summary([
+            {
+                "heading": "markets",
+                "bullets": [
+                    "S&P 500 \u4e0a\u6f32 21.09\uff08+0.2926%\uff09, HSI \u4e0b\u8dcc -335.31\uff08-1.2841%\uff09, flat \u6301\u5e73 0.00%",
+                    "yield \u4e0a\u5347 3.88\uff08\u25b23.88\uff09",
+                    "unsafe <b> remains escaped",
+                ],
+            }
+        ])
+
+        self.assertIn('<span class="summary-move up"><span class="move-icon" aria-hidden="true">▲</span>\u4e0a\u6f32 21.09\uff08+0.2926%\uff09</span>', html)
+        self.assertIn('<span class="summary-move down"><span class="move-icon" aria-hidden="true">▼</span>\u4e0b\u8dcc -335.31\uff08-1.2841%\uff09</span>', html)
+        self.assertIn('<span class="summary-move flat"><span class="move-icon" aria-hidden="true">▬</span>\u6301\u5e73 0.00%</span>', html)
+        self.assertIn('<span class="summary-move up"><span class="move-icon" aria-hidden="true">▲</span>\u4e0a\u5347 3.88\uff08\u25b23.88\uff09</span>', html)
+        self.assertIn("unsafe &lt;b&gt; remains escaped", html)
 
     def test_extract_json_object_accepts_plain_or_fenced_json(self) -> None:
-        plain = '{"section_1":"a","section_2":"b","section_3":"c","section_4":"d","section_5":"e","section_6":"f","final_summary":["x","y","z"]}'
+        plain = '{"market_summary":[{"heading":"a","bullets":["x","y"]}]}'
         fenced = "```json\n" + plain + "\n```"
-        self.assertEqual(gmr.extract_json_object(plain)["section_1"], "a")
-        self.assertEqual(gmr.extract_json_object(fenced)["final_summary"], ["x", "y", "z"])
+        self.assertEqual(gmr.extract_json_object(plain)["market_summary"][0]["heading"], "a")
+        self.assertEqual(gmr.extract_json_object(fenced)["market_summary"][0]["bullets"], ["x", "y"])
 
     def test_parse_args_defaults_to_openai_summary_provider(self) -> None:
         with mock.patch.dict("os.environ", {}, clear=True), \
@@ -452,7 +489,7 @@ class MorningDataTests(unittest.TestCase):
             result, raw_output = gmr.call_gemini_for_summaries("template markdown")
 
         self.assertEqual(result, summaries)
-        self.assertIn("section_6", raw_output)
+        self.assertIn("market_summary", raw_output)
         request = urlopen.call_args.args[0]
         self.assertEqual(request.headers["X-goog-api-key"], "test-key")
         self.assertIn(gmr.DEFAULT_GEMINI_MODEL, request.full_url)
@@ -514,7 +551,7 @@ class MorningDataTests(unittest.TestCase):
             result, raw_output = gmr.call_openai_for_summaries("template markdown")
 
         self.assertEqual(result, summaries)
-        self.assertIn("section_6", raw_output)
+        self.assertIn("market_summary", raw_output)
         request = urlopen.call_args.args[0]
         self.assertEqual(request.headers["Authorization"], "Bearer test-openai-key")
         self.assertEqual(request.full_url, gmr.OPENAI_API_URL)
@@ -537,7 +574,7 @@ class MorningDataTests(unittest.TestCase):
             result, raw_output = gmr.call_xai_for_summaries("template markdown")
 
         self.assertEqual(result, summaries)
-        self.assertIn("section_6", raw_output)
+        self.assertIn("market_summary", raw_output)
         request = urlopen.call_args.args[0]
         self.assertEqual(request.headers["Authorization"], "Bearer test-xai-key")
         self.assertEqual(request.full_url, gmr.XAI_API_URL)
@@ -594,10 +631,13 @@ class MorningDataTests(unittest.TestCase):
             self.assertEqual(stdout.getvalue(), "")
             self.assertIn("[morning-report] date: 2026-04-21", stderr.getvalue())
             self.assertIn("[morning-report] result: ok", stderr.getvalue())
-            final_markdown = output_path.read_text(encoding="utf-8-sig")
-            self.assertIn("| 2026-04-21 | Input Source | [Input News Title](https://example.com/input-news) | Input news summary |", final_markdown)
-            self.assertNotIn("<!-- GEMINI_SECTION_6_SUMMARY -->", final_markdown)
-            self.assertNotIn("## 7.", final_markdown)
+            final_html = output_path.read_text(encoding="utf-8-sig")
+            self.assertIn("<td>2026-04-21</td>", final_html)
+            self.assertIn("<td>Input Source</td>", final_html)
+            self.assertIn('href="https://example.com/input-news"', final_html)
+            self.assertIn("Input news summary", final_html)
+            self.assertNotIn("GEMINI_SECTION", final_html)
+            self.assertIn("本次未產生 LLM 摘要", final_html)
         finally:
             for path in (payload_path, output_path, template_path, summaries_path):
                 if path.exists():
@@ -631,8 +671,8 @@ class MorningDataTests(unittest.TestCase):
         run_fetcher.assert_called_once_with("2099-01-02", "live")
         read_json_file.assert_called_once_with(Path("payloads") / "2099-01-02.json")
         written_paths = [call.args[0] for call in write_text.call_args_list]
-        self.assertIn(Path("reports") / "morning-2099-01-02.template.md", written_paths)
-        self.assertIn(Path("reports") / "morning-2099-01-02.md", written_paths)
+        self.assertIn(Path("reports") / "morning-2099-01-02.template.html", written_paths)
+        self.assertIn(Path("reports") / "morning-2099-01-02.html", written_paths)
         self.assertEqual(stdout.getvalue(), "")
         self.assertIn("[morning-report] date: 2099-01-02", stderr.getvalue())
 
@@ -689,6 +729,16 @@ class MorningDataTests(unittest.TestCase):
             self.assertEqual(gmr.main(), 0)
 
         run_fetcher.assert_called_once_with("2026-04-21", "mock")
+
+    def test_run_fetcher_reports_subprocess_stderr(self) -> None:
+        error = gmr.subprocess.CalledProcessError(
+            returncode=1,
+            cmd=["python", "fetch"],
+            stderr="fetcher boom",
+        )
+        with mock.patch.object(gmr.subprocess, "run", side_effect=error):
+            with self.assertRaisesRegex(RuntimeError, "Fetcher failed: fetcher boom"):
+                gmr.run_fetcher("2026-04-21", "live")
 
     def test_generate_report_fails_when_explicit_input_is_missing(self) -> None:
         missing_path = Path(__file__).parent / "missing_payload.json"
@@ -799,10 +849,10 @@ class MorningDataTests(unittest.TestCase):
             call_gemini.assert_not_called()
             self.assertEqual(stdout.getvalue(), "")
             self.assertIn("[morning-report] summaries: disabled", stderr.getvalue())
-            final_markdown = output_path.read_text(encoding="utf-8-sig")
-            self.assertNotIn("<!-- GEMINI_SECTION_1_SUMMARY -->", final_markdown)
-            self.assertNotIn("<!-- GEMINI_FINAL_SUMMARY -->", final_markdown)
-            self.assertNotIn("## 7.", final_markdown)
+            final_html = output_path.read_text(encoding="utf-8-sig")
+            self.assertNotIn("GEMINI_SECTION", final_html)
+            self.assertNotIn("GEMINI_FINAL", final_html)
+            self.assertIn("本次未產生 LLM 摘要", final_html)
             self.assertFalse(summaries_path.exists())
             self.assertTrue(template_path.exists())
         finally:
@@ -810,7 +860,7 @@ class MorningDataTests(unittest.TestCase):
                 if path.exists():
                     path.unlink()
 
-    def test_generate_report_print_report_writes_markdown_to_stdout(self) -> None:
+    def test_generate_report_print_report_writes_html_to_stdout(self) -> None:
         payload = json.loads((Path(__file__).parent.parent / "data" / "raw" / "mock_morning.json").read_text(encoding="utf-8-sig"))
         payload_path = Path(__file__).parent / "print_report_payload.json"
         output_path = Path(__file__).parent / "print_report.md"
@@ -835,10 +885,11 @@ class MorningDataTests(unittest.TestCase):
                 mock.patch("sys.stderr", new=StringIO()) as stderr:
                 self.assertEqual(gmr.main(), 0)
 
-            self.assertIn("# 市場晨報", stdout.getvalue())
-            self.assertNotIn("Section one summary.", stdout.getvalue())
-            self.assertNotIn("<!-- GEMINI_SECTION_1_SUMMARY -->", stdout.getvalue())
-            self.assertNotIn("## 7.", stdout.getvalue())
+            self.assertIn("<!doctype html>", stdout.getvalue())
+            self.assertIn("<h1>市場晨報", stdout.getvalue())
+            self.assertNotIn("S&amp;P 500 收在 5246.11", stdout.getvalue())
+            self.assertNotIn("GEMINI_SECTION", stdout.getvalue())
+            self.assertIn("本次未產生 LLM 摘要", stdout.getvalue())
             self.assertIn("[morning-report] result:", stderr.getvalue())
         finally:
             for path in (payload_path, output_path, template_path, summaries_path):
@@ -874,9 +925,10 @@ class MorningDataTests(unittest.TestCase):
             self.assertEqual(call_openai.call_args.args[1], "paid-model")
             self.assertEqual(stdout.getvalue(), "")
             self.assertIn("[morning-report] summaries: ok (openai)", stderr.getvalue())
-            final_markdown = output_path.read_text(encoding="utf-8-sig")
-            self.assertIn("Section one summary.", final_markdown)
-            self.assertIn("- Point three", final_markdown)
+            final_html = output_path.read_text(encoding="utf-8-sig")
+            self.assertIn("S&amp;P 500 收在 5246.11，", final_html)
+            self.assertIn('class="summary-move up"', final_html)
+            self.assertIn("<h3>1. 美股方面</h3>", final_html)
             self.assertTrue(summaries_path.exists())
         finally:
             for path in (payload_path, output_path, template_path, summaries_path):
@@ -913,9 +965,9 @@ class MorningDataTests(unittest.TestCase):
 
                     self.assertEqual(stdout.getvalue(), "")
                     self.assertIn(f"[morning-report] summaries: skipped ({provider}, missing key)", stderr.getvalue())
-                    final_markdown = output_path.read_text(encoding="utf-8-sig")
-                    self.assertNotIn("<!-- GEMINI_SECTION_1_SUMMARY -->", final_markdown)
-                    self.assertNotIn("## 7.", final_markdown)
+                    final_html = output_path.read_text(encoding="utf-8-sig")
+                    self.assertNotIn("GEMINI_SECTION", final_html)
+                    self.assertIn("本次未產生 LLM 摘要", final_html)
                     self.assertFalse(summaries_path.exists())
                 finally:
                     for path in (payload_path, output_path, template_path, summaries_path):
@@ -949,10 +1001,10 @@ class MorningDataTests(unittest.TestCase):
 
             self.assertEqual(stdout.getvalue(), "")
             self.assertIn("[morning-report] summaries: failed (openai) - OpenAI summary generation failed: overload", stderr.getvalue())
-            final_markdown = output_path.read_text(encoding="utf-8-sig")
-            self.assertNotIn("Section one summary.", final_markdown)
-            self.assertNotIn("<!-- GEMINI_SECTION_1_SUMMARY -->", final_markdown)
-            self.assertNotIn("## 7.", final_markdown)
+            final_html = output_path.read_text(encoding="utf-8-sig")
+            self.assertNotIn("S&amp;P 500 收在 5246.11", final_html)
+            self.assertNotIn("GEMINI_SECTION", final_html)
+            self.assertIn("本次未產生 LLM 摘要", final_html)
             self.assertFalse(summaries_path.exists())
         finally:
             for path in (payload_path, output_path, template_path, summaries_path):

@@ -19,7 +19,7 @@ DEFAULT_PAYLOADS_DIR = Path("payloads")
 DEFAULT_REPORTS_DIR = Path("reports")
 FETCHER_PATH = Path(__file__).with_name("fetch_morning_data.py")
 TAIWAN_TIMEZONE = timezone(timedelta(hours=8))
-SUMMARY_REQUIRED_KEYS = {f"section_{index}" for index in range(1, 7)} | {"final_summary"}
+SUMMARY_REQUIRED_KEYS = {"market_summary"}
 GEMINI_API_URL_TEMPLATE = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 OPENAI_API_URL = "https://api.openai.com/v1/responses"
 XAI_API_URL = "https://api.x.ai/v1/responses"
@@ -60,7 +60,7 @@ class SummaryUnavailable(MorningReportError):
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Fetch, render deterministic tables, and finalize the morning markdown report."
+        description="Fetch, render deterministic tables, and finalize the morning HTML report."
     )
     parser.add_argument("positional_date", nargs="?", help="Optional report date in YYYY-MM-DD format.")
     parser.add_argument("--date", help="Report date in YYYY-MM-DD format. Defaults to yesterday in Taiwan time.")
@@ -76,7 +76,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output",
         dest="output_path",
-        help="Optional final markdown output path. Defaults to reports/morning-<date>.md",
+        help="Optional final HTML output path. Defaults to reports/morning-<date>.html",
     )
     parser.add_argument(
         "--summaries-output",
@@ -97,12 +97,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--template-output",
         dest="template_output_path",
-        help="Optional rendered template output path. Defaults to reports/morning-<date>.template.md",
+        help="Optional rendered template output path. Defaults to reports/morning-<date>.template.html",
     )
     parser.add_argument(
         "--print-report",
         action="store_true",
-        help="Print the final markdown report to stdout after writing files. Status is always printed to stderr.",
+        help="Print the final HTML report to stdout after writing files. Status is always printed to stderr.",
     )
     return parser.parse_args()
 
@@ -133,13 +133,13 @@ def payload_path_for(report_date: str, explicit_path: str | None) -> Path:
 def report_output_path_for(report_date: str, explicit_path: str | None) -> Path:
     if explicit_path:
         return Path(explicit_path)
-    return DEFAULT_REPORTS_DIR / f"morning-{report_date}.md"
+    return DEFAULT_REPORTS_DIR / f"morning-{report_date}.html"
 
 
 def template_output_path_for(report_date: str, explicit_path: str | None) -> Path:
     if explicit_path:
         return Path(explicit_path)
-    return DEFAULT_REPORTS_DIR / f"morning-{report_date}.template.md"
+    return DEFAULT_REPORTS_DIR / f"morning-{report_date}.template.html"
 
 
 def summaries_output_path_for(report_date: str, explicit_path: str | None) -> Path:
@@ -156,15 +156,19 @@ def resolve_fetch_mode(args: argparse.Namespace) -> str:
 
 def run_fetcher(report_date: str, fetch_mode: str) -> None:
     command = [sys.executable, str(FETCHER_PATH), "--date", report_date, f"--{fetch_mode}"]
-    subprocess.run(
-        command,
-        check=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True,
-        encoding="utf-8",
-        errors="replace",
-    )
+    try:
+        subprocess.run(
+            command,
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+        )
+    except subprocess.CalledProcessError as exc:
+        details = (exc.stderr or exc.stdout or str(exc)).strip()
+        raise MorningReportError(f"Fetcher failed: {details}") from exc
 
 
 def status_line(message: str) -> None:
@@ -228,20 +232,8 @@ def print_status_report(
     status_line(f"result: {result_status(payload)}")
 
 
-def remove_summary_placeholders(markdown: str) -> str:
-    placeholder_lines = set(rmr.SECTION_SUMMARY_PLACEHOLDERS.values()) | {rmr.FINAL_SUMMARY_PLACEHOLDER}
-    result = []
-    skip_final_section = False
-    for line in markdown.splitlines():
-        if line.startswith("## 7."):
-            skip_final_section = True
-            continue
-        if skip_final_section:
-            continue
-        if line.strip() in placeholder_lines:
-            continue
-        result.append(line)
-    return "\n".join(result).rstrip() + "\n"
+def remove_summary_placeholders(report_html: str) -> str:
+    return rmr.remove_summary_placeholder(report_html)
 
 
 def looks_like_summary_payload(candidate) -> bool:
@@ -279,37 +271,40 @@ def extract_json_object(text: str) -> dict:
     raise RuntimeError("LLM did not return the required summary JSON object")
 
 
-def build_summary_input(template_markdown: str) -> str:
+def build_summary_input(template_html: str) -> str:
     schema = {
-        "section_1": "one short Traditional Chinese paragraph",
-        "section_2": "one short Traditional Chinese paragraph",
-        "section_3": "one short Traditional Chinese paragraph",
-        "section_4": "one short Traditional Chinese paragraph",
-        "section_5": "one short Traditional Chinese paragraph",
-        "section_6": "one short Traditional Chinese paragraph",
-        "final_summary": [
-            "Traditional Chinese bullet text 1",
-            "Traditional Chinese bullet text 2",
-            "Traditional Chinese bullet text 3",
+        "market_summary": [
+            {
+                "heading": "美股方面",
+                "bullets": [
+                    "Traditional Chinese bullet with actual index close and percentage move from the table",
+                    "Traditional Chinese bullet with another sourced figure",
+                ],
+            }
         ],
     }
     return "\n".join(
         [
-            "You are given a deterministic markdown market report template.",
+            "You are given a deterministic HTML market report template.",
             "The tables and links are source-of-truth and must not be changed.",
-            "Generate summary text only from facts already present in the markdown below.",
+            "Generate the top market summary only from facts already present in the HTML tables below.",
             "Requirements:",
             "- Return exactly one JSON object and nothing else.",
-            "- Use keys section_1 through section_6 plus final_summary.",
-            "- section_1 through section_6 must each be one short Traditional Chinese paragraph.",
-            "- final_summary must be a list of 3 to 5 Traditional Chinese bullet strings.",
-            "- Do not add any number, date, link, source, provider, cause, or news fact that is not already in the markdown.",
-            "- Do not wrap the JSON in markdown fences.",
+            "- Use exactly one top-level key: market_summary.",
+            "- market_summary must be a list of 4 to 6 objects.",
+            "- Each object must have heading and bullets.",
+            "- Each heading must be a short Traditional Chinese section name, such as 美股方面, 台股方面, 其他亞股方面, 匯率與商品, 債市觀察, 財經新聞.",
+            "- Each bullets field must contain 2 to 5 Traditional Chinese bullet strings.",
+            "- Include actual figures from the tables whenever available: closes, point changes, percentage changes, institutional net buy/sell amounts, yield levels, spreads, commodity prices, and FX levels.",
+            "- Compare relative strength or divergence only when the required figures are present in the tables.",
+            "- Do not add any number, date, link, source, provider, cause, or news fact that is not already in the HTML template.",
+            "- Do not output HTML or Markdown.",
+            "- Do not wrap the JSON in code fences.",
             "JSON schema example:",
             json.dumps(schema, ensure_ascii=False, indent=2),
             "",
-            "Markdown template:",
-            template_markdown,
+            "HTML template:",
+            template_html,
         ]
     )
 
@@ -585,29 +580,29 @@ def main() -> int:
         run_fetcher(report_date, fetch_mode)
 
     payload = rmr.read_json_file(payload_path)
-    template_markdown = rmr.render_report(payload)
+    template_report = rmr.render_report(payload)
 
     template_output_path = template_output_path_for(report_date, args.template_output_path)
     summaries_output_path = summaries_output_path_for(report_date, args.summaries_output_path)
     final_output_path = report_output_path_for(report_date, args.output_path)
 
-    write_text(template_output_path, template_markdown)
+    write_text(template_output_path, template_report)
 
     summary_status = "summaries: disabled"
     try:
-        summaries, _ = generate_summaries(args.summary_provider, args.summary_model, template_markdown)
+        summaries, _ = generate_summaries(args.summary_provider, args.summary_model, template_report)
     except SummaryUnavailable as exc:
         summaries = None
         summary_status = fallback_summary_status(args.summary_provider, exc)
     if summaries is None:
-        final_markdown = remove_summary_placeholders(template_markdown)
+        final_report = remove_summary_placeholders(template_report)
         summaries_output_for_status = None
     else:
         write_json(summaries_output_path, summaries)
-        final_markdown = rmr.apply_summaries(template_markdown, summaries)
+        final_report = rmr.apply_summaries(template_report, summaries)
         summaries_output_for_status = summaries_output_path
         summary_status = f"summaries: ok ({args.summary_provider})"
-    write_text(final_output_path, final_markdown)
+    write_text(final_output_path, final_report)
     print_status_report(
         report_date=report_date,
         payload=payload,
@@ -619,7 +614,7 @@ def main() -> int:
         summaries_output_path=summaries_output_for_status,
     )
     if args.print_report:
-        print(final_markdown, end="")
+        print(final_report, end="")
     return 0
 
 

@@ -1,0 +1,44 @@
+name: Daily HTML Report
+
+on:
+  schedule:
+    # 00:30 UTC = 08:30 Asia/Taipei, Tuesday-Saturday.
+    # The generator defaults to the previous Taiwan calendar day.
+    - cron: "30 0 * * 2-6"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate and publish report
+        env:
+          FINMIND_API_TOKEN: ${{ secrets.FINMIND_API_TOKEN }}
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          EODHD_API_KEY: ${{ secrets.EODHD_API_KEY }}
+          MARKETAUX_API_KEY: ${{ secrets.MARKETAUX_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL }}
+        run: python scripts/publish_daily_page.py --live --summary-provider openai
+
+      - name: Commit updated report
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add index.html archive/ payloads/ reports/
+          git diff --cached --quiet && echo "No report changes to commit" || git commit -m "Update daily morning report"
+          git push

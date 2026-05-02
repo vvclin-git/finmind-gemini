@@ -1,6 +1,6 @@
 # FinMind Gemini Market Morning Report
 
-This repo builds the structured JSON payload and deterministic markdown used by the morning market report flow. The report-facing structure stays stable while provider-specific fallback and diagnostics live under `meta`.
+This repo builds the structured JSON payload and deterministic HTML used by the morning market report flow. The report-facing structure stays stable while provider-specific fallback and diagnostics live under `meta`.
 
 ## Maintenance rules
 
@@ -120,13 +120,13 @@ To refetch the default dated payload even if `payloads\<date>.json` already exis
 python scripts\generate_morning_report.py --date 2026-04-22 --refresh
 ```
 
-By default, the generator prints concise status lines to stderr and writes the report to disk. To also print the final markdown to stdout:
+By default, the generator prints concise status lines to stderr and writes the report to disk. To also print the final HTML to stdout:
 
 ```cmd
 python scripts\generate_morning_report.py --date 2026-04-22 --print-report
 ```
 
-LLM summaries are optional. The default provider is `openai`. If the selected provider key is missing or the selected API fails, the generator still writes the deterministic table/news report, strips summary placeholders, omits the final summary section, and prints a warning status line. To disable summaries explicitly:
+LLM summaries are optional. The default provider is `openai`. If the selected provider key is missing or the selected API fails, the generator still writes the deterministic HTML table/news report, omits the top summary content, and prints a warning status line. To disable summaries explicitly:
 
 ```cmd
 python scripts\generate_morning_report.py --date 2026-04-22 --summary-provider none
@@ -151,9 +151,53 @@ The generator will:
 - run `python scripts\generate_morning_report.py` with Taiwan-yesterday as the default date and live data as the default mode, or use `--mock` for deterministic fixture data
 - fetch and archive the payload to `payloads/<date>.json`
 - refetch an existing dated payload when `--refresh` is passed
-- render the deterministic template to `reports/morning-<date>.template.md`
+- render the deterministic HTML template to `reports/morning-<date>.template.html`
 - show each table heading's underlying data date, so stale or mixed-date inputs are visible in the report
-- call the selected LLM and merge `reports/morning-<date>.summaries.json`, or strip summary placeholders when `--summary-provider none` is used or summaries are unavailable
+- call the selected LLM and merge `reports/morning-<date>.summaries.json` into the top summary card, or omit summary text when `--summary-provider none` is used or summaries are unavailable
 - print provider status, missing-section status, summary status, output paths, and final result to stderr
 
 `MORNING_REPORT_USE_LIVE=1` is deprecated. Direct calls to `scripts\fetch_morning_data.py` still accept it as a temporary fallback, but new commands should use `--live` or `--mock`.
+
+## GitHub Pages publishing
+
+The repository can publish the latest morning report through GitHub Pages from the `main` branch root.
+
+Configure GitHub Pages:
+
+1. Open the repository Settings.
+2. Go to Pages.
+3. Set Source to `Deploy from a branch`.
+4. Set Branch to `main` and Folder to `/root`.
+
+The scheduled workflow is `.github/workflows/daily_report.yml`. It runs at `00:30 UTC` Tuesday-Saturday, which is `08:30 Asia/Taipei`, and publishes the prior Taiwan calendar day because the generator defaults to Taiwan-yesterday.
+
+Required repository secrets:
+
+- `FINMIND_API_TOKEN`
+- `FMP_API_KEY`
+- `EODHD_API_KEY`
+- `MARKETAUX_API_KEY`
+- `OPENAI_API_KEY`
+
+Optional repository secret:
+
+- `OPENAI_MODEL`
+
+To publish locally with live data:
+
+```cmd
+python scripts\publish_daily_page.py --live --summary-provider openai
+```
+
+To publish a deterministic mock report for a fixed date:
+
+```cmd
+python scripts\publish_daily_page.py --date 2026-05-01 --mock --summary-provider none
+```
+
+The publish wrapper writes:
+
+- `index.html` for the latest GitHub Pages report
+- `archive/YYYY-MM-DD.html` for the dated report
+- `archive/index.html` for newest-first archive links
+- `payloads/YYYY-MM-DD.json` and `reports/morning-YYYY-MM-DD.*` audit artifacts

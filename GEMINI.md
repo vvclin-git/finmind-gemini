@@ -37,17 +37,17 @@ Generate a daily market morning report in Traditional Chinese from structured JS
 4. 匯率、亞股、原油、黃金
 5. 美國債市與關鍵觀察
 6. 三則重要財經新聞
-7. 晨報總結
+7. 指數與市場變化總結
 
 ## Writing rules
-- For sections 1 to 6, keep the code-rendered tables unchanged and write only the summary paragraph after each table block.
+- Keep the code-rendered tables unchanged. Summary text belongs only in the top summary card.
 - Tables must be built only from the injected JSON.
 - Prose may only summarize values already shown in that section's table.
 - If a field or whole subsection is missing, render the expected table row and write `資料暫缺` in the missing cells.
 - Show numeric facts first, then interpretation.
 - Mention exact dates for every market section.
 - Use concise finance-oriented wording.
-- Keep the final summary to 3 to 5 bullet points.
+- Keep the top market summary grounded in actual table figures, including closes, percentage moves, net buy/sell amounts, yield levels, and spreads when available.
 - When discussing bonds, mention 2Y, 10Y, 30Y, and 10Y-2Y slope if available.
 - When discussing equities, distinguish between index move, market breadth or sentiment, and cross-market comparison.
 - Keep interpretation conservative. If causality is not explicitly supported by the JSON, use softer wording such as `反映`, `顯示`, or `可能與...有關`, and avoid presenting a cause as certain.

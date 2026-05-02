@@ -1,4 +1,4 @@
-description = "Fetch the payload, archive it, render deterministic tables, optionally generate LLM summaries, and finalize the markdown locally."
+description = "Fetch the payload, archive it, render deterministic HTML tables, optionally generate a top LLM summary, and finalize the report locally."
 prompt = """
 !{python scripts/generate_morning_report.py {{args}}}
 """

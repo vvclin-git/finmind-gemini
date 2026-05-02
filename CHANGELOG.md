@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-05-02
+
+### Added
+- Added a GitHub Pages publishing wrapper that copies the generated morning HTML to `index.html`, archives dated pages under `archive/`, and rebuilds the archive listing.
+- Added a scheduled GitHub Actions workflow for Tuesday-Saturday 08:30 Taiwan-time report publishing.
+- Documented GitHub Pages branch setup and required repository secrets.
+
+## 2026-05-01
+
+### Changed
+- Changed the morning report primary artifact from Markdown to standalone HTML.
+- Moved LLM summary content into a single top summary card and removed per-section summary paragraphs.
+- Changed the LLM summary schema to `market_summary` objects with headings and bullets grounded in table figures.
+- Added Asian market movement styling with red up values, green down values, gray flat/missing values, and ▲ / ▼ / ▬ icons.
+- Changed default report paths to `reports/morning-<date>.html` and `reports/morning-<date>.template.html`.
+
 ## 2026-04-28
 
 ### Changed
