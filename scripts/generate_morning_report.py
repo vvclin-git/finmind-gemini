@@ -364,7 +364,7 @@ def call_gemini_for_summaries(template_markdown: str, model_override: str | None
     if not api_key:
         raise SummaryUnavailable("GEMINI_API_KEY is not set")
 
-    model = model_override or os.getenv("GEMINI_MODEL", DEFAULT_GEMINI_MODEL)
+    model = model_override or os.getenv("GEMINI_MODEL") or DEFAULT_GEMINI_MODEL
     input_text = build_summary_input(template_markdown)
     retry_delays = [0] + GEMINI_RETRY_DELAYS_SECONDS
     last_error = None
@@ -452,7 +452,7 @@ def call_openai_for_summaries(template_markdown: str, model_override: str | None
     if not api_key:
         raise SummaryUnavailable("OPENAI_API_KEY is not set")
 
-    model = model_override or os.getenv("OPENAI_MODEL", DEFAULT_OPENAI_MODEL)
+    model = model_override or os.getenv("OPENAI_MODEL") or DEFAULT_OPENAI_MODEL
     input_text = build_summary_input(template_markdown)
     retry_delays = [0] + OPENAI_RETRY_DELAYS_SECONDS
     last_error = None
@@ -505,7 +505,7 @@ def call_xai_for_summaries(template_markdown: str, model_override: str | None = 
     if not api_key:
         raise SummaryUnavailable("XAI_API_KEY is not set")
 
-    model = model_override or os.getenv("XAI_MODEL", DEFAULT_XAI_MODEL)
+    model = model_override or os.getenv("XAI_MODEL") or DEFAULT_XAI_MODEL
     input_text = build_summary_input(template_markdown)
     retry_delays = [0] + XAI_RETRY_DELAYS_SECONDS
     last_error = None

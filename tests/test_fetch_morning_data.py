@@ -558,6 +558,18 @@ class MorningDataTests(unittest.TestCase):
         request_body = json.loads(request.data.decode("utf-8"))
         self.assertEqual(request_body["model"], gmr.DEFAULT_OPENAI_MODEL)
 
+    def test_call_openai_for_summaries_uses_default_model_when_env_is_blank(self) -> None:
+        summaries = sample_summaries()
+        response_payload = {"output_text": json.dumps(summaries, ensure_ascii=False)}
+        with mock.patch.dict("os.environ", {"OPENAI_API_KEY": "test-openai-key", "OPENAI_MODEL": ""}, clear=True), \
+             mock.patch.object(gmr.urllib.request, "urlopen", return_value=FakeGeminiResponse(response_payload)) as urlopen:
+            result, _ = gmr.call_openai_for_summaries("template markdown")
+
+        self.assertEqual(result, summaries)
+        request = urlopen.call_args.args[0]
+        request_body = json.loads(request.data.decode("utf-8"))
+        self.assertEqual(request_body["model"], gmr.DEFAULT_OPENAI_MODEL)
+
     def test_call_xai_for_summaries_reads_responses_api_output(self) -> None:
         summaries = sample_summaries()
         response_payload = {
