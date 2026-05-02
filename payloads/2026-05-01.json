@@ -34,8 +34,8 @@
       {
         "symbol": "DJI",
         "name": "Dow Jones Industrial Average",
-        "close": 49499.26,
-        "change": -152.89,
+        "close": 49499.28,
+        "change": -152.87,
         "change_percent": -0.3079
       },
       {
@@ -57,8 +57,8 @@
       {
         "symbol": "N225",
         "name": "Nikkei 225",
-        "close": 59513.12,
-        "change": 228.2,
+        "close": 59513.1211,
+        "change": 228.1992,
         "change_percent": 0.3849,
         "date": "2026-05-01"
       },
@@ -97,33 +97,33 @@
     {
       "date": "2026-05-02",
       "source": "seekingalpha.com",
-      "title": "Materion Corporation (MTRN) Q1 2026 Earnings Call Transcript",
-      "summary": "Materion Corporation (MTRN) Q1 2026 Earnings Call April 29, 2026 9:00 AM EDTCompany ParticipantsKyle Kelleher - Director of Investor Relations &...",
-      "summary_text": "Materion Corporation (MTRN) Q1 2026 Earnings Call April 29, 2026 9:00 AM EDTCompany ParticipantsKyle Kelleher - Director of Investor Relations &...",
-      "brief": "Materion Corporation (MTRN) Q1 2026 Earnings Call April 29, 2026 9:00 AM EDTCompany ParticipantsKyle Kelleher - Director of Investor Relations &...",
-      "url": "https://seekingalpha.com/article/4895940-materion-corporation-mtrn-q1-2026-earnings-call-transcript"
+      "title": "Twilio: Voice AI Leader Now Too Expensive - Breakout Rally Overdone (NYSE:TWLO)",
+      "summary": "Twilio’s expanding multiproduct adoption, strong voice/messaging growth, and Conversational Intelligence revenue. Read my analysis of TWLO stock here.",
+      "summary_text": "Twilio’s expanding multiproduct adoption, strong voice/messaging growth, and Conversational Intelligence revenue. Read my analysis of TWLO stock here.",
+      "brief": "Twilio’s expanding multiproduct adoption, strong voice/messaging growth, and Conversational Intelligence revenue. Read my analysis of TWLO stock here.",
+      "url": "https://seekingalpha.com/article/4897631-twilio-voice-ai-leader-now-too-expensive-breakout-rally-overdone"
     },
     {
       "date": "2026-05-02",
-      "source": "seekingalpha.com",
-      "title": "Agnico Eagle Mines Limited (AEM) Shareholder/Analyst Call Transcript",
-      "summary": "Agnico Eagle Mines Limited (AEM) Shareholder/Analyst Call May 1, 2026 11:00 AM EDTCompany ParticipantsSean BoydLeona AglukkaqAna Luisa De La RochaJussi...",
-      "summary_text": "Agnico Eagle Mines Limited (AEM) Shareholder/Analyst Call May 1, 2026 11:00 AM EDTCompany ParticipantsSean BoydLeona AglukkaqAna Luisa De La RochaJussi...",
-      "brief": "Agnico Eagle Mines Limited (AEM) Shareholder/Analyst Call May 1, 2026 11:00 AM EDTCompany ParticipantsSean BoydLeona AglukkaqAna Luisa De La RochaJussi...",
-      "url": "https://seekingalpha.com/article/4897549-agnico-eagle-mines-limited-aem-shareholder-analyst-call-transcript"
+      "source": "insidermonkey.com",
+      "title": "AutoNation, Inc. (NYSE:AN) Q1 2026 Earnings Call Transcript",
+      "summary": "Operator: Hello, and welcome to the AutoNation Inc. First Quarter 2026 Earnings Call. My name is Rob, and I'll be your operator today. [Operator Instructions].",
+      "summary_text": "Operator: Hello, and welcome to the AutoNation Inc. First Quarter 2026 Earnings Call. My name is Rob, and I'll be your operator today. [Operator Instructions].",
+      "brief": "Operator: Hello, and welcome to the AutoNation Inc. First Quarter 2026 Earnings Call. My name is Rob, and I'll be your operator today. [Operator Instructions].",
+      "url": "https://www.insidermonkey.com/blog/autonation-inc-nysean-q1-2026-earnings-call-transcript-1752614/"
     },
     {
       "date": "2026-05-02",
-      "source": "financialpost.com",
-      "title": "Faircourt Gold Income Corp. Announces Net Asset Value for Annual Redemption of Class A Shares",
-      "summary": "Toronto, May  01, 2026  (GLOBE NEWSWIRE) — Faircourt Asset Management Inc., the Manager of Faircourt Gold Income Corp. (the “Company”)  announces today that Securit…",
-      "summary_text": "Toronto, May  01, 2026  (GLOBE NEWSWIRE) — Faircourt Asset Management Inc., the Manager of Faircourt Gold Income Corp. (the “Company”)  announces today that Securit…",
-      "brief": "Toronto, May  01, 2026  (GLOBE NEWSWIRE) — Faircourt Asset Management Inc., the Manager of Faircourt Gold Income Corp. (the “Company”)  announces today that Securit…",
-      "url": "https://financialpost.com/globe-newswire/faircourt-gold-income-corp-announces-net-asset-value-for-annual-redemption-of-class-a-shares-6"
+      "source": "insidermonkey.com",
+      "title": "Federal Realty Investment Trust (NYSE:FRT) Q1 2026 Earnings Call Transcript",
+      "summary": "Operator: Good day, and welcome to the Federal Realty Investment Trust First Quarter 2026 Earnings Conference Call. [Operator Instructions] Please also note, today's event is being recorded.",
+      "summary_text": "Operator: Good day, and welcome to the Federal Realty Investment Trust First Quarter 2026 Earnings Conference Call. [Operator Instructions] Please also note, today's event is being recorded.",
+      "brief": "Operator: Good day, and welcome to the Federal Realty Investment Trust First Quarter 2026 Earnings Conference Call. [Operator Instructions] Please also note, today's event is being recorded.",
+      "url": "https://www.insidermonkey.com/blog/federal-realty-investment-trust-nysefrt-q1-2026-earnings-call-transcript-1752612/"
     }
   ],
   "meta": {
-    "generated_at": "2026-05-02T09:17:35+08:00",
+    "generated_at": "2026-05-02T13:31:08+00:00",
     "mode": "live",
     "source_status": {
       "finmind": {
@@ -255,7 +255,7 @@
         "provider": "fmp",
         "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EGSPC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
         "status_code": 200,
-        "response_excerpt": "[   {     \"symbol\": \"^GSPC\",     \"name\": \"S&P 500\",     \"price\": 7229.32,     \"changePercentage\": 0.28173,     \"change\": 20.31,     \"volume\": 2466594000,     \"dayLow\": 7229.32,     \"dayHigh\": 7272.52,     \"yearHigh\": 7272.52,     \"yearLow\": 5578.64,     \"marketCap\": 0,     \"priceAvg50\": 6814.5493,     \"priceAvg200\": 6723.6133,     \"exchange\": \"INDEX\",     \"open\": 7234.54,     \"previousClose\": 7209...",
+        "response_excerpt": "[   {     \"symbol\": \"^GSPC\",     \"name\": \"S&P 500\",     \"price\": 7230.12,     \"changePercentage\": 0.29283,     \"change\": 21.11,     \"volume\": 2918281000,     \"dayLow\": 7229.32,     \"dayHigh\": 7272.52,     \"yearHigh\": 7272.52,     \"yearLow\": 5578.64,     \"marketCap\": 0,     \"priceAvg50\": 6821.914,     \"priceAvg200\": 6728.4453,     \"exchange\": \"INDEX\",     \"open\": 7234.54,     \"previousClose\": 7209....",
         "selected_symbol": "^GSPC",
         "rejected_candidates": [],
         "notes": null
@@ -264,7 +264,7 @@
         "provider": "fmp",
         "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5EGSPC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
         "status_code": 200,
-        "response_excerpt": "[   {     \"symbol\": \"^GSPC\",     \"date\": \"2026-05-01\",     \"open\": 7234.54,     \"high\": 7272.52,     \"low\": 7229.32,     \"close\": 7230.11,     \"volume\": 2918281000,     \"change\": -4.43,     \"changePercent\": -0.06123402,     \"vwap\": 7241.6225   },   {     \"symbol\": \"^GSPC\",     \"date\": \"2026-04-30\",     \"open\": 7168.2,     \"high\": 7219.83,     \"low\": 7126.15,     \"close\": 7209.02,     \"volume\": 572...",
+        "response_excerpt": "[   {     \"symbol\": \"^GSPC\",     \"date\": \"2026-05-01\",     \"open\": 7234.54,     \"high\": 7272.52,     \"low\": 7229.32,     \"close\": 7230.11,     \"volume\": 4847390000,     \"change\": -4.43,     \"changePercent\": -0.06123402,     \"vwap\": 7241.6225   },   {     \"symbol\": \"^GSPC\",     \"date\": \"2026-04-30\",     \"open\": 7168.2,     \"high\": 7219.83,     \"low\": 7126.15,     \"close\": 7209.02,     \"volume\": 572...",
         "selected_symbol": "^GSPC",
         "rejected_candidates": [
           {
@@ -278,7 +278,7 @@
         "provider": "fmp",
         "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EIXIC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
         "status_code": 200,
-        "response_excerpt": "[   {     \"symbol\": \"^IXIC\",     \"name\": \"NASDAQ Composite\",     \"price\": 25114.4433,     \"changePercentage\": 0.89237,     \"change\": 222.1313,     \"volume\": 6228251534,     \"dayLow\": 24967.09,     \"dayHigh\": 25223.121,     \"yearHigh\": 25223.121,     \"yearLow\": 17503.01,     \"marketCap\": 0,     \"priceAvg50\": 22876.748,     \"priceAvg200\": 22686.953,     \"exchange\": \"INDEX\",     \"open\": 24977.79,    ...",
+        "response_excerpt": "[   {     \"symbol\": \"^IXIC\",     \"name\": \"NASDAQ Composite\",     \"price\": 25114.443,     \"changePercentage\": 0.89237,     \"change\": 222.131,     \"volume\": 6413265000,     \"dayLow\": 24967.09,     \"dayHigh\": 25223.121,     \"yearHigh\": 25223.121,     \"yearLow\": 17503.01,     \"marketCap\": 0,     \"priceAvg50\": 22925.38,     \"priceAvg200\": 22708.871,     \"exchange\": \"INDEX\",     \"open\": 24977.79,     \"p...",
         "selected_symbol": "^IXIC",
         "rejected_candidates": [],
         "notes": null
@@ -301,7 +301,7 @@
         "provider": "fmp",
         "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EDJI&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
         "status_code": 200,
-        "response_excerpt": "[   {     \"symbol\": \"^DJI\",     \"name\": \"Dow Jones Industrial Average\",     \"price\": 49499.26,     \"changePercentage\": -0.30792,     \"change\": -152.89,     \"volume\": 462100000,     \"dayLow\": 49496.47,     \"dayHigh\": 49988.56,     \"yearHigh\": 50512.79,     \"yearLow\": 40759.41,     \"marketCap\": 0,     \"priceAvg50\": 47857.992,     \"priceAvg200\": 47181.95,     \"exchange\": \"INDEX\",     \"open\": 49832.57...",
+        "response_excerpt": "[   {     \"symbol\": \"^DJI\",     \"name\": \"Dow Jones Industrial Average\",     \"price\": 49499.27,     \"changePercentage\": -0.3079,     \"change\": -152.88,     \"volume\": 467065654,     \"dayLow\": 49496.47,     \"dayHigh\": 49988.56,     \"yearHigh\": 50512.79,     \"yearLow\": 40759.41,     \"marketCap\": 0,     \"priceAvg50\": 47860.074,     \"priceAvg200\": 47208.17,     \"exchange\": \"INDEX\",     \"open\": 49832.57,...",
         "selected_symbol": "^DJI",
         "rejected_candidates": [],
         "notes": null
@@ -310,7 +310,7 @@
         "provider": "fmp",
         "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5EDJI&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
         "status_code": 200,
-        "response_excerpt": "[   {     \"symbol\": \"^DJI\",     \"date\": \"2026-05-01\",     \"open\": 49832.57,     \"high\": 49988.56,     \"low\": 49496.47,     \"close\": 49499.26,     \"volume\": 465283513,     \"change\": -333.31,     \"changePercent\": -0.66886,     \"vwap\": 49704.215   },   {     \"symbol\": \"^DJI\",     \"date\": \"2026-04-30\",     \"open\": 48762.93,     \"high\": 49753.26,     \"low\": 48762.93,     \"close\": 49652.15,     \"volume\"...",
+        "response_excerpt": "[   {     \"symbol\": \"^DJI\",     \"date\": \"2026-05-01\",     \"open\": 49832.57,     \"high\": 49988.56,     \"low\": 49496.47,     \"close\": 49499.28,     \"volume\": 465300000,     \"change\": -333.29,     \"changePercent\": -0.66882,     \"vwap\": 49704.22   },   {     \"symbol\": \"^DJI\",     \"date\": \"2026-04-30\",     \"open\": 48762.93,     \"high\": 49753.26,     \"low\": 48762.93,     \"close\": 49652.15,     \"volume\":...",
         "selected_symbol": "^DJI",
         "rejected_candidates": [
           {
@@ -324,7 +324,7 @@
         "provider": "fmp",
         "url": "https://financialmodelingprep.com/stable/quote?symbol=%5ERUT&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
         "status_code": 200,
-        "response_excerpt": "[   {     \"symbol\": \"^RUT\",     \"name\": \"Russell 2000\",     \"price\": 2812.8222,     \"changePercentage\": 0.46135,     \"change\": 12.9173,     \"volume\": 0,     \"dayLow\": 2788.5212,     \"dayHigh\": 2815.6876,     \"yearHigh\": 2817.96,     \"yearLow\": 1976.86,     \"marketCap\": 0,     \"priceAvg50\": 2612.3057,     \"priceAvg200\": 2495.1729,     \"exchange\": \"INDEX\",     \"open\": 2803.8487,     \"previousClose\":...",
+        "response_excerpt": "[   {     \"symbol\": \"^RUT\",     \"name\": \"Russell 2000\",     \"price\": 2812.8223,     \"changePercentage\": 0.46135,     \"change\": 12.9174,     \"volume\": 0,     \"dayLow\": 2788.5212,     \"dayHigh\": 2815.6876,     \"yearHigh\": 2817.96,     \"yearLow\": 1976.86,     \"marketCap\": 0,     \"priceAvg50\": 2615.2603,     \"priceAvg200\": 2498.102,     \"exchange\": \"INDEX\",     \"open\": 2803.8487,     \"previousClose\": ...",
         "selected_symbol": "^RUT",
         "rejected_candidates": [],
         "notes": null
