@@ -426,6 +426,17 @@ class MorningDataTests(unittest.TestCase):
         self.assertIn('<span class="summary-move up"><span class="move-icon" aria-hidden="true">▲</span>\u4e0a\u5347 3.88\uff08\u25b23.88\uff09</span>', html)
         self.assertIn("unsafe &lt;b&gt; remains escaped", html)
 
+    def test_summary_prompt_requires_renderer_compatible_movement_words(self) -> None:
+        prompt = gmr.build_summary_input("<table></table>")
+
+        self.assertIn("renderer-compatible movement wording", prompt)
+        self.assertIn("write 上漲", prompt)
+        self.assertIn("write 下跌", prompt)
+        self.assertIn("write 買超", prompt)
+        self.assertIn("Do not use neutral labels like 漲跌", prompt)
+        self.assertIn("上漲 21.09（+0.2926%）", prompt)
+        self.assertIn("下跌 29.35（-0.4059%）", prompt)
+
     def test_extract_json_object_accepts_plain_or_fenced_json(self) -> None:
         plain = '{"market_summary":[{"heading":"a","bullets":["x","y"]}]}'
         fenced = "```json\n" + plain + "\n```"

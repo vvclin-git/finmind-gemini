@@ -277,8 +277,8 @@ def build_summary_input(template_html: str) -> str:
             {
                 "heading": "美股方面",
                 "bullets": [
-                    "Traditional Chinese bullet with actual index close and percentage move from the table",
-                    "Traditional Chinese bullet with another sourced figure",
+                    "S&P 500 收盤 7200.76，下跌 29.35（-0.4059%）。",
+                    "三大法人合計買超 779.4476 新台幣億元。",
                 ],
             }
         ],
@@ -296,6 +296,13 @@ def build_summary_input(template_html: str) -> str:
             "- Each heading must be a short Traditional Chinese section name, such as 美股方面, 台股方面, 其他亞股方面, 匯率與商品, 債市觀察, 財經新聞.",
             "- Each bullets field must contain 2 to 5 Traditional Chinese bullet strings.",
             "- Include actual figures from the tables whenever available: closes, point changes, percentage changes, institutional net buy/sell amounts, yield levels, spreads, commodity prices, and FX levels.",
+            "- Use renderer-compatible movement wording so values can be colored and receive up/down icons in the HTML summary.",
+            "- The renderer adds red ▲ styling to positive phrases and green ▼ styling to negative phrases only when these movement words appear in the bullet text.",
+            "- For positive index, FX, commodity, or yield moves, write 上漲, 上升, 上揚, 收高, 走高, 增加, or 攀升 followed by the actual value and percentage when available.",
+            "- For negative index, FX, commodity, or yield moves, write 下跌, 下降, 下滑, 收低, 走低, 減少, or 回落 followed by the absolute point/value move and the signed percentage when available.",
+            "- For institutional flow, write 買超 for positive values and 賣超 for negative values.",
+            "- Do not use neutral labels like 漲跌, 漲跌幅, 變動, or change as the only movement wording in summary bullets.",
+            "- Keep movement phrases compact, for example: 上漲 21.09（+0.2926%）, 下跌 29.35（-0.4059%）, 買超 779.4476 新台幣億元.",
             "- Compare relative strength or divergence only when the required figures are present in the tables.",
             "- Do not add any number, date, link, source, provider, cause, or news fact that is not already in the HTML template.",
             "- Do not output HTML or Markdown.",
