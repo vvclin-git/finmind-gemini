@@ -2,9 +2,11 @@ name: Daily HTML Report
 
 on:
   schedule:
-    # 00:30 UTC = 08:30 Asia/Taipei, Tuesday-Saturday.
+    # 20:30 UTC Monday-Friday = 04:30 Asia/Taipei Tuesday-Saturday.
+    # This intentionally runs four hours before the target 08:30 Taiwan publish time
+    # to offset observed GitHub Actions schedule delays.
     # The generator defaults to the previous Taiwan calendar day.
-    - cron: "30 0 * * 2-6"
+    - cron: "30 20 * * 1-5"
   workflow_dispatch:
 
 permissions:

@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+### Changed
+- Shifted the scheduled GitHub Actions report workflow four hours earlier to offset observed scheduler delays and better target Tuesday-Saturday 08:30 Taiwan-time publishing.
+
 ## 2026-05-02
 
 ### Added

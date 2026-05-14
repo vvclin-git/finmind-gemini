@@ -169,7 +169,7 @@ Configure GitHub Pages:
 3. Set Source to `Deploy from a branch`.
 4. Set Branch to `main` and Folder to `/root`.
 
-The scheduled workflow is `.github/workflows/daily_report.yml`. It runs at `00:30 UTC` Tuesday-Saturday, which is `08:30 Asia/Taipei`, and publishes the prior Taiwan calendar day because the generator defaults to Taiwan-yesterday.
+The scheduled workflow is `.github/workflows/daily_report.yml`. It runs at `20:30 UTC` Monday-Friday, which is `04:30 Asia/Taipei` Tuesday-Saturday. This is four hours before the target `08:30 Asia/Taipei` publish time to compensate for observed GitHub Actions schedule delays. The report still publishes the prior Taiwan calendar day because the generator defaults to Taiwan-yesterday.
 
 Required repository secrets:
 
