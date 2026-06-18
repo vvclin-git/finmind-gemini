@@ -1,0 +1,391 @@
+﻿{
+  "report_date": "2026-06-18",
+  "taiwan_market": {
+    "date": "2026-06-18",
+    "twse_index": {
+      "close": 46465.2,
+      "change": 587.81,
+      "change_percent": 1.2813
+    },
+    "tpex_index": {
+      "symbol": "TPEX",
+      "name": "TPEx OTC Index",
+      "close": 447.06,
+      "change": 13.72,
+      "change_percent": 3.1661
+    },
+    "market_breadth": null
+  },
+  "taiwan_institutional": {
+    "date": "2026-06-18",
+    "foreign_investors_net_buy_sell": 211.4674,
+    "investment_trust_net_buy_sell": -53.5681,
+    "dealer_net_buy_sell": 154.8827,
+    "three_institutions_net_buy_sell": 312.782,
+    "unit": "新台幣億元"
+  },
+  "us_market": {
+    "date": "2026-06-18",
+    "indices": [
+      {
+        "symbol": "SPX",
+        "name": "S&P 500",
+        "close": 7500.57,
+        "change": 80.46,
+        "change_percent": 1.0844
+      },
+      {
+        "symbol": "IXIC",
+        "name": "Nasdaq Composite",
+        "close": 26517.93,
+        "change": 496.27,
+        "change_percent": 1.9071
+      },
+      {
+        "symbol": "DJI",
+        "name": "Dow Jones Industrial Average",
+        "close": 51564.7,
+        "change": 72.14,
+        "change_percent": 0.1401
+      },
+      {
+        "symbol": "RUT",
+        "name": "Russell 2000",
+        "close": 2979.77,
+        "change": 61.79,
+        "change_percent": 2.1176
+      }
+    ]
+  },
+  "fx": {
+    "date": "2026-06-18",
+    "usd_twd": {
+      "close": 31.58,
+      "change": 0.005,
+      "change_percent": 0.0158
+    }
+  },
+  "asia_market": {
+    "date": "2026-06-18",
+    "indices": [
+      {
+        "symbol": "N225",
+        "name": "Nikkei 225",
+        "close": 71053.49,
+        "change": 1151.24,
+        "change_percent": 1.6469,
+        "date": "2026-06-18"
+      },
+      {
+        "symbol": "HSI",
+        "name": "Hang Seng Index",
+        "close": 23924.81,
+        "change": -387.3502,
+        "change_percent": -1.5932,
+        "date": "2026-06-18"
+      },
+      {
+        "symbol": "KS11",
+        "name": "KOSPI",
+        "close": 9063.84,
+        "change": 199.6,
+        "change_percent": 2.2517,
+        "date": "2026-06-18"
+      }
+    ]
+  },
+  "commodities": {
+    "date": "2026-06-18",
+    "gold": {
+      "close": 4274.51,
+      "change": 0.67,
+      "change_percent": 0.0157,
+      "unit": "USD/oz"
+    },
+    "crude_oil": {
+      "close": 84.65,
+      "change": -3.97,
+      "change_percent": -4.4798,
+      "unit": "USD/bbl"
+    }
+  },
+  "bonds": {
+    "date": "2026-06-18",
+    "yield_2y": 4.19,
+    "yield_10y": 4.46,
+    "yield_30y": 4.9,
+    "slope_10y_2y": 0.27,
+    "unit": "percent"
+  },
+  "news": [
+    {
+      "date": "2026-06-18",
+      "source": "seekingalpha.com",
+      "title": "Kroger: Undervalued After The Post-Earnings Selloff (Upgrade) (NYSE:KR)",
+      "summary": "Kroger (KR) upgraded to Buy after earnings drop; valuation offers margin of safety. Click here to read my most recent analysis of Kroger stock.",
+      "summary_text": "Kroger (KR) upgraded to Buy after earnings drop; valuation offers margin of safety. Click here to read my most recent analysis of Kroger stock.",
+      "brief": "Kroger (KR) upgraded to Buy after earnings drop; valuation offers margin of safety. Click here to read my most recent analysis of Kroger stock.",
+      "url": "https://seekingalpha.com/article/4916170-kroger-undervalued-after-the-post-earnings-selloff-upgrade"
+    },
+    {
+      "date": "2026-06-18",
+      "source": "manilatimes.net",
+      "title": "Annual General Meeting Statement",
+      "summary": "Annual General Meeting Statement",
+      "summary_text": "Annual General Meeting Statement",
+      "brief": "Annual General Meeting Statement",
+      "url": "https://www.manilatimes.net/2026/06/19/tmt-newswire/globenewswire/annual-general-meeting-statement/2368881"
+    },
+    {
+      "date": "2026-06-18",
+      "source": "manilatimes.net",
+      "title": "Stingray Announces $15.4 Million Share Buyback",
+      "summary": "MONTRÉAL, June 18, 2026 (GLOBE NEWSWIRE) -- Stingray Group Inc. ('Stingray” or the 'Corporation”) (TSX: RAY) today announced that it has entered into a private agreement with CDP Investissements inc., a subsidiary of La Caisse for the repurchase for cancellation of 1,000,000 Subordinate Voting and Variable Subordinate Voting Shares of Stingray held by La Caisse at a price of $15.40 per share, for a total consideration of $15.4 million. The repurchase price represents a discount of 5.1% to the closing price of the shares on the Toronto Stock Exchange ('TSX”) on June 18, 2026, and will be paid using Stingray’s cash on hand.",
+      "summary_text": "MONTRÉAL, June 18, 2026 (GLOBE NEWSWIRE) -- Stingray Group Inc. ('Stingray” or the 'Corporation”) (TSX: RAY) today announced that it has entered into a private agreement with CDP Investissements inc., a subsidiary of La Caisse for the repurchase for cancellation of 1,000,000 Subordinate Voting and Variable Subordinate Voting Shares of Stingray held by La Caisse at a price of $15.40 per share, for a total consideration of $15.4 million. The repurchase price represents a discount of 5.1% to the closing price of the shares on the Toronto Stock Exchange ('TSX”) on June 18, 2026, and will be paid using Stingray’s cash on hand.",
+      "brief": "MONTRÉAL, June 18, 2026 (GLOBE NEWSWIRE) -- Stingray Group Inc. ('Stingray” or the 'Corporation”) (TSX: RAY) today announced that it has entered into a private agreement with CDP Investissements inc., a subsidiary of La Caisse for the repurchase for cancellation of 1,000,000 Subordinate Voting and Variable Subordinate Voting Shares of Stingray held by La Caisse at a price of $15.40 per share, for a total consideration of $15.4 million. The repurchase price represents a discount of 5.1% to the closing price of the shares on the Toronto Stock Exchange ('TSX”) on June 18, 2026, and will be paid using Stingray’s cash on hand.",
+      "url": "https://www.manilatimes.net/2026/06/19/tmt-newswire/globenewswire/stingray-announces-154-million-share-buyback/2368879"
+    }
+  ],
+  "meta": {
+    "generated_at": "2026-06-18T22:30:15+00:00",
+    "mode": "live",
+    "source_status": {
+      "finmind": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "tpex": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "marketaux": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "treasury": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "fmp": {
+        "status": "ok",
+        "message": "Fetched 4/4 U.S. indices through FMP"
+      },
+      "asia_indices": {
+        "status": "ok",
+        "message": "Resolved 3/3 Asia indices through EODHD"
+      }
+    },
+    "sources_used": [
+      "finmind",
+      "tpex",
+      "fmp",
+      "eodhd",
+      "marketaux",
+      "treasury"
+    ],
+    "partial_success": false,
+    "missing_sections": [],
+    "provider_by_field": {
+      "taiwan_market.tpex_index": "tpex",
+      "us_market.indices.SPX": "fmp",
+      "us_market.indices.IXIC": "fmp",
+      "us_market.indices.DJI": "fmp",
+      "us_market.indices.RUT": "fmp",
+      "asia_market.indices.N225": "eodhd",
+      "asia_market.indices.HSI": "eodhd",
+      "asia_market.indices.KS11": "eodhd"
+    },
+    "index_status": {
+      "us_market": {
+        "SPX": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^GSPC",
+          "error_category": null,
+          "message": null
+        },
+        "IXIC": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^IXIC",
+          "error_category": null,
+          "message": null
+        },
+        "DJI": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^DJI",
+          "error_category": null,
+          "message": null
+        },
+        "RUT": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^RUT",
+          "error_category": null,
+          "message": null
+        }
+      },
+      "asia_market": {
+        "N225": {
+          "status": "ok",
+          "provider_used": "eodhd",
+          "fallback_used": false,
+          "selected_symbol": "N225.INDX",
+          "error_category": null,
+          "message": null
+        },
+        "HSI": {
+          "status": "ok",
+          "provider_used": "eodhd",
+          "fallback_used": false,
+          "selected_symbol": "HSI.INDX",
+          "error_category": null,
+          "message": null
+        },
+        "KS11": {
+          "status": "ok",
+          "provider_used": "eodhd",
+          "fallback_used": false,
+          "selected_symbol": "KS11.INDX",
+          "error_category": null,
+          "message": null
+        }
+      }
+    },
+    "request_debug": [
+      {
+        "provider": "tpex",
+        "url": "https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?response=data",
+        "status_code": 200,
+        "response_excerpt": "資料日期,開市,最高價,最低價,收市,漲跌  \"20260601\",\"443.97\",\"451.09\",\"443.97\",\"446.02\",\"2.38\"  \"20260602\",\"446.83\",\"449.47\",\"433.71\",\"440.64\",\"-5.38\"  \"20260603\",\"442.60\",\"450.18\",\"442.60\",\"446.82\",\"6.18\"  \"20260604\",\"444.98\",\"445.62\",\"440.10\",\"440.10\",\"-6.72\"  \"20260605\",\"438.19\",\"438.19\",\"419.44\",\"431.07\",\"-9.03\"  \"20260608\",\"422.43\",\"422.43\",\"395.16\",\"412.57\",\"-18.50\"  \"20260609\",\"414.05\",\"424.71\",\"413.54\",\"424...",
+        "selected_symbol": null,
+        "rejected_candidates": [],
+        "notes": "Official TPEx OTC index dataset fetched with TPEx-specific relaxed TLS context."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EGSPC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^GSPC\",     \"name\": \"S&P 500\",     \"price\": 7497.86,     \"changePercentage\": 1.04796,     \"change\": 77.76,     \"volume\": 3257605000,     \"dayLow\": 7468.32,     \"dayHigh\": 7511.07,     \"yearHigh\": 7620.9,     \"yearLow\": 5943.23,     \"marketCap\": 0,     \"priceAvg50\": 7301.277,     \"priceAvg200\": 6897.206,     \"exchange\": \"INDEX\",     \"open\": 7487.36,     \"previousClose\": 7420.1,...",
+        "selected_symbol": "^GSPC",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5EGSPC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^GSPC\",     \"date\": \"2026-06-18\",     \"open\": 7487.36,     \"high\": 7511.07,     \"low\": 7468.32,     \"close\": 7500.57,     \"volume\": 6324161000,     \"change\": 13.21,     \"changePercent\": 0.17643,     \"vwap\": 7491.83   },   {     \"symbol\": \"^GSPC\",     \"date\": \"2026-06-17\",     \"open\": 7524.5,     \"high\": 7532.17,     \"low\": 7402.61,     \"close\": 7420.11,     \"volume\": 588374000...",
+        "selected_symbol": "^GSPC",
+        "rejected_candidates": [
+          {
+            "symbol": "^GSPC",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EIXIC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^IXIC\",     \"name\": \"NASDAQ Composite\",     \"price\": 26517.9314,     \"changePercentage\": 1.90716,     \"change\": 496.2754,     \"volume\": 15844029038,     \"dayLow\": 26188.688,     \"dayHigh\": 26559.742,     \"yearHigh\": 27190.21,     \"yearLow\": 19334.98,     \"marketCap\": 0,     \"priceAvg50\": 25474.656,     \"priceAvg200\": 23502.451,     \"exchange\": \"INDEX\",     \"open\": 26410.623,  ...",
+        "selected_symbol": "^IXIC",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5EIXIC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^IXIC\",     \"date\": \"2026-06-18\",     \"open\": 26410.62,     \"high\": 26559.74,     \"low\": 26188.69,     \"close\": 26517.93,     \"volume\": 17780101000,     \"change\": 107.31,     \"changePercent\": 0.40631,     \"vwap\": 26419.245   },   {     \"symbol\": \"^IXIC\",     \"date\": \"2026-06-17\",     \"open\": 26493.82,     \"high\": 26511.55,     \"low\": 25960.41,     \"close\": 26021.66,     \"volum...",
+        "selected_symbol": "^IXIC",
+        "rejected_candidates": [
+          {
+            "symbol": "^IXIC",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EDJI&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^DJI\",     \"name\": \"Dow Jones Industrial Average\",     \"price\": 51564.7,     \"changePercentage\": 0.14012,     \"change\": 72.15,     \"volume\": 985372653,     \"dayLow\": 51554.53,     \"dayHigh\": 51949.26,     \"yearHigh\": 52281.19,     \"yearLow\": 41981.14,     \"marketCap\": 0,     \"priceAvg50\": 49866.656,     \"priceAvg200\": 48121.91,     \"exchange\": \"INDEX\",     \"open\": 51571.85,   ...",
+        "selected_symbol": "^DJI",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5EDJI&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^DJI\",     \"date\": \"2026-06-18\",     \"open\": 51571.85,     \"high\": 51949.26,     \"low\": 51554.53,     \"close\": 51564.7,     \"volume\": 985372653,     \"change\": -7.15,     \"changePercent\": -0.0138687,     \"vwap\": 51660.0875   },   {     \"symbol\": \"^DJI\",     \"date\": \"2026-06-17\",     \"open\": 51937.56,     \"high\": 52281.19,     \"low\": 51392.58,     \"close\": 51492.56,     \"volume\"...",
+        "selected_symbol": "^DJI",
+        "rejected_candidates": [
+          {
+            "symbol": "^DJI",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5ERUT&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^RUT\",     \"name\": \"Russell 2000\",     \"price\": 2979.7656,     \"changePercentage\": 2.11734,     \"change\": 61.7836,     \"volume\": 0,     \"dayLow\": 2939.8164,     \"dayHigh\": 2980.5957,     \"yearHigh\": 2996.42,     \"yearLow\": 2088.07,     \"marketCap\": 0,     \"priceAvg50\": 2824.2358,     \"priceAvg200\": 2594.3901,     \"exchange\": \"INDEX\",     \"open\": 2952.5789,     \"previousClose\":...",
+        "selected_symbol": "^RUT",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5ERUT&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^RUT\",     \"date\": \"2026-06-18\",     \"open\": 2952.58,     \"high\": 2980.6,     \"low\": 2939.82,     \"close\": 2979.77,     \"volume\": 0,     \"change\": 27.19,     \"changePercent\": 0.92089,     \"vwap\": 2963.1925   },   {     \"symbol\": \"^RUT\",     \"date\": \"2026-06-17\",     \"open\": 2945.79,     \"high\": 2977.2,     \"low\": 2910.95,     \"close\": 2917.98,     \"volume\": 5883740000,     \"ch...",
+        "selected_symbol": "^RUT",
+        "rejected_candidates": [
+          {
+            "symbol": "^RUT",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "eodhd",
+        "url": "https://eodhd.com/api/eod/N225.INDX?api_token=69e98bc2381157.40657526&fmt=json&period=d&from=2026-06-08&to=2026-06-18",
+        "status_code": 200,
+        "response_excerpt": "[{\"date\":\"2026-06-08\",\"open\":65947.5625,\"high\":66115.1797,\"low\":63406.6602,\"close\":64024.6016,\"adjusted_close\":64024.6016,\"volume\":179500000},{\"date\":\"2026-06-09\",\"open\":64625.2617,\"high\":65485.1602,\"low\":63918.9609,\"close\":65416.6289,\"adjusted_close\":65416.6289,\"volume\":168100000},{\"date\":\"2026-06-10\",\"open\":64952.3789,\"high\":65098.8594,\"low\":63733.0391,\"close\":64179.2695,\"adjusted_close\":64179.2...",
+        "selected_symbol": "N225.INDX",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "eodhd",
+        "url": "https://eodhd.com/api/eod/HSI.INDX?api_token=69e98bc2381157.40657526&fmt=json&period=d&from=2026-06-08&to=2026-06-18",
+        "status_code": 200,
+        "response_excerpt": "[{\"date\":\"2026-06-08\",\"open\":24582.9102,\"high\":24837.9805,\"low\":24458.5391,\"close\":24657.0605,\"adjusted_close\":24657.0605,\"volume\":3806700000},{\"date\":\"2026-06-09\",\"open\":24551.9297,\"high\":24740.6504,\"low\":24486.3906,\"close\":24565.9004,\"adjusted_close\":24565.9004,\"volume\":3359000000},{\"date\":\"2026-06-10\",\"open\":24442.5195,\"high\":24505.9609,\"low\":24207.0293,\"close\":24407.9609,\"adjusted_close\":24407...",
+        "selected_symbol": "HSI.INDX",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "eodhd",
+        "url": "https://eodhd.com/api/eod/KS11.INDX?api_token=69e98bc2381157.40657526&fmt=json&period=d&from=2026-06-08&to=2026-06-18",
+        "status_code": 200,
+        "response_excerpt": "[{\"date\":\"2026-06-08\",\"open\":8048.09,\"high\":8048.09,\"low\":7442.73,\"close\":7484.41,\"adjusted_close\":7484.41,\"volume\":452204000},{\"date\":\"2026-06-09\",\"open\":7697.76,\"high\":8119.09,\"low\":7598.87,\"close\":8096.93,\"adjusted_close\":8096.93,\"volume\":448537000},{\"date\":\"2026-06-10\",\"open\":7899.77,\"high\":7996.6802,\"low\":7541.1099,\"close\":7730.8198,\"adjusted_close\":7730.8198,\"volume\":460900},{\"date\":\"2026-06...",
+        "selected_symbol": "KS11.INDX",
+        "rejected_candidates": [],
+        "notes": null
+      }
+    ]
+  }
+}
