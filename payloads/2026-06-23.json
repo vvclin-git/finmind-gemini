@@ -1,0 +1,391 @@
+﻿{
+  "report_date": "2026-06-23",
+  "taiwan_market": {
+    "date": "2026-06-23",
+    "twse_index": {
+      "close": 47100.65,
+      "change": -640.86,
+      "change_percent": -1.3424
+    },
+    "tpex_index": {
+      "symbol": "TPEX",
+      "name": "TPEx OTC Index",
+      "close": 440.81,
+      "change": -12.69,
+      "change_percent": -2.7982
+    },
+    "market_breadth": null
+  },
+  "taiwan_institutional": {
+    "date": "2026-06-23",
+    "foreign_investors_net_buy_sell": -385.9235,
+    "investment_trust_net_buy_sell": 72.3596,
+    "dealer_net_buy_sell": -169.8415,
+    "three_institutions_net_buy_sell": -483.4055,
+    "unit": "新台幣億元"
+  },
+  "us_market": {
+    "date": "2026-06-23",
+    "indices": [
+      {
+        "symbol": "SPX",
+        "name": "S&P 500",
+        "close": 7365.92,
+        "change": -106.86,
+        "change_percent": -1.43
+      },
+      {
+        "symbol": "IXIC",
+        "name": "Nasdaq Composite",
+        "close": 25589.012,
+        "change": -577.588,
+        "change_percent": -2.2073
+      },
+      {
+        "symbol": "DJI",
+        "name": "Dow Jones Industrial Average",
+        "close": 51665.39,
+        "change": -47.32,
+        "change_percent": -0.0915
+      },
+      {
+        "symbol": "RUT",
+        "name": "Russell 2000",
+        "close": 2974.8471,
+        "change": -29.5529,
+        "change_percent": -0.9837
+      }
+    ]
+  },
+  "fx": {
+    "date": "2026-06-23",
+    "usd_twd": {
+      "close": 31.635,
+      "change": -0.005,
+      "change_percent": -0.0158
+    }
+  },
+  "asia_market": {
+    "date": "2026-06-23",
+    "indices": [
+      {
+        "symbol": "N225",
+        "name": "Nikkei 225",
+        "close": 69788.38,
+        "change": -2565.58,
+        "change_percent": -3.5459,
+        "date": "2026-06-23"
+      },
+      {
+        "symbol": "HSI",
+        "name": "Hang Seng Index",
+        "close": 23336.28,
+        "change": -432.24,
+        "change_percent": -1.8185,
+        "date": "2026-06-23"
+      },
+      {
+        "symbol": "KS11",
+        "name": "KOSPI",
+        "close": 8203.84,
+        "change": -910.71,
+        "change_percent": -9.9918,
+        "date": "2026-06-23"
+      }
+    ]
+  },
+  "commodities": {
+    "date": "2026-06-23",
+    "gold": {
+      "close": 4188.33,
+      "change": -1.64,
+      "change_percent": -0.0391,
+      "unit": "USD/oz"
+    },
+    "crude_oil": {
+      "close": 84.65,
+      "change": -3.97,
+      "change_percent": -4.4798,
+      "unit": "USD/bbl"
+    }
+  },
+  "bonds": {
+    "date": "2026-06-23",
+    "yield_2y": 4.16,
+    "yield_10y": 4.5,
+    "yield_30y": 4.94,
+    "slope_10y_2y": 0.34,
+    "unit": "percent"
+  },
+  "news": [
+    {
+      "date": "2026-06-23",
+      "source": "manilatimes.net",
+      "title": "Columbia Financial, Inc. Announces Preliminary Subscription Offering Results and Increase in Maximum Purchase Limits",
+      "summary": "FAIR LAWN, N.J., June 23, 2026 (GLOBE NEWSWIRE) -- Columbia Financial, Inc. ('Columbia”) (NASDAQ: CLBK), a Delaware corporation and the mid-tier holding company for Columbia Bank, announced today, on a preliminary basis, that Columbia Financial, Inc., a Maryland corporation and the proposed successor to Columbia, received over 5,000 orders representing approximately $925 million in the subscription offering that expired on June 16, 2026 in connection with the 'second-step” conversion of Columbia Bank MHC from mutual to stock form.",
+      "summary_text": "FAIR LAWN, N.J., June 23, 2026 (GLOBE NEWSWIRE) -- Columbia Financial, Inc. ('Columbia”) (NASDAQ: CLBK), a Delaware corporation and the mid-tier holding company for Columbia Bank, announced today, on a preliminary basis, that Columbia Financial, Inc., a Maryland corporation and the proposed successor to Columbia, received over 5,000 orders representing approximately $925 million in the subscription offering that expired on June 16, 2026 in connection with the 'second-step” conversion of Columbia Bank MHC from mutual to stock form.",
+      "brief": "FAIR LAWN, N.J., June 23, 2026 (GLOBE NEWSWIRE) -- Columbia Financial, Inc. ('Columbia”) (NASDAQ: CLBK), a Delaware corporation and the mid-tier holding company for Columbia Bank, announced today, on a preliminary basis, that Columbia Financial, Inc., a Maryland corporation and the proposed successor to Columbia, received over 5,000 orders representing approximately $925 million in the subscription offering that expired on June 16, 2026 in connection with the 'second-step” conversion of Columbia Bank MHC from mutual to stock form.",
+      "url": "https://www.manilatimes.net/2026/06/24/tmt-newswire/globenewswire/columbia-financial-inc-announces-preliminary-subscription-offering-results-and-increase-in-maximum-purchase-limits/2371506"
+    },
+    {
+      "date": "2026-06-23",
+      "source": "manilatimes.net",
+      "title": "Archimedes Tech SPAC Partners II Co. Announces Filing of Amendment to Registration Statement on Form S-4 with the SEC",
+      "summary": "CLAYMONT, Del., June 23, 2026 (GLOBE NEWSWIRE) -- Archimedes Tech SPAC Partners II Co. (Nasdaq: ATII), a publicly traded special purpose acquisition company ('ATII” or 'Archimedes II”), today announced the filing with the U.S. Securities and Exchange Commission (the 'SEC”), on June 22, 2026, of an amendment to the registration statement on Form S-4 (File No.: 333-295563) (as may be amended from time to time, the 'Registration Statement”) previously filed in connection with the previously announced proposed business combination with Forge Nano, Inc. ('Forge Nano”). The Registration Statement includes a preliminary proxy statement/prospectus and has not yet been declared effective. The Registration Statement was filed by ATII Holdings Inc. (CIK 0002101833), ATII’s wholly-owned subsidiary ('Pubco”), and Forge Nano (CIK 0001719324) and is available free of charge at the SEC’s web site at www.sec.gov.",
+      "summary_text": "CLAYMONT, Del., June 23, 2026 (GLOBE NEWSWIRE) -- Archimedes Tech SPAC Partners II Co. (Nasdaq: ATII), a publicly traded special purpose acquisition company ('ATII” or 'Archimedes II”), today announced the filing with the U.S. Securities and Exchange Commission (the 'SEC”), on June 22, 2026, of an amendment to the registration statement on Form S-4 (File No.: 333-295563) (as may be amended from time to time, the 'Registration Statement”) previously filed in connection with the previously announced proposed business combination with Forge Nano, Inc. ('Forge Nano”). The Registration Statement includes a preliminary proxy statement/prospectus and has not yet been declared effective. The Registration Statement was filed by ATII Holdings Inc. (CIK 0002101833), ATII’s wholly-owned subsidiary ('Pubco”), and Forge Nano (CIK 0001719324) and is available free of charge at the SEC’s web site at www.sec.gov.",
+      "brief": "CLAYMONT, Del., June 23, 2026 (GLOBE NEWSWIRE) -- Archimedes Tech SPAC Partners II Co. (Nasdaq: ATII), a publicly traded special purpose acquisition company ('ATII” or 'Archimedes II”), today announced the filing with the U.S. Securities and Exchange Commission (the 'SEC”), on June 22, 2026, of an amendment to the registration statement on Form S-4 (File No.: 333-295563) (as may be amended from time to time, the 'Registration Statement”) previously filed in connection with the previously announced proposed business combination with Forge Nano, Inc. ('Forge Nano”). The Registration Statement includes a preliminary proxy statement/prospectus and has not yet been declared effective. The Registration Statement was filed by ATII Holdings Inc. (CIK 0002101833), ATII’s wholly-owned subsidiary ('Pubco”), and Forge Nano (CIK 0001719324) and is available free of charge at the SEC’s web site at www.sec.gov.",
+      "url": "https://www.manilatimes.net/2026/06/24/tmt-newswire/globenewswire/archimedes-tech-spac-partners-ii-co-announces-filing-of-amendment-to-registration-statement-on-form-s-4-with-the-sec/2371503"
+    },
+    {
+      "date": "2026-06-23",
+      "source": "seekingalpha.com",
+      "title": "Kewaunee Scientific GAAP EPS of $1.13, revenue of $71.4M (NASDAQ:KEQU)",
+      "summary": "Kewaunee Scientific (KEQU) Q4 earnings: GAAP EPS $1.13, revenue $71.4M (-7.5% Y/Y) and FY26 sales up 17.3%.",
+      "summary_text": "Kewaunee Scientific (KEQU) Q4 earnings: GAAP EPS $1.13, revenue $71.4M (-7.5% Y/Y) and FY26 sales up 17.3%.",
+      "brief": "Kewaunee Scientific (KEQU) Q4 earnings: GAAP EPS $1.13, revenue $71.4M (-7.5% Y/Y) and FY26 sales up 17.3%.",
+      "url": "https://seekingalpha.com/news/4606428-kewaunee-scientific-gaap-eps-of-1_13-revenue-of-71_4m"
+    }
+  ],
+  "meta": {
+    "generated_at": "2026-06-23T21:58:44+00:00",
+    "mode": "live",
+    "source_status": {
+      "finmind": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "tpex": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "marketaux": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "treasury": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "fmp": {
+        "status": "ok",
+        "message": "Fetched 4/4 U.S. indices through FMP"
+      },
+      "asia_indices": {
+        "status": "ok",
+        "message": "Resolved 3/3 Asia indices through EODHD"
+      }
+    },
+    "sources_used": [
+      "finmind",
+      "tpex",
+      "fmp",
+      "eodhd",
+      "marketaux",
+      "treasury"
+    ],
+    "partial_success": false,
+    "missing_sections": [],
+    "provider_by_field": {
+      "taiwan_market.tpex_index": "tpex",
+      "us_market.indices.SPX": "fmp",
+      "us_market.indices.IXIC": "fmp",
+      "us_market.indices.DJI": "fmp",
+      "us_market.indices.RUT": "fmp",
+      "asia_market.indices.N225": "eodhd",
+      "asia_market.indices.HSI": "eodhd",
+      "asia_market.indices.KS11": "eodhd"
+    },
+    "index_status": {
+      "us_market": {
+        "SPX": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^GSPC",
+          "error_category": null,
+          "message": null
+        },
+        "IXIC": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^IXIC",
+          "error_category": null,
+          "message": null
+        },
+        "DJI": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^DJI",
+          "error_category": null,
+          "message": null
+        },
+        "RUT": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^RUT",
+          "error_category": null,
+          "message": null
+        }
+      },
+      "asia_market": {
+        "N225": {
+          "status": "ok",
+          "provider_used": "eodhd",
+          "fallback_used": false,
+          "selected_symbol": "N225.INDX",
+          "error_category": null,
+          "message": null
+        },
+        "HSI": {
+          "status": "ok",
+          "provider_used": "eodhd",
+          "fallback_used": false,
+          "selected_symbol": "HSI.INDX",
+          "error_category": null,
+          "message": null
+        },
+        "KS11": {
+          "status": "ok",
+          "provider_used": "eodhd",
+          "fallback_used": false,
+          "selected_symbol": "KS11.INDX",
+          "error_category": null,
+          "message": null
+        }
+      }
+    },
+    "request_debug": [
+      {
+        "provider": "tpex",
+        "url": "https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?response=data",
+        "status_code": 200,
+        "response_excerpt": "資料日期,開市,最高價,最低價,收市,漲跌  \"20260601\",\"443.97\",\"451.09\",\"443.97\",\"446.02\",\"2.38\"  \"20260602\",\"446.83\",\"449.47\",\"433.71\",\"440.64\",\"-5.38\"  \"20260603\",\"442.60\",\"450.18\",\"442.60\",\"446.82\",\"6.18\"  \"20260604\",\"444.98\",\"445.62\",\"440.10\",\"440.10\",\"-6.72\"  \"20260605\",\"438.19\",\"438.19\",\"419.44\",\"431.07\",\"-9.03\"  \"20260608\",\"422.43\",\"422.43\",\"395.16\",\"412.57\",\"-18.50\"  \"20260609\",\"414.05\",\"424.71\",\"413.54\",\"424...",
+        "selected_symbol": null,
+        "rejected_candidates": [],
+        "notes": "Official TPEx OTC index dataset fetched with TPEx-specific relaxed TLS context."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EGSPC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^GSPC\",     \"name\": \"S&P 500\",     \"price\": 7365.92,     \"changePercentage\": -1.43012,     \"change\": -106.87,     \"volume\": 2714937000,     \"dayLow\": 7347.6,     \"dayHigh\": 7424.17,     \"yearHigh\": 7620.9,     \"yearLow\": 6059.25,     \"marketCap\": 0,     \"priceAvg50\": 7328.5947,     \"priceAvg200\": 6907.754,     \"exchange\": \"INDEX\",     \"open\": 7366.51,     \"previousClose\": 7472...",
+        "selected_symbol": "^GSPC",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5EGSPC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^GSPC\",     \"date\": \"2026-06-23\",     \"open\": 7366.51,     \"high\": 7424.17,     \"low\": 7347.6,     \"close\": 7365.92,     \"volume\": 2714937000,     \"change\": -0.59,     \"changePercent\": -0.00800922,     \"vwap\": 7379.23   },   {     \"symbol\": \"^GSPC\",     \"date\": \"2026-06-22\",     \"open\": 7500.44,     \"high\": 7530.01,     \"low\": 7460.01,     \"close\": 7472.78,     \"volume\": 59767...",
+        "selected_symbol": "^GSPC",
+        "rejected_candidates": [
+          {
+            "symbol": "^GSPC",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EIXIC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^IXIC\",     \"name\": \"NASDAQ Composite\",     \"price\": 25587.0391,     \"changePercentage\": -2.2149,     \"change\": -579.5629,     \"volume\": 13221191734,     \"dayLow\": 25513.262,     \"dayHigh\": 25882.568,     \"yearHigh\": 27190.21,     \"yearLow\": 19795.29,     \"marketCap\": 0,     \"priceAvg50\": 25619.197,     \"priceAvg200\": 23551.986,     \"exchange\": \"INDEX\",     \"open\": 25549.756, ...",
+        "selected_symbol": "^IXIC",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5EIXIC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^IXIC\",     \"date\": \"2026-06-23\",     \"open\": 25549.756,     \"high\": 25882.568,     \"low\": 25513.262,     \"close\": 25589.012,     \"volume\": 12294705000,     \"change\": 39.26,     \"changePercent\": 0.1536453,     \"vwap\": 25661.61   },   {     \"symbol\": \"^IXIC\",     \"date\": \"2026-06-22\",     \"open\": 26483.31,     \"high\": 26561.12,     \"low\": 26125.48,     \"close\": 26166.6,     \"vo...",
+        "selected_symbol": "^IXIC",
+        "rejected_candidates": [
+          {
+            "symbol": "^IXIC",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EDJI&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^DJI\",     \"name\": \"Dow Jones Industrial Average\",     \"price\": 51666.84,     \"changePercentage\": -0.0887016,     \"change\": -45.87,     \"volume\": 569180241,     \"dayLow\": 51301.77,     \"dayHigh\": 51872.56,     \"yearHigh\": 52281.19,     \"yearLow\": 42794.08,     \"marketCap\": 0,     \"priceAvg50\": 50010.29,     \"priceAvg200\": 48185.46,     \"exchange\": \"INDEX\",     \"open\": 51735.64...",
+        "selected_symbol": "^DJI",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5EDJI&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^DJI\",     \"date\": \"2026-06-23\",     \"open\": 51735.64,     \"high\": 51872.56,     \"low\": 51301.77,     \"close\": 51665.39,     \"volume\": 453899487,     \"change\": -70.25,     \"changePercent\": -0.13578647,     \"vwap\": 51613.24   },   {     \"symbol\": \"^DJI\",     \"date\": \"2026-06-22\",     \"open\": 51555.19,     \"high\": 51887.85,     \"low\": 51555.19,     \"close\": 51712.71,     \"volume...",
+        "selected_symbol": "^DJI",
+        "rejected_candidates": [
+          {
+            "symbol": "^DJI",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5ERUT&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^RUT\",     \"name\": \"Russell 2000\",     \"price\": 2975.4811,     \"changePercentage\": -0.96267,     \"change\": -28.9225,     \"volume\": 0,     \"dayLow\": 2951.2338,     \"dayHigh\": 2996.9643,     \"yearHigh\": 3015.41,     \"yearLow\": 2135.96,     \"marketCap\": 0,     \"priceAvg50\": 2838.7837,     \"priceAvg200\": 2600.8,     \"exchange\": \"INDEX\",     \"open\": 2964.2703,     \"previousClose\": ...",
+        "selected_symbol": "^RUT",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5ERUT&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^RUT\",     \"date\": \"2026-06-23\",     \"open\": 2964.2703,     \"high\": 2996.9643,     \"low\": 2951.2338,     \"close\": 2974.8471,     \"volume\": 0,     \"change\": 10.58,     \"changePercent\": 0.35680957,     \"vwap\": 2974.35   },   {     \"symbol\": \"^RUT\",     \"date\": \"2026-06-22\",     \"open\": 2992.36,     \"high\": 3015.41,     \"low\": 2985.09,     \"close\": 3004.4,     \"volume\": 0,     \"c...",
+        "selected_symbol": "^RUT",
+        "rejected_candidates": [
+          {
+            "symbol": "^RUT",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "eodhd",
+        "url": "https://eodhd.com/api/eod/N225.INDX?api_token=69e98bc2381157.40657526&fmt=json&period=d&from=2026-06-13&to=2026-06-23",
+        "status_code": 200,
+        "response_excerpt": "[{\"date\":\"2026-06-15\",\"open\":66783.2188,\"high\":69682.2266,\"low\":66783.2188,\"close\":69317.5,\"adjusted_close\":69317.5,\"volume\":168300000},{\"date\":\"2026-06-16\",\"open\":69288.9063,\"high\":70020.6797,\"low\":69095.6719,\"close\":69404.5,\"adjusted_close\":69404.5,\"volume\":153800000},{\"date\":\"2026-06-17\",\"open\":69005.8828,\"high\":70125.75,\"low\":68985.6328,\"close\":69902.25,\"adjusted_close\":69902.25,\"volume\":14430...",
+        "selected_symbol": "N225.INDX",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "eodhd",
+        "url": "https://eodhd.com/api/eod/HSI.INDX?api_token=69e98bc2381157.40657526&fmt=json&period=d&from=2026-06-13&to=2026-06-23",
+        "status_code": 200,
+        "response_excerpt": "[{\"date\":\"2026-06-15\",\"open\":25001.42,\"high\":25047.9,\"low\":24796.3,\"close\":24842.67,\"adjusted_close\":24842.67,\"volume\":3636245503},{\"date\":\"2026-06-16\",\"open\":24826.19,\"high\":24844.98,\"low\":24378.69,\"close\":24493.95,\"adjusted_close\":24493.95,\"volume\":3145212161},{\"date\":\"2026-06-17\",\"open\":24495.8496,\"high\":24560.1895,\"low\":24254.0703,\"close\":24312.1602,\"adjusted_close\":24312.1602,\"volume\":3055000...",
+        "selected_symbol": "HSI.INDX",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "eodhd",
+        "url": "https://eodhd.com/api/eod/KS11.INDX?api_token=69e98bc2381157.40657526&fmt=json&period=d&from=2026-06-13&to=2026-06-23",
+        "status_code": 200,
+        "response_excerpt": "[{\"date\":\"2026-06-15\",\"open\":8526.1201,\"high\":8603.4805,\"low\":8450.2402,\"close\":8545.9805,\"adjusted_close\":8545.9805,\"volume\":516600},{\"date\":\"2026-06-16\",\"open\":8696.5498,\"high\":8753.8203,\"low\":8540.4102,\"close\":8726.5996,\"adjusted_close\":8726.5996,\"volume\":586300},{\"date\":\"2026-06-17\",\"open\":8622.1299,\"high\":8872.1797,\"low\":8605.6602,\"close\":8864.2402,\"adjusted_close\":8864.2402,\"volume\":571200},...",
+        "selected_symbol": "KS11.INDX",
+        "rejected_candidates": [],
+        "notes": null
+      }
+    ]
+  }
+}
