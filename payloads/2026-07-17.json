@@ -1,0 +1,391 @@
+﻿{
+  "report_date": "2026-07-17",
+  "taiwan_market": {
+    "date": "2026-07-17",
+    "twse_index": {
+      "close": 42671.27,
+      "change": -2953.71,
+      "change_percent": -6.4739
+    },
+    "tpex_index": {
+      "symbol": "TPEX",
+      "name": "TPEx OTC Index",
+      "close": 378.44,
+      "change": -28.57,
+      "change_percent": -7.0195
+    },
+    "market_breadth": null
+  },
+  "taiwan_institutional": {
+    "date": "2026-07-17",
+    "foreign_investors_net_buy_sell": -1883.1455,
+    "investment_trust_net_buy_sell": 73.4737,
+    "dealer_net_buy_sell": -821.7949,
+    "three_institutions_net_buy_sell": -2631.4668,
+    "unit": "新台幣億元"
+  },
+  "us_market": {
+    "date": "2026-07-17",
+    "indices": [
+      {
+        "symbol": "SPX",
+        "name": "S&P 500",
+        "close": 7457.78,
+        "change": -75.99,
+        "change_percent": -1.0087
+      },
+      {
+        "symbol": "IXIC",
+        "name": "Nasdaq Composite",
+        "close": 25520.2437,
+        "change": -361.7063,
+        "change_percent": -1.3975
+      },
+      {
+        "symbol": "DJI",
+        "name": "Dow Jones Industrial Average",
+        "close": 52146.42,
+        "change": -406.55,
+        "change_percent": -0.7736
+      },
+      {
+        "symbol": "RUT",
+        "name": "Russell 2000",
+        "close": 2962.2173,
+        "change": -12.3527,
+        "change_percent": -0.4153
+      }
+    ]
+  },
+  "fx": {
+    "date": "2026-07-17",
+    "usd_twd": {
+      "close": 32.295,
+      "change": 0.04,
+      "change_percent": 0.124
+    }
+  },
+  "asia_market": {
+    "date": "2026-07-17",
+    "indices": [
+      {
+        "symbol": "N225",
+        "name": "Nikkei 225",
+        "close": 64141.12,
+        "change": -2694.42,
+        "change_percent": -4.0314,
+        "date": "2026-07-17"
+      },
+      {
+        "symbol": "HSI",
+        "name": "Hang Seng Index",
+        "close": 24562.24,
+        "change": -446.36,
+        "change_percent": -1.7848,
+        "date": "2026-07-17"
+      },
+      {
+        "symbol": "KS11",
+        "name": "KOSPI",
+        "close": 6820.6001,
+        "change": -463.8101,
+        "change_percent": -6.3672,
+        "date": "2026-07-16"
+      }
+    ]
+  },
+  "commodities": {
+    "date": "2026-07-17",
+    "gold": {
+      "close": 3980.68,
+      "change": 1.84,
+      "change_percent": 0.0462,
+      "unit": "USD/oz"
+    },
+    "crude_oil": {
+      "close": 79.2,
+      "change": 6.75,
+      "change_percent": 9.3168,
+      "unit": "USD/bbl"
+    }
+  },
+  "bonds": {
+    "date": "2026-07-17",
+    "yield_2y": 4.18,
+    "yield_10y": 4.55,
+    "yield_30y": 5.06,
+    "slope_10y_2y": 0.37,
+    "unit": "percent"
+  },
+  "news": [
+    {
+      "date": "2026-07-17",
+      "source": "manilatimes.net",
+      "title": "WISeKey Files Registration Statement on Form F-4 with the U.S. Securities and Exchange Commission in Connection with Proposed Redomiciliation to the British Virgin Islands",
+      "summary": "Zug, Switzerland, July 17, 2026 - Ad-Hoc announcement pursuant to Art. 53 of SIX Listing Rules - WISeKey International Holding Ltd ('WISeKey”) (SIX: WIHN; Nasdaq: WKEY) announced that WISeKey International Corp., a British Virgin Islands company and wholly owned subsidiary of WISeKey ('WISeKey BVI”), has publicly filed on July 16, 2026, a registration statement on Form F-4 with the U.S. Securities and Exchange Commission (the 'SEC”) in connection with WISeKey’s proposed redomiciliation from Switzerland to the British Virgin Islands.",
+      "summary_text": "Zug, Switzerland, July 17, 2026 - Ad-Hoc announcement pursuant to Art. 53 of SIX Listing Rules - WISeKey International Holding Ltd ('WISeKey”) (SIX: WIHN; Nasdaq: WKEY) announced that WISeKey International Corp., a British Virgin Islands company and wholly owned subsidiary of WISeKey ('WISeKey BVI”), has publicly filed on July 16, 2026, a registration statement on Form F-4 with the U.S. Securities and Exchange Commission (the 'SEC”) in connection with WISeKey’s proposed redomiciliation from Switzerland to the British Virgin Islands.",
+      "brief": "Zug, Switzerland, July 17, 2026 - Ad-Hoc announcement pursuant to Art. 53 of SIX Listing Rules - WISeKey International Holding Ltd ('WISeKey”) (SIX: WIHN; Nasdaq: WKEY) announced that WISeKey International Corp., a British Virgin Islands company and wholly owned subsidiary of WISeKey ('WISeKey BVI”), has publicly filed on July 16, 2026, a registration statement on Form F-4 with the U.S. Securities and Exchange Commission (the 'SEC”) in connection with WISeKey’s proposed redomiciliation from Switzerland to the British Virgin Islands.",
+      "url": "https://www.manilatimes.net/2026/07/18/tmt-newswire/globenewswire/wisekey-files-registration-statement-on-form-f-4-with-the-us-securities-and-exchange-commission-in-connection-with-proposed-redomiciliation-to-the-british-virgin-islands/2386815"
+    },
+    {
+      "date": "2026-07-17",
+      "source": "seekingalpha.com",
+      "title": "Burberry Group plc (BURBY) Q1 2027 Sales/Trading Call Transcript",
+      "summary": "Burberry Group plc (BURBY) Q1 2027 Sales/Trading Call July 17, 2026 4:00 AM EDTCompany ParticipantsCatherine Ferry - Executive Director & CFOJoshua...",
+      "summary_text": "Burberry Group plc (BURBY) Q1 2027 Sales/Trading Call July 17, 2026 4:00 AM EDTCompany ParticipantsCatherine Ferry - Executive Director & CFOJoshua...",
+      "brief": "Burberry Group plc (BURBY) Q1 2027 Sales/Trading Call July 17, 2026 4:00 AM EDTCompany ParticipantsCatherine Ferry - Executive Director & CFOJoshua...",
+      "url": "https://seekingalpha.com/article/4922944-burberry-group-plc-burby-q1-2027-sales-trading-call-transcript"
+    },
+    {
+      "date": "2026-07-17",
+      "source": "manilatimes.net",
+      "title": "Zenas BioPharma Announces Inducement Grants Under Nasdaq Listing Rule 5635(c)(4)",
+      "summary": "WALTHAM, Mass., July 17, 2026 (GLOBE NEWSWIRE) -- Zenas BioPharma, Inc. ('Zenas” or the 'Company”) (Nasdaq: ZBIO), a clinical-stage global biopharmaceutical company committed to being a leader in the development and commercialization of transformative therapies for patients living with autoimmune diseases, today announced that on July 15, 2026 (the 'Grant Date”), the Compensation Committee of the Company’s Board of Directors granted non-qualified stock options to purchase an aggregate of 35,750 shares of the Company’s common stock ('Stock Options”) and an aggregate of 79,050 restricted stock units of the Company’s common stock ('RSUs”) to newly hired employees of the Company as an inducement material to such employees’ entry into employment with the Company, in accordance with Nasdaq Listing Rule 5635(c)(4) (the 'Inducement Grant”).",
+      "summary_text": "WALTHAM, Mass., July 17, 2026 (GLOBE NEWSWIRE) -- Zenas BioPharma, Inc. ('Zenas” or the 'Company”) (Nasdaq: ZBIO), a clinical-stage global biopharmaceutical company committed to being a leader in the development and commercialization of transformative therapies for patients living with autoimmune diseases, today announced that on July 15, 2026 (the 'Grant Date”), the Compensation Committee of the Company’s Board of Directors granted non-qualified stock options to purchase an aggregate of 35,750 shares of the Company’s common stock ('Stock Options”) and an aggregate of 79,050 restricted stock units of the Company’s common stock ('RSUs”) to newly hired employees of the Company as an inducement material to such employees’ entry into employment with the Company, in accordance with Nasdaq Listing Rule 5635(c)(4) (the 'Inducement Grant”).",
+      "brief": "WALTHAM, Mass., July 17, 2026 (GLOBE NEWSWIRE) -- Zenas BioPharma, Inc. ('Zenas” or the 'Company”) (Nasdaq: ZBIO), a clinical-stage global biopharmaceutical company committed to being a leader in the development and commercialization of transformative therapies for patients living with autoimmune diseases, today announced that on July 15, 2026 (the 'Grant Date”), the Compensation Committee of the Company’s Board of Directors granted non-qualified stock options to purchase an aggregate of 35,750 shares of the Company’s common stock ('Stock Options”) and an aggregate of 79,050 restricted stock units of the Company’s common stock ('RSUs”) to newly hired employees of the Company as an inducement material to such employees’ entry into employment with the Company, in accordance with Nasdaq Listing Rule 5635(c)(4) (the 'Inducement Grant”).",
+      "url": "https://www.manilatimes.net/2026/07/18/tmt-newswire/globenewswire/zenas-biopharma-announces-inducement-grants-under-nasdaq-listing-rule-5635c4/2386808"
+    }
+  ],
+  "meta": {
+    "generated_at": "2026-07-17T21:22:35+00:00",
+    "mode": "live",
+    "source_status": {
+      "finmind": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "tpex": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "marketaux": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "treasury": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "fmp": {
+        "status": "ok",
+        "message": "Fetched 4/4 U.S. indices through FMP"
+      },
+      "asia_indices": {
+        "status": "ok",
+        "message": "Resolved 3/3 Asia indices through EODHD"
+      }
+    },
+    "sources_used": [
+      "finmind",
+      "tpex",
+      "fmp",
+      "eodhd",
+      "marketaux",
+      "treasury"
+    ],
+    "partial_success": false,
+    "missing_sections": [],
+    "provider_by_field": {
+      "taiwan_market.tpex_index": "tpex",
+      "us_market.indices.SPX": "fmp",
+      "us_market.indices.IXIC": "fmp",
+      "us_market.indices.DJI": "fmp",
+      "us_market.indices.RUT": "fmp",
+      "asia_market.indices.N225": "eodhd",
+      "asia_market.indices.HSI": "eodhd",
+      "asia_market.indices.KS11": "eodhd"
+    },
+    "index_status": {
+      "us_market": {
+        "SPX": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^GSPC",
+          "error_category": null,
+          "message": null
+        },
+        "IXIC": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^IXIC",
+          "error_category": null,
+          "message": null
+        },
+        "DJI": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^DJI",
+          "error_category": null,
+          "message": null
+        },
+        "RUT": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^RUT",
+          "error_category": null,
+          "message": null
+        }
+      },
+      "asia_market": {
+        "N225": {
+          "status": "ok",
+          "provider_used": "eodhd",
+          "fallback_used": false,
+          "selected_symbol": "N225.INDX",
+          "error_category": null,
+          "message": null
+        },
+        "HSI": {
+          "status": "ok",
+          "provider_used": "eodhd",
+          "fallback_used": false,
+          "selected_symbol": "HSI.INDX",
+          "error_category": null,
+          "message": null
+        },
+        "KS11": {
+          "status": "ok",
+          "provider_used": "eodhd",
+          "fallback_used": false,
+          "selected_symbol": "KS11.INDX",
+          "error_category": null,
+          "message": null
+        }
+      }
+    },
+    "request_debug": [
+      {
+        "provider": "tpex",
+        "url": "https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?response=data",
+        "status_code": 200,
+        "response_excerpt": "資料日期,開市,最高價,最低價,收市,漲跌  \"20260701\",\"430.29\",\"437.56\",\"430.29\",\"431.23\",\"4.26\"  \"20260702\",\"429.41\",\"439.51\",\"424.20\",\"439.51\",\"8.28\"  \"20260703\",\"438.16\",\"445.97\",\"435.92\",\"445.38\",\"5.87\"  \"20260706\",\"447.13\",\"454.58\",\"437.21\",\"439.80\",\"-5.58\"  \"20260707\",\"439.63\",\"443.00\",\"418.45\",\"419.47\",\"-20.33\"  \"20260708\",\"419.78\",\"424.20\",\"413.10\",\"421.39\",\"1.92\"  \"20260709\",\"423.45\",\"432.04\",\"423.45\",\"424.9...",
+        "selected_symbol": null,
+        "rejected_candidates": [],
+        "notes": "Official TPEx OTC index dataset fetched with TPEx-specific relaxed TLS context."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EGSPC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^GSPC\",     \"name\": \"S&P 500\",     \"price\": 7457.78,     \"changePercentage\": -1.00866,     \"change\": -75.99,     \"volume\": 2771766000,     \"dayLow\": 7431.26,     \"dayHigh\": 7498.47,     \"yearHigh\": 7620.9,     \"yearLow\": 6212.69,     \"marketCap\": 0,     \"priceAvg50\": 7460.9087,     \"priceAvg200\": 6983.247,     \"exchange\": \"INDEX\",     \"open\": 7447.52,     \"previousClose\": 7533...",
+        "selected_symbol": "^GSPC",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5EGSPC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^GSPC\",     \"date\": \"2026-07-17\",     \"open\": 7447.52,     \"high\": 7498.47,     \"low\": 7431.26,     \"close\": 7457.78,     \"volume\": 2771766000,     \"change\": 10.26,     \"changePercent\": 0.13776398,     \"vwap\": 7462.5   },   {     \"symbol\": \"^GSPC\",     \"date\": \"2026-07-16\",     \"open\": 7558.8,     \"high\": 7570.74,     \"low\": 7504.02,     \"close\": 7533.77,     \"volume\": 5365300...",
+        "selected_symbol": "^GSPC",
+        "rejected_candidates": [
+          {
+            "symbol": "^GSPC",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EIXIC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^IXIC\",     \"name\": \"NASDAQ Composite\",     \"price\": 25520.2437,     \"changePercentage\": -1.39751,     \"change\": -361.7033,     \"volume\": 6266160790,     \"dayLow\": 25250.629,     \"dayHigh\": 25703.008,     \"yearHigh\": 27190.21,     \"yearLow\": 20560.17,     \"marketCap\": 0,     \"priceAvg50\": 26136.162,     \"priceAvg200\": 23862.611,     \"exchange\": \"INDEX\",     \"open\": 25412.26,  ...",
+        "selected_symbol": "^IXIC",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5EIXIC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^IXIC\",     \"date\": \"2026-07-17\",     \"open\": 25412.26,     \"high\": 25703.008,     \"low\": 25250.629,     \"close\": 25520.2437,     \"volume\": 6266160790,     \"change\": 107.98,     \"changePercent\": 0.42492757,     \"vwap\": 25491.29   },   {     \"symbol\": \"^IXIC\",     \"date\": \"2026-07-16\",     \"open\": 26155.41,     \"high\": 26165.37,     \"low\": 25765.45,     \"close\": 25881.95,     \"...",
+        "selected_symbol": "^IXIC",
+        "rejected_candidates": [
+          {
+            "symbol": "^IXIC",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EDJI&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^DJI\",     \"name\": \"Dow Jones Industrial Average\",     \"price\": 52146.42,     \"changePercentage\": -0.7736,     \"change\": -406.55,     \"volume\": 549691647,     \"dayLow\": 51986.74,     \"dayHigh\": 52610.97,     \"yearHigh\": 53289.3,     \"yearLow\": 43340.68,     \"marketCap\": 0,     \"priceAvg50\": 51163.16,     \"priceAvg200\": 48734.977,     \"exchange\": \"INDEX\",     \"open\": 52426.46, ...",
+        "selected_symbol": "^DJI",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5EDJI&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^DJI\",     \"date\": \"2026-07-17\",     \"open\": 52426.46,     \"high\": 52610.97,     \"low\": 51986.74,     \"close\": 52146.42,     \"volume\": 549691647,     \"change\": -280.04,     \"changePercent\": -0.53415775,     \"vwap\": 52248.04   },   {     \"symbol\": \"^DJI\",     \"date\": \"2026-07-16\",     \"open\": 52924.86,     \"high\": 52924.86,     \"low\": 52367.42,     \"close\": 52552.97,     \"volum...",
+        "selected_symbol": "^DJI",
+        "rejected_candidates": [
+          {
+            "symbol": "^DJI",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5ERUT&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^RUT\",     \"name\": \"Russell 2000\",     \"price\": 2962.2173,     \"changePercentage\": -0.41518,     \"change\": -12.3497,     \"volume\": 0,     \"dayLow\": 2934.1218,     \"dayHigh\": 2979.3237,     \"yearHigh\": 3046.59,     \"yearLow\": 2143.43,     \"marketCap\": 0,     \"priceAvg50\": 2918.71,     \"priceAvg200\": 2649.4697,     \"exchange\": \"INDEX\",     \"open\": 2948.5837,     \"previousClose\":...",
+        "selected_symbol": "^RUT",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5ERUT&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^RUT\",     \"date\": \"2026-07-17\",     \"open\": 2948.5837,     \"high\": 2979.3237,     \"low\": 2934.1218,     \"close\": 2962.2173,     \"volume\": 0,     \"change\": 13.63,     \"changePercent\": 0.46237792,     \"vwap\": 2958.55   },   {     \"symbol\": \"^RUT\",     \"date\": \"2026-07-16\",     \"open\": 2970.27,     \"high\": 2996.28,     \"low\": 2963.51,     \"close\": 2974.57,     \"volume\": 53653000...",
+        "selected_symbol": "^RUT",
+        "rejected_candidates": [
+          {
+            "symbol": "^RUT",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "eodhd",
+        "url": "https://eodhd.com/api/eod/N225.INDX?api_token=69e98bc2381157.40657526&fmt=json&period=d&from=2026-07-07&to=2026-07-17",
+        "status_code": 200,
+        "response_excerpt": "[{\"date\":\"2026-07-07\",\"open\":69460.0781,\"high\":69957.5078,\"low\":68003.9219,\"close\":68256.9609,\"adjusted_close\":68256.9609,\"volume\":175000000},{\"date\":\"2026-07-08\",\"open\":67704.1563,\"high\":68432.6797,\"low\":66819.0469,\"close\":66819.0469,\"adjusted_close\":66819.0469,\"volume\":168900000},{\"date\":\"2026-07-09\",\"open\":67046.3672,\"high\":68447.8906,\"low\":67008.8906,\"close\":67743.8516,\"adjusted_close\":67743.8...",
+        "selected_symbol": "N225.INDX",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "eodhd",
+        "url": "https://eodhd.com/api/eod/HSI.INDX?api_token=69e98bc2381157.40657526&fmt=json&period=d&from=2026-07-07&to=2026-07-17",
+        "status_code": 200,
+        "response_excerpt": "[{\"date\":\"2026-07-07\",\"open\":23568.4902,\"high\":23820.9199,\"low\":23398.2695,\"close\":23496.8906,\"adjusted_close\":23496.8906,\"volume\":3693000000},{\"date\":\"2026-07-08\",\"open\":23541.2207,\"high\":24310.9199,\"low\":23541.2207,\"close\":24199.4609,\"adjusted_close\":24199.4609,\"volume\":4447700000},{\"date\":\"2026-07-09\",\"open\":24181.3398,\"high\":24353.7598,\"low\":23917.3203,\"close\":24030.1797,\"adjusted_close\":24030...",
+        "selected_symbol": "HSI.INDX",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "eodhd",
+        "url": "https://eodhd.com/api/eod/KS11.INDX?api_token=69e98bc2381157.40657526&fmt=json&period=d&from=2026-07-07&to=2026-07-17",
+        "status_code": 200,
+        "response_excerpt": "[{\"date\":\"2026-07-07\",\"open\":7919.2002,\"high\":7954.5498,\"low\":7389.2202,\"close\":7656.3101,\"adjusted_close\":7656.3101,\"volume\":516400},{\"date\":\"2026-07-08\",\"open\":7452.48,\"high\":7791.6602,\"low\":7186.21,\"close\":7246.79,\"adjusted_close\":7246.79,\"volume\":501100},{\"date\":\"2026-07-09\",\"open\":7486.6401,\"high\":7543.8599,\"low\":7063.7598,\"close\":7291.9102,\"adjusted_close\":7291.9102,\"volume\":582800},{\"date\":...",
+        "selected_symbol": "KS11.INDX",
+        "rejected_candidates": [],
+        "notes": null
+      }
+    ]
+  }
+}
