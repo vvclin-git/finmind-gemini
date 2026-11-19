@@ -1,0 +1,391 @@
+﻿{
+  "report_date": "2026-11-18",
+  "taiwan_market": {
+    "date": "2026-11-18",
+    "twse_index": {
+      "close": 40194.91,
+      "change": 102.8,
+      "change_percent": 0.2564
+    },
+    "tpex_index": {
+      "symbol": "TPEX",
+      "name": "TPEx OTC Index",
+      "close": 307.55,
+      "change": 0.94,
+      "change_percent": 0.3066
+    },
+    "market_breadth": null
+  },
+  "taiwan_institutional": {
+    "date": "2026-11-18",
+    "foreign_investors_net_buy_sell": -765.6368,
+    "investment_trust_net_buy_sell": 166.1158,
+    "dealer_net_buy_sell": -42.0127,
+    "three_institutions_net_buy_sell": -641.5336,
+    "unit": "新台幣億元"
+  },
+  "us_market": {
+    "date": "2026-11-18",
+    "indices": [
+      {
+        "symbol": "SPX",
+        "name": "S&P 500",
+        "close": 7323.63,
+        "change": -16.9,
+        "change_percent": -0.2302
+      },
+      {
+        "symbol": "IXIC",
+        "name": "Nasdaq Composite",
+        "close": 24429.88,
+        "change": 101.5,
+        "change_percent": 0.4172
+      },
+      {
+        "symbol": "DJI",
+        "name": "Dow Jones Industrial Average",
+        "close": 50198.17,
+        "change": -561.25,
+        "change_percent": -1.1057
+      },
+      {
+        "symbol": "RUT",
+        "name": "Russell 2000",
+        "close": 2714.31,
+        "change": 12.44,
+        "change_percent": 0.4604
+      }
+    ]
+  },
+  "fx": {
+    "date": "2026-11-18",
+    "usd_twd": {
+      "close": 32.95,
+      "change": 0.1,
+      "change_percent": 0.3044
+    }
+  },
+  "asia_market": {
+    "date": "2026-11-18",
+    "indices": [
+      {
+        "symbol": "N225",
+        "name": "Nikkei 225",
+        "close": 59024.28,
+        "change": 163.8503,
+        "change_percent": 0.2784,
+        "date": "2026-11-18"
+      },
+      {
+        "symbol": "HSI",
+        "name": "Hang Seng Index",
+        "close": 23294.75,
+        "change": -213.42,
+        "change_percent": -0.9079,
+        "date": "2026-11-18"
+      },
+      {
+        "symbol": "KS11",
+        "name": "KOSPI",
+        "close": 5067.44,
+        "change": 98.96,
+        "change_percent": 1.9918,
+        "date": "2026-11-18"
+      }
+    ]
+  },
+  "commodities": {
+    "date": "2026-11-18",
+    "gold": {
+      "close": 3851.54,
+      "change": 2.07,
+      "change_percent": 0.0538,
+      "unit": "USD/oz"
+    },
+    "crude_oil": {
+      "close": 89.53,
+      "change": 0.29,
+      "change_percent": 0.325,
+      "unit": "USD/bbl"
+    }
+  },
+  "bonds": {
+    "date": "2026-11-18",
+    "yield_2y": 4.8,
+    "yield_10y": 5.07,
+    "yield_30y": 5.41,
+    "slope_10y_2y": 0.27,
+    "unit": "percent"
+  },
+  "news": [
+    {
+      "date": "2026-11-19",
+      "source": "financefeeds.com",
+      "title": "Anthropic Prices $81.3 Billion IPO at $83 Ahead of Nasdaq Debut",
+      "summary": "The $83 price is approximately 6.4% above the previous range's upper limit. It also places Anthropic's estimated fully diluted valuation near $1.5 trillion,",
+      "summary_text": "The $83 price is approximately 6.4% above the previous range's upper limit. It also places Anthropic's estimated fully diluted valuation near $1.5 trillion,",
+      "brief": "The $83 price is approximately 6.4% above the previous range's upper limit. It also places Anthropic's estimated fully diluted valuation near $1.5 trillion,",
+      "url": "https://financefeeds.com/anthropic-prices-81-3-billion-ipo-at-83-ahead-of-nasdaq-debut/"
+    },
+    {
+      "date": "2026-11-19",
+      "source": "manilatimes.net",
+      "title": "Immutep Reports Encouraging Disease-Free Survival from EFTISARC-NEO Phase II Trial in Soft Tissue Sarcoma",
+      "summary": "Poster presented today at CTOS 2026 expands on the survival data first reported in the abstract (announced 11 November 2026), which showed a 12-month disease-free survival (DFS) of 81.1% in patients with resectable soft tissue sarcoma.Patients with post-treatment tumour-infiltrating lymphocyte (TIL) levels above 310 cells/mm² had 95.0% 12-month DFS compared with 64.9% in patients with lower TIL levels.Patients with treatment-related hyalinisation and fibrosis greater than 52% had 93.8% 12-month DFS compared with 71.4% in patients with lower levels.Results build on previously reported strong pathological responses and further support the potential of efti-based combination therapy.SYDNEY, AUSTRALIA, Nov. 19, 2026 (GLOBE NEWSWIRE) -- Immutep Limited (ASX: IMM; NASDAQ: IMMP) ('Immutep” or the 'Company”), a clinical-stage biotechnology company developing novel LAG-3 immunotherapies for cancer and autoimmune diseases, today announced new data from the investigator-initiated EFTISARC-NEO Phase II study presented at the Connective Tissue Oncology Society (CTOS) 2026 Annual Meeting (Poster number P 448).",
+      "summary_text": "Poster presented today at CTOS 2026 expands on the survival data first reported in the abstract (announced 11 November 2026), which showed a 12-month disease-free survival (DFS) of 81.1% in patients with resectable soft tissue sarcoma.Patients with post-treatment tumour-infiltrating lymphocyte (TIL) levels above 310 cells/mm² had 95.0% 12-month DFS compared with 64.9% in patients with lower TIL levels.Patients with treatment-related hyalinisation and fibrosis greater than 52% had 93.8% 12-month DFS compared with 71.4% in patients with lower levels.Results build on previously reported strong pathological responses and further support the potential of efti-based combination therapy.SYDNEY, AUSTRALIA, Nov. 19, 2026 (GLOBE NEWSWIRE) -- Immutep Limited (ASX: IMM; NASDAQ: IMMP) ('Immutep” or the 'Company”), a clinical-stage biotechnology company developing novel LAG-3 immunotherapies for cancer and autoimmune diseases, today announced new data from the investigator-initiated EFTISARC-NEO Phase II study presented at the Connective Tissue Oncology Society (CTOS) 2026 Annual Meeting (Poster number P 448).",
+      "brief": "Poster presented today at CTOS 2026 expands on the survival data first reported in the abstract (announced 11 November 2026), which showed a 12-month disease-free survival (DFS) of 81.1% in patients with resectable soft tissue sarcoma.Patients with post-treatment tumour-infiltrating lymphocyte (TIL) levels above 310 cells/mm² had 95.0% 12-month DFS compared with 64.9% in patients with lower TIL levels.Patients with treatment-related hyalinisation and fibrosis greater than 52% had 93.8% 12-month DFS compared with 71.4% in patients with lower levels.Results build on previously reported strong pathological responses and further support the potential of efti-based combination therapy.SYDNEY, AUSTRALIA, Nov. 19, 2026 (GLOBE NEWSWIRE) -- Immutep Limited (ASX: IMM; NASDAQ: IMMP) ('Immutep” or the 'Company”), a clinical-stage biotechnology company developing novel LAG-3 immunotherapies for cancer and autoimmune diseases, today announced new data from the investigator-initiated EFTISARC-NEO Phase II study presented at the Connective Tissue Oncology Society (CTOS) 2026 Annual Meeting (Poster number P 448).",
+      "url": "https://www.manilatimes.net/2026/11/19/tmt-newswire/globenewswire/immutep-reports-encouraging-disease-free-survival-from-eftisarc-neo-phase-ii-trial-in-soft-tissue-sarcoma/2473663"
+    },
+    {
+      "date": "2026-11-19",
+      "source": "manilatimes.net",
+      "title": "Visa Unveils Next Generation of Subscription Management Solutions with Visa Recurrent",
+      "summary": "**media[1315482]**Unveiled on day 2 of Singapore FinTech Festival (SFF) 2026, Visa Recurrent is a next-generation subscription management solution that gives consumers greater visibility and control while helping financial institutions and merchants reduce friction across the recurring payment lifecycleKiwibank, the largest New Zealand owned bank, is the first issuer globally to bring Visa Recurrent directly into its mobile banking app and internet bankingSINGAPORE, Nov. 19, 2026 /PRNewswire/ -- Visa, a world leader in digital payments, today announced Visa Recurrent, a new solution that connects consumers, financial institutions and participating merchants across the recurring payments lifecycle. It enables consumers to view and manage recurring payments through their financial institution's digital banking experiences, giving them greater visibility and control over recurring payments, at the same time helping financial institutions and merchants deliver more seamless payment experiences. Visa also announced that Kiwibank is the first issuer globally to deploy Visa Recurrent through its mobile banking app and internet banking, to help give Kiwibank customers a simpler way to understand and manage recurring payments commitments on a channel they already use and trust.",
+      "summary_text": "**media[1315482]**Unveiled on day 2 of Singapore FinTech Festival (SFF) 2026, Visa Recurrent is a next-generation subscription management solution that gives consumers greater visibility and control while helping financial institutions and merchants reduce friction across the recurring payment lifecycleKiwibank, the largest New Zealand owned bank, is the first issuer globally to bring Visa Recurrent directly into its mobile banking app and internet bankingSINGAPORE, Nov. 19, 2026 /PRNewswire/ -- Visa, a world leader in digital payments, today announced Visa Recurrent, a new solution that connects consumers, financial institutions and participating merchants across the recurring payments lifecycle. It enables consumers to view and manage recurring payments through their financial institution's digital banking experiences, giving them greater visibility and control over recurring payments, at the same time helping financial institutions and merchants deliver more seamless payment experiences. Visa also announced that Kiwibank is the first issuer globally to deploy Visa Recurrent through its mobile banking app and internet banking, to help give Kiwibank customers a simpler way to understand and manage recurring payments commitments on a channel they already use and trust.",
+      "brief": "**media[1315482]**Unveiled on day 2 of Singapore FinTech Festival (SFF) 2026, Visa Recurrent is a next-generation subscription management solution that gives consumers greater visibility and control while helping financial institutions and merchants reduce friction across the recurring payment lifecycleKiwibank, the largest New Zealand owned bank, is the first issuer globally to bring Visa Recurrent directly into its mobile banking app and internet bankingSINGAPORE, Nov. 19, 2026 /PRNewswire/ -- Visa, a world leader in digital payments, today announced Visa Recurrent, a new solution that connects consumers, financial institutions and participating merchants across the recurring payments lifecycle. It enables consumers to view and manage recurring payments through their financial institution's digital banking experiences, giving them greater visibility and control over recurring payments, at the same time helping financial institutions and merchants deliver more seamless payment experiences. Visa also announced that Kiwibank is the first issuer globally to deploy Visa Recurrent through its mobile banking app and internet banking, to help give Kiwibank customers a simpler way to understand and manage recurring payments commitments on a channel they already use and trust.",
+      "url": "https://www.manilatimes.net/2026/11/19/tmt-newswire/pr-newswire/visa-unveils-next-generation-of-subscription-management-solutions-with-visa-recurrent/2473658"
+    }
+  ],
+  "meta": {
+    "generated_at": "2026-11-19T01:57:31+00:00",
+    "mode": "live",
+    "source_status": {
+      "finmind": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "tpex": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "marketaux": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "treasury": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "fmp": {
+        "status": "ok",
+        "message": "Fetched 4/4 U.S. indices through FMP"
+      },
+      "asia_indices": {
+        "status": "ok",
+        "message": "Resolved 3/3 Asia indices through EODHD"
+      }
+    },
+    "sources_used": [
+      "finmind",
+      "tpex",
+      "fmp",
+      "eodhd",
+      "marketaux",
+      "treasury"
+    ],
+    "partial_success": false,
+    "missing_sections": [],
+    "provider_by_field": {
+      "taiwan_market.tpex_index": "tpex",
+      "us_market.indices.SPX": "fmp",
+      "us_market.indices.IXIC": "fmp",
+      "us_market.indices.DJI": "fmp",
+      "us_market.indices.RUT": "fmp",
+      "asia_market.indices.N225": "eodhd",
+      "asia_market.indices.HSI": "eodhd",
+      "asia_market.indices.KS11": "eodhd"
+    },
+    "index_status": {
+      "us_market": {
+        "SPX": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^GSPC",
+          "error_category": null,
+          "message": null
+        },
+        "IXIC": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^IXIC",
+          "error_category": null,
+          "message": null
+        },
+        "DJI": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^DJI",
+          "error_category": null,
+          "message": null
+        },
+        "RUT": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^RUT",
+          "error_category": null,
+          "message": null
+        }
+      },
+      "asia_market": {
+        "N225": {
+          "status": "ok",
+          "provider_used": "eodhd",
+          "fallback_used": false,
+          "selected_symbol": "N225.INDX",
+          "error_category": null,
+          "message": null
+        },
+        "HSI": {
+          "status": "ok",
+          "provider_used": "eodhd",
+          "fallback_used": false,
+          "selected_symbol": "HSI.INDX",
+          "error_category": null,
+          "message": null
+        },
+        "KS11": {
+          "status": "ok",
+          "provider_used": "eodhd",
+          "fallback_used": false,
+          "selected_symbol": "KS11.INDX",
+          "error_category": null,
+          "message": null
+        }
+      }
+    },
+    "request_debug": [
+      {
+        "provider": "tpex",
+        "url": "https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?response=data",
+        "status_code": 200,
+        "response_excerpt": "資料日期,開市,最高價,最低價,收市,漲跌  \"20261102\",\"368.22\",\"373.28\",\"362.18\",\"369.24\",\"-1.02\"  \"20261103\",\"366.75\",\"366.75\",\"345.25\",\"345.52\",\"-23.72\"  \"20261104\",\"345.86\",\"349.17\",\"326.88\",\"343.50\",\"-2.02\"  \"20261105\",\"341.88\",\"341.88\",\"321.23\",\"321.47\",\"-22.03\"  \"20261106\",\"313.77\",\"313.77\",\"294.18\",\"304.02\",\"-17.45\"  \"20261109\",\"305.51\",\"323.84\",\"305.51\",\"321.97\",\"17.95\"  \"20261110\",\"325.41\",\"338.52\",\"325.41\",...",
+        "selected_symbol": null,
+        "rejected_candidates": [],
+        "notes": "Official TPEx OTC index dataset fetched with TPEx-specific relaxed TLS context."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EGSPC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^GSPC\",     \"name\": \"S&P 500\",     \"price\": 7322.97,     \"changePercentage\": -0.23922,     \"change\": -17.56,     \"volume\": 2441150000,     \"dayLow\": 7285.76,     \"dayHigh\": 7367.68,     \"yearHigh\": 7844.52,     \"yearLow\": 6316.91,     \"marketCap\": 0,     \"priceAvg50\": 7654.7603,     \"priceAvg200\": 7344.526,     \"exchange\": \"INDEX\",     \"open\": 7355.69,     \"previousClose\": 734...",
+        "selected_symbol": "^GSPC",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5EGSPC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^GSPC\",     \"date\": \"2026-11-18\",     \"open\": 7355.69,     \"high\": 7367.68,     \"low\": 7285.76,     \"close\": 7323.63,     \"volume\": 3056907585,     \"change\": -32.06,     \"changePercent\": -0.43585,     \"vwap\": 7333.19   },   {     \"symbol\": \"^GSPC\",     \"date\": \"2026-11-17\",     \"open\": 7411.02,     \"high\": 7415.37,     \"low\": 7288.34,     \"close\": 7340.53,     \"volume\": 516510...",
+        "selected_symbol": "^GSPC",
+        "rejected_candidates": [
+          {
+            "symbol": "^GSPC",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EIXIC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^IXIC\",     \"name\": \"NASDAQ Composite\",     \"price\": 24429.8847,     \"changePercentage\": 0.41722,     \"change\": 101.5017,     \"volume\": 6807376362,     \"dayLow\": 24225.303,     \"dayHigh\": 24538.78,     \"yearHigh\": 27722.75,     \"yearLow\": 20690.25,     \"marketCap\": 0,     \"priceAvg50\": 26268.266,     \"priceAvg200\": 25146.332,     \"exchange\": \"INDEX\",     \"open\": 24486.174,    ...",
+        "selected_symbol": "^IXIC",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5EIXIC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^IXIC\",     \"date\": \"2026-11-18\",     \"open\": 24486.17,     \"high\": 24538.78,     \"low\": 24225.3,     \"close\": 24429.88,     \"volume\": 7172498240,     \"change\": -56.29,     \"changePercent\": -0.22988,     \"vwap\": 24420.0325   },   {     \"symbol\": \"^IXIC\",     \"date\": \"2026-11-17\",     \"open\": 24528.06,     \"high\": 24547.66,     \"low\": 23989.09,     \"close\": 24328.38,     \"volum...",
+        "selected_symbol": "^IXIC",
+        "rejected_candidates": [
+          {
+            "symbol": "^IXIC",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EDJI&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^DJI\",     \"name\": \"Dow Jones Industrial Average\",     \"price\": 50198.17,     \"changePercentage\": -1.10571,     \"change\": -561.25,     \"volume\": 691469369,     \"dayLow\": 50029.35,     \"dayHigh\": 50637.7,     \"yearHigh\": 54744.33,     \"yearLow\": 45057.28,     \"marketCap\": 0,     \"priceAvg50\": 51897.215,     \"priceAvg200\": 50777.453,     \"exchange\": \"INDEX\",     \"open\": 50627.36...",
+        "selected_symbol": "^DJI",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5EDJI&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^DJI\",     \"date\": \"2026-11-18\",     \"open\": 50627.36,     \"high\": 50637.7,     \"low\": 50029.35,     \"close\": 50198.17,     \"volume\": 691469369,     \"change\": -429.19,     \"changePercent\": -0.84774,     \"vwap\": 50373.145   },   {     \"symbol\": \"^DJI\",     \"date\": \"2026-11-17\",     \"open\": 51386.98,     \"high\": 51463.53,     \"low\": 50566.98,     \"close\": 50759.42,     \"volume\":...",
+        "selected_symbol": "^DJI",
+        "rejected_candidates": [
+          {
+            "symbol": "^DJI",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5ERUT&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^RUT\",     \"name\": \"Russell 2000\",     \"price\": 2714.3058,     \"changePercentage\": 0.46024,     \"change\": 12.43505,     \"volume\": 0,     \"dayLow\": 2697.71135,     \"dayHigh\": 2736.44114,     \"yearHigh\": 3069.71,     \"yearLow\": 2303.46,     \"marketCap\": 0,     \"priceAvg50\": 2814.6233,     \"priceAvg200\": 2812.8062,     \"exchange\": \"INDEX\",     \"open\": 2698.91354,     \"previousClo...",
+        "selected_symbol": "^RUT",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5ERUT&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^RUT\",     \"date\": \"2026-11-18\",     \"open\": 2698.91,     \"high\": 2736.44,     \"low\": 2697.71,     \"close\": 2714.31,     \"volume\": 0,     \"change\": 15.39,     \"changePercent\": 0.5706,     \"vwap\": 2711.8425   },   {     \"symbol\": \"^RUT\",     \"date\": \"2026-11-17\",     \"open\": 2737.46,     \"high\": 2742.94,     \"low\": 2696.26,     \"close\": 2701.87,     \"volume\": 5165100000,     \"c...",
+        "selected_symbol": "^RUT",
+        "rejected_candidates": [
+          {
+            "symbol": "^RUT",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "eodhd",
+        "url": "https://eodhd.com/api/eod/N225.INDX?api_token=69e98bc2381157.40657526&fmt=json&period=d&from=2026-11-08&to=2026-11-18",
+        "status_code": 200,
+        "response_excerpt": "[{\"date\":\"2026-11-09\",\"open\":57960.6992,\"high\":59440.1797,\"low\":57775.1602,\"close\":58775.5,\"adjusted_close\":58775.5,\"volume\":179300000},{\"date\":\"2026-11-10\",\"open\":59372.2813,\"high\":60743.9688,\"low\":59268.4297,\"close\":60459.5781,\"adjusted_close\":60459.5781,\"volume\":176100000},{\"date\":\"2026-11-11\",\"open\":60525.3008,\"high\":61390.7891,\"low\":60318.0781,\"close\":61248.5898,\"adjusted_close\":61248.5898,\"v...",
+        "selected_symbol": "N225.INDX",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "eodhd",
+        "url": "https://eodhd.com/api/eod/HSI.INDX?api_token=69e98bc2381157.40657526&fmt=json&period=d&from=2026-11-08&to=2026-11-18",
+        "status_code": 200,
+        "response_excerpt": "[{\"date\":\"2026-11-09\",\"open\":24625.7109,\"high\":24738.8809,\"low\":24421.1094,\"close\":24448.9492,\"adjusted_close\":24448.9492,\"volume\":2406000000},{\"date\":\"2026-11-10\",\"open\":24621.1309,\"high\":24675.5293,\"low\":24471.5,\"close\":24557.0391,\"adjusted_close\":24557.0391,\"volume\":2586700000},{\"date\":\"2026-11-11\",\"open\":24354.1895,\"high\":24430.6895,\"low\":24268.9609,\"close\":24315.9199,\"adjusted_close\":24315.91...",
+        "selected_symbol": "HSI.INDX",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "eodhd",
+        "url": "https://eodhd.com/api/eod/KS11.INDX?api_token=69e98bc2381157.40657526&fmt=json&period=d&from=2026-11-08&to=2026-11-18",
+        "status_code": 200,
+        "response_excerpt": "[{\"date\":\"2026-11-09\",\"open\":5034.2002,\"high\":5172.9399,\"low\":4990.6602,\"close\":5018.8501,\"adjusted_close\":5018.8501,\"volume\":248100},{\"date\":\"2026-11-10\",\"open\":5247.2202,\"high\":5300.9199,\"low\":5174.5498,\"close\":5239.1299,\"adjusted_close\":5239.1299,\"volume\":253900},{\"date\":\"2026-11-11\",\"open\":5209.71,\"high\":5377.9902,\"low\":5207.4399,\"close\":5375.3599,\"adjusted_close\":5375.3599,\"volume\":234700},{\"...",
+        "selected_symbol": "KS11.INDX",
+        "rejected_candidates": [],
+        "notes": null
+      }
+    ]
+  }
+}
