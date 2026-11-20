@@ -1,0 +1,391 @@
+﻿{
+  "report_date": "2026-11-19",
+  "taiwan_market": {
+    "date": "2026-11-19",
+    "twse_index": {
+      "close": 38426.89,
+      "change": -1768.02,
+      "change_percent": -4.3986
+    },
+    "tpex_index": {
+      "symbol": "TPEX",
+      "name": "TPEx OTC Index",
+      "close": 285.33,
+      "change": -22.22,
+      "change_percent": -7.2248
+    },
+    "market_breadth": null
+  },
+  "taiwan_institutional": {
+    "date": "2026-11-19",
+    "foreign_investors_net_buy_sell": -243.1221,
+    "investment_trust_net_buy_sell": 43.8999,
+    "dealer_net_buy_sell": -233.0318,
+    "three_institutions_net_buy_sell": -432.2541,
+    "unit": "新台幣億元"
+  },
+  "us_market": {
+    "date": "2026-11-19",
+    "indices": [
+      {
+        "symbol": "SPX",
+        "name": "S&P 500",
+        "close": 7175.83,
+        "change": -147.8,
+        "change_percent": -2.0181
+      },
+      {
+        "symbol": "IXIC",
+        "name": "Nasdaq Composite",
+        "close": 23879.2,
+        "change": -550.68,
+        "change_percent": -2.2541
+      },
+      {
+        "symbol": "DJI",
+        "name": "Dow Jones Industrial Average",
+        "close": 49097.06,
+        "change": -1101.11,
+        "change_percent": -2.1935
+      },
+      {
+        "symbol": "RUT",
+        "name": "Russell 2000",
+        "close": 2655.11,
+        "change": -59.2,
+        "change_percent": -2.181
+      }
+    ]
+  },
+  "fx": {
+    "date": "2026-11-19",
+    "usd_twd": {
+      "close": 32.945,
+      "change": -0.005,
+      "change_percent": -0.0152
+    }
+  },
+  "asia_market": {
+    "date": "2026-11-19",
+    "indices": [
+      {
+        "symbol": "N225",
+        "name": "Nikkei 225",
+        "close": 59444.21,
+        "change": 419.9287,
+        "change_percent": 0.7115,
+        "date": "2026-11-19"
+      },
+      {
+        "symbol": "HSI",
+        "name": "Hang Seng Index",
+        "close": 22841.62,
+        "change": -453.13,
+        "change_percent": -1.9452,
+        "date": "2026-11-19"
+      },
+      {
+        "symbol": "KS11",
+        "name": "KOSPI",
+        "close": 5137.89,
+        "change": 70.4501,
+        "change_percent": 1.3903,
+        "date": "2026-11-19"
+      }
+    ]
+  },
+  "commodities": {
+    "date": "2026-11-19",
+    "gold": {
+      "close": 3739.7,
+      "change": -1.01,
+      "change_percent": -0.027,
+      "unit": "USD/oz"
+    },
+    "crude_oil": {
+      "close": 89.53,
+      "change": 0.29,
+      "change_percent": 0.325,
+      "unit": "USD/bbl"
+    }
+  },
+  "bonds": {
+    "date": "2026-11-19",
+    "yield_2y": 4.76,
+    "yield_10y": 5.04,
+    "yield_30y": 5.4,
+    "slope_10y_2y": 0.28,
+    "unit": "percent"
+  },
+  "news": [
+    {
+      "date": "2026-11-20",
+      "source": "seekingalpha.com",
+      "title": "VSE Corporation: Per-Share Growth Is Slower Than The Headlines Suggest",
+      "summary": "Analyst rates VSE Corporation a Hold: $169.10 fair value is near the share price, while free cash flow was negative $3.4 million through Q3.",
+      "summary_text": "Analyst rates VSE Corporation a Hold: $169.10 fair value is near the share price, while free cash flow was negative $3.4 million through Q3.",
+      "brief": "Analyst rates VSE Corporation a Hold: $169.10 fair value is near the share price, while free cash flow was negative $3.4 million through Q3.",
+      "url": "https://seekingalpha.com/article/4970408-vse-corporation-per-share-growth-is-slower-than-the-headlines-suggest"
+    },
+    {
+      "date": "2026-11-20",
+      "source": "economictimes.indiatimes.com",
+      "title": "Anthropic's historic debut to put AI's promise and peril on Wall Street trial",
+      "summary": "The strong demand for Anthropic shares amid a broader tech selloff offers hope to a sectorwhere euphoria has somewhat cooled in recent weeks.",
+      "summary_text": "The strong demand for Anthropic shares amid a broader tech selloff offers hope to a sectorwhere euphoria has somewhat cooled in recent weeks.",
+      "brief": "The strong demand for Anthropic shares amid a broader tech selloff offers hope to a sectorwhere euphoria has somewhat cooled in recent weeks.",
+      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/anthropics-historic-debut-to-put-ais-promise-and-peril-on-wall-street-trial/articleshow/136009180.cms"
+    },
+    {
+      "date": "2026-11-20",
+      "source": "manilatimes.net",
+      "title": "EV Metals 10, LLC Enters Into Term Sheet for Secured Credit Facility with International Battery Metals Ltd.",
+      "summary": "SAN JUAN, Puerto Rico, Nov. 19, 2026 (GLOBE NEWSWIRE) -- Jacob Warnock ('Mr. Warnock”) is pleased to announce that, on November 13, 2026, EV Metals 10, LLC, an entity controlled by Mr. Warnock, entered into a term sheet with International Battery Metals Ltd. ('IBAT”) (TSXV: IBAT) (OTCQB: IBATF) for a secured credit facility providing for a term loan of up to US$12.0 million, bearing interest at 10% per annum, maturing 18 months from execution, subject to an original issue discount of 5%, and secured by substantially all of the current and future assets and property of IBAT, with funding subject to the execution of definitive agreements and customary closing conditions. IBAT, based in Vancouver, British Columbia, is an advanced technology provider of modular direct lithium extraction systems. Mr. Warnock continues to beneficially own or control 143,641,569 common shares and 120,741,648 share purchase warrants of IBAT, representing approximately 57.01% of the issued and outstanding common shares on a partially-diluted basis, a securityholding percentage that is unchanged as a result of the term sheet, and Mr. Warnock holds such securities for investment purposes and may acquire further securities of IBAT, or dispose of securities of IBAT, as investment conditions warrant.",
+      "summary_text": "SAN JUAN, Puerto Rico, Nov. 19, 2026 (GLOBE NEWSWIRE) -- Jacob Warnock ('Mr. Warnock”) is pleased to announce that, on November 13, 2026, EV Metals 10, LLC, an entity controlled by Mr. Warnock, entered into a term sheet with International Battery Metals Ltd. ('IBAT”) (TSXV: IBAT) (OTCQB: IBATF) for a secured credit facility providing for a term loan of up to US$12.0 million, bearing interest at 10% per annum, maturing 18 months from execution, subject to an original issue discount of 5%, and secured by substantially all of the current and future assets and property of IBAT, with funding subject to the execution of definitive agreements and customary closing conditions. IBAT, based in Vancouver, British Columbia, is an advanced technology provider of modular direct lithium extraction systems. Mr. Warnock continues to beneficially own or control 143,641,569 common shares and 120,741,648 share purchase warrants of IBAT, representing approximately 57.01% of the issued and outstanding common shares on a partially-diluted basis, a securityholding percentage that is unchanged as a result of the term sheet, and Mr. Warnock holds such securities for investment purposes and may acquire further securities of IBAT, or dispose of securities of IBAT, as investment conditions warrant.",
+      "brief": "SAN JUAN, Puerto Rico, Nov. 19, 2026 (GLOBE NEWSWIRE) -- Jacob Warnock ('Mr. Warnock”) is pleased to announce that, on November 13, 2026, EV Metals 10, LLC, an entity controlled by Mr. Warnock, entered into a term sheet with International Battery Metals Ltd. ('IBAT”) (TSXV: IBAT) (OTCQB: IBATF) for a secured credit facility providing for a term loan of up to US$12.0 million, bearing interest at 10% per annum, maturing 18 months from execution, subject to an original issue discount of 5%, and secured by substantially all of the current and future assets and property of IBAT, with funding subject to the execution of definitive agreements and customary closing conditions. IBAT, based in Vancouver, British Columbia, is an advanced technology provider of modular direct lithium extraction systems. Mr. Warnock continues to beneficially own or control 143,641,569 common shares and 120,741,648 share purchase warrants of IBAT, representing approximately 57.01% of the issued and outstanding common shares on a partially-diluted basis, a securityholding percentage that is unchanged as a result of the term sheet, and Mr. Warnock holds such securities for investment purposes and may acquire further securities of IBAT, or dispose of securities of IBAT, as investment conditions warrant.",
+      "url": "https://www.manilatimes.net/2026/11/20/tmt-newswire/globenewswire/ev-metals-10-llc-enters-into-term-sheet-for-secured-credit-facility-with-international-battery-metals-ltd/2474672"
+    }
+  ],
+  "meta": {
+    "generated_at": "2026-11-20T01:51:03+00:00",
+    "mode": "live",
+    "source_status": {
+      "finmind": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "tpex": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "marketaux": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "treasury": {
+        "status": "ok",
+        "message": "Fetched successfully"
+      },
+      "fmp": {
+        "status": "ok",
+        "message": "Fetched 4/4 U.S. indices through FMP"
+      },
+      "asia_indices": {
+        "status": "ok",
+        "message": "Resolved 3/3 Asia indices through EODHD"
+      }
+    },
+    "sources_used": [
+      "finmind",
+      "tpex",
+      "fmp",
+      "eodhd",
+      "marketaux",
+      "treasury"
+    ],
+    "partial_success": false,
+    "missing_sections": [],
+    "provider_by_field": {
+      "taiwan_market.tpex_index": "tpex",
+      "us_market.indices.SPX": "fmp",
+      "us_market.indices.IXIC": "fmp",
+      "us_market.indices.DJI": "fmp",
+      "us_market.indices.RUT": "fmp",
+      "asia_market.indices.N225": "eodhd",
+      "asia_market.indices.HSI": "eodhd",
+      "asia_market.indices.KS11": "eodhd"
+    },
+    "index_status": {
+      "us_market": {
+        "SPX": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^GSPC",
+          "error_category": null,
+          "message": null
+        },
+        "IXIC": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^IXIC",
+          "error_category": null,
+          "message": null
+        },
+        "DJI": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^DJI",
+          "error_category": null,
+          "message": null
+        },
+        "RUT": {
+          "status": "fallback",
+          "provider_used": "fmp",
+          "fallback_used": true,
+          "selected_symbol": "^RUT",
+          "error_category": null,
+          "message": null
+        }
+      },
+      "asia_market": {
+        "N225": {
+          "status": "ok",
+          "provider_used": "eodhd",
+          "fallback_used": false,
+          "selected_symbol": "N225.INDX",
+          "error_category": null,
+          "message": null
+        },
+        "HSI": {
+          "status": "ok",
+          "provider_used": "eodhd",
+          "fallback_used": false,
+          "selected_symbol": "HSI.INDX",
+          "error_category": null,
+          "message": null
+        },
+        "KS11": {
+          "status": "ok",
+          "provider_used": "eodhd",
+          "fallback_used": false,
+          "selected_symbol": "KS11.INDX",
+          "error_category": null,
+          "message": null
+        }
+      }
+    },
+    "request_debug": [
+      {
+        "provider": "tpex",
+        "url": "https://www.tpex.org.tw/www/zh-tw/indexInfo/inx?response=data",
+        "status_code": 200,
+        "response_excerpt": "資料日期,開市,最高價,最低價,收市,漲跌  \"20261102\",\"368.22\",\"373.28\",\"362.18\",\"369.24\",\"-1.02\"  \"20261103\",\"366.75\",\"366.75\",\"345.25\",\"345.52\",\"-23.72\"  \"20261104\",\"345.86\",\"349.17\",\"326.88\",\"343.50\",\"-2.02\"  \"20261105\",\"341.88\",\"341.88\",\"321.23\",\"321.47\",\"-22.03\"  \"20261106\",\"313.77\",\"313.77\",\"294.18\",\"304.02\",\"-17.45\"  \"20261109\",\"305.51\",\"323.84\",\"305.51\",\"321.97\",\"17.95\"  \"20261110\",\"325.41\",\"338.52\",\"325.41\",...",
+        "selected_symbol": null,
+        "rejected_candidates": [],
+        "notes": "Official TPEx OTC index dataset fetched with TPEx-specific relaxed TLS context."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EGSPC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^GSPC\",     \"name\": \"S&P 500\",     \"price\": 7177.14,     \"changePercentage\": -2.00024,     \"change\": -146.49,     \"volume\": 2664602000,     \"dayLow\": 7173.63,     \"dayHigh\": 7415.64,     \"yearHigh\": 7844.52,     \"yearLow\": 6316.91,     \"marketCap\": 0,     \"priceAvg50\": 7648.5054,     \"priceAvg200\": 7346.5547,     \"exchange\": \"INDEX\",     \"open\": 7389.26,     \"previousClose\": 7...",
+        "selected_symbol": "^GSPC",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5EGSPC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^GSPC\",     \"date\": \"2026-11-19\",     \"open\": 7389.26,     \"high\": 7415.64,     \"low\": 7173.63,     \"close\": 7175.83,     \"volume\": 3341008131,     \"change\": -213.43,     \"changePercent\": -2.89,     \"vwap\": 7288.59   },   {     \"symbol\": \"^GSPC\",     \"date\": \"2026-11-18\",     \"open\": 7355.69,     \"high\": 7367.68,     \"low\": 7285.76,     \"close\": 7323.63,     \"volume\": 53881800...",
+        "selected_symbol": "^GSPC",
+        "rejected_candidates": [
+          {
+            "symbol": "^GSPC",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EIXIC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^IXIC\",     \"name\": \"NASDAQ Composite\",     \"price\": 23885.8829,     \"changePercentage\": -2.22679,     \"change\": -544.0017,     \"volume\": 7444295666,     \"dayLow\": 23870.695,     \"dayHigh\": 24939.623,     \"yearHigh\": 27722.75,     \"yearLow\": 20690.25,     \"marketCap\": 0,     \"priceAvg50\": 26231.797,     \"priceAvg200\": 25152.205,     \"exchange\": \"INDEX\",     \"open\": 24809.053, ...",
+        "selected_symbol": "^IXIC",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5EIXIC&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^IXIC\",     \"date\": \"2026-11-19\",     \"open\": 24809.05,     \"high\": 24939.62,     \"low\": 23870.7,     \"close\": 23879.2,     \"volume\": 8432736277,     \"change\": -929.85,     \"changePercent\": -3.75,     \"vwap\": 24374.6425   },   {     \"symbol\": \"^IXIC\",     \"date\": \"2026-11-18\",     \"open\": 24486.17,     \"high\": 24538.78,     \"low\": 24225.3,     \"close\": 24429.88,     \"volume\": ...",
+        "selected_symbol": "^IXIC",
+        "rejected_candidates": [
+          {
+            "symbol": "^IXIC",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5EDJI&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^DJI\",     \"name\": \"Dow Jones Industrial Average\",     \"price\": 49097.06,     \"changePercentage\": -2.19353,     \"change\": -1101.11,     \"volume\": 729407417,     \"dayLow\": 49091.92,     \"dayHigh\": 50454.81,     \"yearHigh\": 54744.33,     \"yearLow\": 45057.28,     \"marketCap\": 0,     \"priceAvg50\": 51853.566,     \"priceAvg200\": 50782.24,     \"exchange\": \"INDEX\",     \"open\": 50432.3...",
+        "selected_symbol": "^DJI",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5EDJI&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^DJI\",     \"date\": \"2026-11-19\",     \"open\": 50432.32,     \"high\": 50454.81,     \"low\": 49091.92,     \"close\": 49097.06,     \"volume\": 729407417,     \"change\": -1335.26,     \"changePercent\": -2.65,     \"vwap\": 49769.0275   },   {     \"symbol\": \"^DJI\",     \"date\": \"2026-11-18\",     \"open\": 50627.36,     \"high\": 50637.7,     \"low\": 50029.35,     \"close\": 50198.17,     \"volume\": ...",
+        "selected_symbol": "^DJI",
+        "rejected_candidates": [
+          {
+            "symbol": "^DJI",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/quote?symbol=%5ERUT&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^RUT\",     \"name\": \"Russell 2000\",     \"price\": 2655.10517,     \"changePercentage\": -2.18106,     \"change\": -59.20053,     \"volume\": 0,     \"dayLow\": 2653.91835,     \"dayHigh\": 2730.014,     \"yearHigh\": 3069.71,     \"yearLow\": 2303.46,     \"marketCap\": 0,     \"priceAvg50\": 2810.4849,     \"priceAvg200\": 2813.135,     \"exchange\": \"INDEX\",     \"open\": 2720.2554,     \"previousClos...",
+        "selected_symbol": "^RUT",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "fmp",
+        "url": "https://financialmodelingprep.com/stable/historical-price-eod/full?symbol=%5ERUT&apikey=6GE2BCCkAdrfgpFhFkNaK1ASsxgvFUSz",
+        "status_code": 200,
+        "response_excerpt": "[   {     \"symbol\": \"^RUT\",     \"date\": \"2026-11-19\",     \"open\": 2720.26,     \"high\": 2730.01,     \"low\": 2653.92,     \"close\": 2655.11,     \"volume\": 0,     \"change\": -65.15,     \"changePercent\": -2.39,     \"vwap\": 2689.825   },   {     \"symbol\": \"^RUT\",     \"date\": \"2026-11-18\",     \"open\": 2698.91,     \"high\": 2736.44,     \"low\": 2697.71,     \"close\": 2714.31,     \"volume\": 5388180000,     \"ch...",
+        "selected_symbol": "^RUT",
+        "rejected_candidates": [
+          {
+            "symbol": "^RUT",
+            "reason": "quote failed: FMP response missing usable quote or historical index data"
+          }
+        ],
+        "notes": "Used FMP historical EOD fallback after quote failure."
+      },
+      {
+        "provider": "eodhd",
+        "url": "https://eodhd.com/api/eod/N225.INDX?api_token=69e98bc2381157.40657526&fmt=json&period=d&from=2026-11-09&to=2026-11-19",
+        "status_code": 200,
+        "response_excerpt": "[{\"date\":\"2026-11-09\",\"open\":57960.6992,\"high\":59440.1797,\"low\":57775.1602,\"close\":58775.5,\"adjusted_close\":58775.5,\"volume\":179300000},{\"date\":\"2026-11-10\",\"open\":59372.2813,\"high\":60743.9688,\"low\":59268.4297,\"close\":60459.5781,\"adjusted_close\":60459.5781,\"volume\":176100000},{\"date\":\"2026-11-11\",\"open\":60525.3008,\"high\":61390.7891,\"low\":60318.0781,\"close\":61248.5898,\"adjusted_close\":61248.5898,\"v...",
+        "selected_symbol": "N225.INDX",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "eodhd",
+        "url": "https://eodhd.com/api/eod/HSI.INDX?api_token=69e98bc2381157.40657526&fmt=json&period=d&from=2026-11-09&to=2026-11-19",
+        "status_code": 200,
+        "response_excerpt": "[{\"date\":\"2026-11-09\",\"open\":24625.7109,\"high\":24738.8809,\"low\":24421.1094,\"close\":24448.9492,\"adjusted_close\":24448.9492,\"volume\":2406000000},{\"date\":\"2026-11-10\",\"open\":24621.1309,\"high\":24675.5293,\"low\":24471.5,\"close\":24557.0391,\"adjusted_close\":24557.0391,\"volume\":2586700000},{\"date\":\"2026-11-11\",\"open\":24354.1895,\"high\":24430.6895,\"low\":24268.9609,\"close\":24315.9199,\"adjusted_close\":24315.91...",
+        "selected_symbol": "HSI.INDX",
+        "rejected_candidates": [],
+        "notes": null
+      },
+      {
+        "provider": "eodhd",
+        "url": "https://eodhd.com/api/eod/KS11.INDX?api_token=69e98bc2381157.40657526&fmt=json&period=d&from=2026-11-09&to=2026-11-19",
+        "status_code": 200,
+        "response_excerpt": "[{\"date\":\"2026-11-09\",\"open\":5034.2002,\"high\":5172.9399,\"low\":4990.6602,\"close\":5018.8501,\"adjusted_close\":5018.8501,\"volume\":248100},{\"date\":\"2026-11-10\",\"open\":5247.2202,\"high\":5300.9199,\"low\":5174.5498,\"close\":5239.1299,\"adjusted_close\":5239.1299,\"volume\":253900},{\"date\":\"2026-11-11\",\"open\":5209.71,\"high\":5377.9902,\"low\":5207.4399,\"close\":5375.3599,\"adjusted_close\":5375.3599,\"volume\":234700},{\"...",
+        "selected_symbol": "KS11.INDX",
+        "rejected_candidates": [],
+        "notes": null
+      }
+    ]
+  }
+}
